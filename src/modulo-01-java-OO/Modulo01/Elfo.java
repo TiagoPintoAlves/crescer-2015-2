@@ -4,11 +4,11 @@ public class Elfo {
     private int flechas = 42;
     private int experiencia = 0;
     
-    public Elfo(String n, int arrows) {   // Constroi Elfo conforme informaçoes e testa o numero de flechas
+    public Elfo(String n, int arrows) {   // Constroi Elfo conforme informaçoes e testa o numero de flechas.
         if(arrows > 0){
-            GeradorElfo(n, arrows);       // Flechas = nao default
+            GeradorElfo(n, arrows);       // Flechas = nao default.
         }else{
-            GeradorElfo(n, this.flechas); // Flechas = default
+            GeradorElfo(n, this.flechas); // Flechas = default.
         }
     }
     
