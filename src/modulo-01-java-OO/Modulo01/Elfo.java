@@ -18,7 +18,7 @@ public class Elfo {
     }
     
     public void atirarFlecha(int arrows){ // Possibilitando a ação do personagem.
-            flechas--; 					  // Já descontando as flechas e acrecentando Exp.
+            flechas--; 			// Já descontando as flechas e acrecentando Exp.
             experiencia++;
     }
 }
