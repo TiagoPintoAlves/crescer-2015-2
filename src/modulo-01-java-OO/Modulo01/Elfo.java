@@ -11,17 +11,11 @@ public class Elfo {
         flechas = 42;
     }
     */
-       public Elfo(String nome, int flechas) {
+    public Elfo(String nome, int flechas) {
            this.nome = nome;
            this.flechas = flechas;
         }
     
-    public Elfo(String nome, Integer flechas) {
-        this(nome);
-        if (flechas != null) {
-            this.flechas = flechas;
-        }
-    }
     
     public Elfo(String nome) {
         this(nome, 42);
