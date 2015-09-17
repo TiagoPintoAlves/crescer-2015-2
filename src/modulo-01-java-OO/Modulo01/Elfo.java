@@ -14,8 +14,7 @@ public class Elfo {
     public Elfo(String nome, int flechas) {
            this.nome = nome;
            this.flechas = flechas;
-        }
-    
+    }
     
     public Elfo(String nome) {
         this(nome, 42);
@@ -39,7 +38,6 @@ public class Elfo {
     
     public String toString(){
         return(this.nome+" possui "+this.flechas+" flechas e "+this.experiencia+" níveis de experiência");
-        
     }
     /*
     public void setFlechas(int flechas) {

@@ -4,19 +4,26 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ElfoTest{
-    @Test
-    public void elfoRecebeNomeEFlechas() {
-        Elfo Hadad = new Elfo("Hadad", 15);
-        assertEquals(Elfo());
+  @Test
+    public void elfoNasceComFlechasDefault(){
+        Elfo Hadad = new Elfo("Hadad");
+        assertEquals(42, Hadad.getFlechas());
     }
+   
+  @Test
+    public void elfoNasceComONomeInformado(){
+        Elfo elfinho = new Elfo("Elfinho");
+       assertEquals("Elfinho", elfinho.getNome());
+  }
+     
+  @Test
     
-    public void elfoRecebeNomeENaoRecebeFlechas() {
-        Elfo  = new Elfo("", );
-        assertEquals(Elfo);
-    }
-    
-    public void elfoAtiraFlechas() {
-        assertEquals(Elfo);
-    }
+    public void elfoAtiraFlechasGanhaEXP() {
+        Elfo Hadad = new Elfo("Hadad");
+        Dwarf dwarf = new Dwarf();
+        int flechasIniciais = Hadad.getFlechas();
+        Hadad.atirarFlecha(dwarf);
+        assertTrue(flechasIniciais > Hadad.getFlechas());
+   }
     
 }
