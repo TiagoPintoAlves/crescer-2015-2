@@ -1,16 +1,16 @@
 public class Elfo {
-    
     private String nome;
-    private int flechas = 42;
+    private int flechas;
     private int experiencia;
+    private Status elfoStatus = Status.VIVO;
     
-
     /* Type initializer
      * Executa antes de cada construtor
     {
         flechas = 42;
     }
     */
+
     public Elfo(String nome, int flechas) {
            this.nome = nome;
            this.flechas = flechas;
@@ -40,10 +40,23 @@ public class Elfo {
         return this.experiencia;
     }
     
-    
-    public String toString(){
-        return(this.nome+" possui "+this.flechas+" flechas e "+this.experiencia+" níveis de experiência");
+    public Status getStatus() {
+        return this.elfoStatus;
     }
+    
+    public String toString() {
+
+        boolean flechaNoSingular = Math.abs(this.flechas) == 1;
+        boolean nivelNoSingular = Math.abs(this.experiencia) == 1;
+        
+        return String.format("%s possui %d %s e %d %s de experiência.",
+            this.nome,
+            this.flechas,
+            flechaNoSingular ? "flecha" : "flechas",
+            this.experiencia,
+            nivelNoSingular ? "nível" : "níveis");
+    }
+    
     /*
     public void setFlechas(int flechas) {
         if (flechas > this.flechas)
