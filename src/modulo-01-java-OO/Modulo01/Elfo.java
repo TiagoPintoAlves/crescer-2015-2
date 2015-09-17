@@ -37,6 +37,10 @@ public class Elfo {
         return this.flechas;
     }
     
+    public String toString(){
+        return(this.nome+" possui "+this.flechas+" flechas e "+this.experiencia+" níveis de experiência");
+        
+    }
     /*
     public void setFlechas(int flechas) {
         if (flechas > this.flechas)
