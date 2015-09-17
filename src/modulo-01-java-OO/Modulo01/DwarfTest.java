@@ -6,8 +6,14 @@ import org.junit.Test;
 public class DwarfTest
 {
     @Test
+    
     public void dwarfNasceCom110DeVida() {
         Dwarf gimli = new Dwarf();
         assertEquals(110, gimli.getVida());
+    }
+    
+        public void dwarfRecebendoFlechadaDoElfo() {
+        Dwarf gimli = new Dwarf();
+        assertEquals(gimli.receberFlechada());
     }
 }
