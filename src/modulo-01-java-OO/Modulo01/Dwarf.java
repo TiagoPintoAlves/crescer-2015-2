@@ -17,16 +17,27 @@ public class Dwarf{
         this.dataNascimento = dataNascimento;
     }
 
-    public int getLife(){
-        return this.life;
-    }
-
     public void receberFlechada(){
+        if(getNumeroSorte() < 0){
+            this.life = life;
+            this.experiencia += 2;
+            
+        }else{
+            if(getNumeroSorte() >= 0 && getNumeroSorte() <= 100){
+                this.life = life;
+                this.experiencia = experiencia;
+            }
+        }
+        
         this.life -= 10;
         if(this.life <= 0){
             this.status = Status.MORTO;
             this.life = 0;
         }
+    }
+
+    public int getLife(){
+        return this.life;
     }
 
     public Status getStatus(){
@@ -35,4 +46,21 @@ public class Dwarf{
         }
         return this.status;
     }
+
+    public double getNumeroSorte(){
+        double valorInicial = 101.0;
+
+        if(this.dataNascimento.ehBissexto() == true && this.life >= 80 && this.life <= 90){
+            return valorInicial *= (-33);
+        }else{
+            if(this.dataNascimento.ehBissexto() == false && this.nome == "Seixas" || this.nome == "Meireles"){
+                int operadorMod = 100;
+                return valorInicial = (valorInicial *= 33) / operadorMod;
+            }
+        }
+        
+        return valorInicial;
+    }
+
+    
 }
