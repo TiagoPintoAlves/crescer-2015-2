@@ -3,6 +3,7 @@ public class Dwarf{
     private int life;
     private int experiencia;
     private Status status;
+    private DataTerceiraEra dataNascimento;
     
     public Dwarf(String nome){
        this.nome = nome;
@@ -10,9 +11,13 @@ public class Dwarf{
        this.status = Status.VIVO;
     }
     
+    public Dwarf(String nome, DataTerceiraEra dataNascimento){
+        
+    }
+    
     public int getLife(){
         if(this.life <= 0){
-            return this.life = 0;
+            this.life = 0;
         }
         return this.life;
     }
