@@ -1,6 +1,7 @@
 public class Dwarf{
     private String nome;
     private int life;
+    private int experiencia;
     private Status status;
     
     public Dwarf(String nome){
