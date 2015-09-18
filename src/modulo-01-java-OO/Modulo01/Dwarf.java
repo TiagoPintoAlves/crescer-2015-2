@@ -1,11 +1,12 @@
 public class Dwarf{
     private String nome;
     private int life;
-    private Status dwarfStatus = Status.VIVO;
+    private Status status;
     
     public Dwarf(String nome){
        this.nome = nome;
        this.life = 110;
+       this.status = Status.VIVO;
     }
     
     public int getLife(){
@@ -17,9 +18,9 @@ public class Dwarf{
     }
     
     public Status getStatus(){
-        if(this.dwarfStatus == dwarfStatus.MORTO){
-            return dwarfStatus.MORTO;
+        if(this.status == status.MORTO){
+            return status.MORTO;
         }
-        return this.dwarfStatus;
+        return this.status;
     }
 }

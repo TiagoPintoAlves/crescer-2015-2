@@ -2,7 +2,7 @@ public class Elfo {
     private String nome;
     private int flechas;
     private int experiencia;
-    private Status elfoStatus = Status.VIVO;
+    private Status status = Status.VIVO;
     
     /* Type initializer
      * Executa antes de cada construtor
@@ -14,6 +14,7 @@ public class Elfo {
     public Elfo(String nome, int flechas) {
            this.nome = nome;
            this.flechas = flechas;
+           this.status = Status.VIVO;
     }
     
     public Elfo(String nome) {
@@ -41,7 +42,7 @@ public class Elfo {
     }
     
     public Status getStatus() {
-        return this.elfoStatus;
+        return this.status;
     }
     
     public String toString() {
