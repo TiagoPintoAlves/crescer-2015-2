@@ -16,9 +16,6 @@ public class Dwarf{
     }
     
     public int getLife(){
-        if(this.life <= 0){
-            this.life = 0;
-        }
         return this.life;
     }
     
@@ -26,6 +23,7 @@ public class Dwarf{
         this.life -= 10;
         if(this.life <= 0){
             this.status = Status.MORTO;
+             this.life = 0;
         }
     }
     
