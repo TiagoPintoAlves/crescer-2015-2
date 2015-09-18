@@ -20,7 +20,7 @@ public class ElfoTest{
     
     public void elfoAtiraFlechasGanhaEXP() {
         Elfo Hadad = new Elfo("Hadad");
-        Dwarf dwarf = new Dwarf();
+        Dwarf dwarf = new Dwarf("gimli");
         int flechasIniciais = Hadad.getFlechas();
         Hadad.atirarFlecha(dwarf);
         assertTrue(flechasIniciais > Hadad.getFlechas());

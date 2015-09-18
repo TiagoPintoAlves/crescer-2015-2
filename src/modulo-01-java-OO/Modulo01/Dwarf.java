@@ -11,6 +11,9 @@ public class Dwarf{
     }
     
     public int getLife(){
+        if(this.life <= 0){
+            return this.life = 0;
+        }
         return this.life;
     }
     
