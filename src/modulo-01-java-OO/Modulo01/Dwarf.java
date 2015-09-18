@@ -14,12 +14,15 @@ public class Dwarf{
     }
     
     public void receberFlechada(){
-         this.life -= 10;
+        this.life -= 10;
+        if(this.life <= 0){
+            this.status = Status.MORTO;
+        }
     }
     
     public Status getStatus(){
-        if(this.status == status.MORTO){
-            return status.MORTO;
+        if(this.life <= 0){
+            return this.status = Status.MORTO;
         }
         return this.status;
     }
