@@ -1,45 +1,34 @@
-
-/**
- * Exercicio calendario Tolkien
- * 
- */
-public class DataTerceiraEra
-{
-    private int dia;
-    private int mes;
-    private int ano;
-
-    public DataTerceiraEra(int dia, int mes, int ano){
+public class DataTerceiraEra {
+    private int dia, mes, ano;
+    
+    public DataTerceiraEra(int dia, int mes, int ano) {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
     }
-
-    public int getDia(){
+    
+    public int getDia() {
         return this.dia;
     }
-
-    public int getMes(){
+    
+    public int getMes() {
         return this.mes;
     }
-
-    public int getAno(){
+    
+    public int getAno() {
         return this.ano;
     }
-
-    public boolean ehBissexto(){
-        if(this.ano % 4 == 0){
-            return true;
-        }else{
-            if(this.ano % 400 == 0){
-                return true;
-            }else{
-                if(this.ano % 100 == 0){
-                    return false;
-                }
-            }
-        }
-        return false;
+    
+    public boolean ehBissexto() {
+        return (this.ano % 4 == 0 && this.ano % 100 != 0) || this.ano % 400 == 0;
     }
-
+    
+    public boolean equals(Object obj) {
+        
+        DataTerceiraEra outraData = (DataTerceiraEra)obj;
+        
+        return this.dia == outraData.getDia() &&
+            this.mes == outraData.getMes() &&
+            this.ano == outraData.getAno();
+    }
 }
