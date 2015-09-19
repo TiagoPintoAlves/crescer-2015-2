@@ -1,66 +1,77 @@
-public class Dwarf{
+public class Dwarf {
     private String nome;
-    private int life;
-    private int experiencia;
+    private int vida, experiencia;
     private Status status;
     private DataTerceiraEra dataNascimento;
 
-    public Dwarf(String nome){
-        this.nome = nome;
-        this.life = 110;
+    public Dwarf() {
+        this.vida = 110;
         this.status = Status.VIVO;
-        this.dataNascimento = new DataTerceiraEra(1, 1, 1);
+        this.dataNascimento = new DataTerceiraEra(1,1,1);
     }
 
-    public Dwarf(String nome, DataTerceiraEra dataNascimento){
+    public Dwarf(String nome) {
+        this();
+        this.nome = nome;
+    }
+
+    public Dwarf(String nome, DataTerceiraEra dataNascimento) {
         this(nome);
         this.dataNascimento = dataNascimento;
     }
 
-    public void receberFlechada(){
-        if(getNumeroSorte() < 0){
-            this.life = life;
+    public void receberFlechada() {
+
+        double numero = this.gerarNumero();
+
+        if (numero < 0) {
             this.experiencia += 2;
-            
-        }else{
-            if(getNumeroSorte() >= 0 && getNumeroSorte() <= 100){
-                this.life = life;
-                this.experiencia = experiencia;
+        } else if (numero > 100) {
+
+            int dano = 10, vidaAposFlechada = this.vida-dano;
+            if (vidaAposFlechada == 0) {
+                this.status = Status.MORTO;
+            } 
+
+            if (vida > 0) {
+                this.vida = vidaAposFlechada;
             }
         }
-        
-        this.life -= 10;
-        if(this.life <= 0){
-            this.status = Status.MORTO;
-            this.life = 0;
-        }
     }
 
-    public int getLife(){
-        return this.life;
+    public int getVida() {
+        return this.vida;
     }
 
-    public Status getStatus(){
-        if(this.life <= 0){
-            return this.status = Status.MORTO;
-        }
+    public Status getStatus() {
         return this.status;
     }
 
-    public double getNumeroSorte(){
-        double valorInicial = 101.0;
-
-        if(this.dataNascimento.ehBissexto() == true && this.life >= 80 && this.life <= 90){
-            return valorInicial *= (-33);
-        }else{
-            if(this.dataNascimento.ehBissexto() == false && this.nome == "Seixas" || this.nome == "Meireles"){
-                int operadorMod = 100;
-                return valorInicial = (valorInicial *= 33) / operadorMod;
-            }
-        }
-        
-        return valorInicial;
+    public int getExperiencia() {
+        return this.experiencia;
     }
 
-    
+    public String getNome() {
+        return this.nome;
+    }
+
+    public DataTerceiraEra getDataNascimento() {
+        return this.dataNascimento;
+    }
+
+    public double gerarNumero() {
+        double resultado = 101.;
+
+        if (dataNascimento.ehBissexto() && this.vida >= 80 && this.vida <= 90) {
+            resultado *= -33.0;
+        }
+
+        if (!dataNascimento.ehBissexto() &&
+        this.nome != null &&
+        (this.nome.equals("Seixas") || this.nome.equals("Meireles"))) {
+            resultado = resultado * 33 % 100;
+        }
+
+        return resultado;
+    }
 }
