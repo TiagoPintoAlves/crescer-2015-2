@@ -1,8 +1,10 @@
+import java.util.ArrayList;
 public class Dwarf {
     private String nome;
     private int vida, experiencia;
     private Status status;
     private DataTerceiraEra dataNascimento;
+    private Inventario mochila = new Inventario();
 
     public Dwarf() {
         this.vida = 110;
@@ -66,12 +68,34 @@ public class Dwarf {
             resultado *= -33.0;
         }
 
-        if (!dataNascimento.ehBissexto() &&
-        this.nome != null &&
-        (this.nome.equals("Seixas") || this.nome.equals("Meireles"))) {
+        if (!dataNascimento.ehBissexto() && this.nome != null && (this.nome.equals("Seixas") || this.nome.equals("Meireles"))) {
             resultado = resultado * 33 % 100;
         }
 
         return resultado;
     }
+
+    public void adicionarItem(Item item){
+        mochila.adicionarItem(item);
+    }
+
+    public void perderItem(Item item){
+        mochila.perderItem(item);
+    }
+    
+    public Inventario getMochila(){
+        return this.mochila;
+    }
+
+    public void tentarSorte(){
+        if(gerarNumero() == -3333.0){
+            for(Item item : mochila.getInventario()){
+                item.setQuantidade(item.getQuantidade()+ 1000);
+            }
+        }
+    }
+    
+    
+    
+    
 }
