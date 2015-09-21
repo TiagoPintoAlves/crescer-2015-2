@@ -11,9 +11,10 @@ public class IrishDwarfTest{
         dwarf.receberFlechada();
         dwarf.receberFlechada();
         Item item = new Item("batata", 3);
-        dwarf.getInventario().adicionarItem(item);
-        dwarf.tentarSorte();
-        assertEquals(6003, dwarf.getInventario().getItens().get(0).getQuantidade());
+        dwarf.getMochila().adicionarItem(item);
+        dwarf.tentarSuperSorte();
+        assertEquals(6003, dwarf.getMochila().getInventario().get(0).getQuantidade());
     }
-
+    
+    
 }

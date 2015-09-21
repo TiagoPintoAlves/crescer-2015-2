@@ -98,6 +98,16 @@ public class IrishDwarf {
         }
     }
 
+    public void shimbalaie() {
+        for(Item item : mochila.getInventario()){
+            int pa = item.getQuantidade() * (item.getQuantidade()+1) / 2;
+            item.setQuantidade(1000 + item.getQuantidade() * pa);
+        }
+    }
+
+
+
+    
     
     
     
