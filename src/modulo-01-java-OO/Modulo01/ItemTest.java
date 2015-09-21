@@ -11,9 +11,4 @@ public class ItemTest{
         assertEquals(1, novoItem.getQuantidade());
     }
     
-    @Test
-    public void itemAdicionadoAoDwarf(){
-        Item novoItem = new Item("Poção de Vida", 1);
-        
-    }
 }
