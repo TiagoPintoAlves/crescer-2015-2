@@ -62,11 +62,11 @@ public class Dwarf {
     }
 
     public void adicionarItem(Item item){
-        mochila.adicionarItem(item);
+        this.mochila.adicionarItem(item);
     }
 
     public void perderItem(Item item){
-        mochila.perderItem(item);
+        this.mochila.perderItem(item);
     }
 
     public Inventario getMochila(){
