@@ -49,13 +49,4 @@ public class Inventario{
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
