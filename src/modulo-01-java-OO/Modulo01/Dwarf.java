@@ -61,20 +61,6 @@ public class Dwarf {
         return this.dataNascimento;
     }
 
-    public double gerarNumero() {
-        double resultado = 101.;
-
-        if (dataNascimento.ehBissexto() && this.vida >= 80 && this.vida <= 90) {
-            resultado *= -33.0;
-        }
-
-        if (!dataNascimento.ehBissexto() && this.nome != null && (this.nome.equals("Seixas") || this.nome.equals("Meireles"))) {
-            resultado = resultado * 33 % 100;
-        }
-
-        return resultado;
-    }
-
     public void adicionarItem(Item item){
         mochila.adicionarItem(item);
     }
@@ -82,9 +68,21 @@ public class Dwarf {
     public void perderItem(Item item){
         mochila.perderItem(item);
     }
-    
+
     public Inventario getMochila(){
         return this.mochila;
+    }
+
+    public double gerarNumero() {
+        double resultado = 101.;
+        if (dataNascimento.ehBissexto() && this.vida >= 80 && this.vida <= 90) {
+            resultado *= -33.0;
+        }
+
+        if (!dataNascimento.ehBissexto() && this.nome != null && (this.nome.equals("Seixas") || this.nome.equals("Meireles"))) {
+            resultado = resultado * 33 % 100;
+        }
+        return resultado;
     }
 
     public void tentarSorte(){
@@ -94,8 +92,5 @@ public class Dwarf {
             }
         }
     }
-    
-    
-    
-    
+
 }

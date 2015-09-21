@@ -192,7 +192,7 @@ public class DwarfTest
         assertEquals(2, dwarf.getExperiencia());
         assertEquals(90, dwarf.getVida());   
     }
-    
+
     @Test
     public void dwarfReceberFlechadaComAnoNormalMeireles() {
         Dwarf meireles = new Dwarf("Meireles", new DataTerceiraEra(2, 3, 2015));
@@ -200,7 +200,7 @@ public class DwarfTest
         assertEquals(0, meireles.getExperiencia());
         assertEquals(110, meireles.getVida());
     }
-    
+
     @Test
     public void dwarfReceberFlechadaNormal(){
         Dwarf dwarf = new Dwarf();
@@ -209,4 +209,47 @@ public class DwarfTest
         assertEquals(0, dwarf.getExperiencia());
     }
 
+    @Test
+    public void dwarfReceberInventarioComItensRetornaIventario(){
+        Inventario mochila = new Inventario();
+        Dwarf dwarf = new Dwarf();
+        Item pocoes = new Item("Poções", 4);
+        Item facas = new Item("Facas", 3);
+        Item machado = new Item("Machado", 1);
+        
+        dwarf.adicionarItem(pocoes);
+        dwarf.adicionarItem(facas);
+        dwarf.adicionarItem(machado);
+        mochila.adicionarItem(pocoes);
+        mochila.adicionarItem(facas);
+        mochila.adicionarItem(machado);
+        
+        assertEquals(pocoes, mochila.getInventario().get(0));
+        assertEquals(facas, mochila.getInventario().get(1));
+        assertEquals(machado, mochila.getInventario().get(2));
+    }
+    
+    @Test
+    public void dwarfSortudoNasceEmBissextoVida90Aumenta1000Itens(){
+        Inventario mochila = new Inventario();
+        Dwarf sortudo = new Dwarf("Sortudo", new DataTerceiraEra(1, 1, 2016));
+        Item pocoes = new Item("Poções", 2);
+        Item machado = new Item("Machado", 1);
+        
+        sortudo.receberFlechada();
+        sortudo.receberFlechada();
+        sortudo.adicionarItem(pocoes);
+        sortudo.adicionarItem(machado);
+        mochila.adicionarItem(pocoes);
+        mochila.adicionarItem(machado);
+        sortudo.tentarSorte();
+        sortudo.gerarNumero();
+        
+        assertEquals(2016 ,sortudo.getDataNascimento().getAno());
+        assertEquals(90, sortudo.getVida());
+        assertEquals(1002, pocoes.getQuantidade());
+        assertEquals(1001, machado.getQuantidade());
+    }
+
 }
+    
