@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class IrishDwarf {
     private String nome;
     private int vida, experiencia;
