@@ -1,18 +1,9 @@
-/**
- * Escreva a descrição da classe orc aqui.
- * 
- * @author Tiago Alves 
- * @version 22/09/2015
- */
 public class Orc{
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
+    
     public int VIDA;
     protected Status status;
     protected Inventario inventario = new Inventario();
 
-    /**
-     * Construtor para objetos da classe orc
-     */
     public Orc(){
         VIDA = (int)(100 / 10 * 2.5);
     }
