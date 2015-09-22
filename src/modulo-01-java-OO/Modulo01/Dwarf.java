@@ -5,7 +5,7 @@
         protected Status status;
         protected DataTerceiraEra dataNascimento;
         protected Inventario mochila = new Inventario();
-    
+
         public Dwarf() {
             this.vida = 110;
             this.status = Status.VIVO;
