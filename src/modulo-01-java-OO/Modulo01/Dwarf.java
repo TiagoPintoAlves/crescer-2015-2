@@ -1,10 +1,10 @@
     import java.util.ArrayList;
     public class Dwarf {
-        protected String nome;
-        protected int vida, experiencia;
-        protected Status status;
-        protected DataTerceiraEra dataNascimento;
-        protected Inventario mochila = new Inventario();
+        private String nome;
+        private int vida, experiencia;
+        private Status status;
+        private DataTerceiraEra dataNascimento;
+        private Inventario mochila = new Inventario();
     
         public Dwarf() {
             this.vida = 110;
