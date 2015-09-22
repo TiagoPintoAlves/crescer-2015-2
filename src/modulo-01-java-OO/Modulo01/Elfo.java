@@ -5,6 +5,7 @@ public class Elfo {
     private String nome;
     private int flechas, experiencia, vida;
     private Status status;
+    private Inventario mochilaElfo = new Inventario();
 
     /* Type initializer
      * Executa antes de cada construtor
