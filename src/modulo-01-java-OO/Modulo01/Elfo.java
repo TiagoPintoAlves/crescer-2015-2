@@ -1,6 +1,3 @@
-/**
- * Representa objetos do tipo Elfo.
- */
 public class Elfo {
     private String nome;
     private int flechas, experiencia, vida;
@@ -59,29 +56,7 @@ public class Elfo {
     public int getVida(){
         return this.vida;
     }
-    
-    /*
-     * ANTES:
-     * public atirarFlechaRefactory(this.flechas, this.experiencia){
-     *     if(boolean acertar == true){
-     *         flechas--;
-     *         experiencia++;
-     *      }else{
-     *          flechas--;
-     *      }
-     *  }
-
-     *  DEPOIS:
-
-    public void atirarFlechaRefactory(){
-    boolean acertar = true;
-    if (acertar) {
-    experiencia++;
-    }
-    flechas--;
-    }
-
-     */
+   
 
     public String getNome() {
         return nome;

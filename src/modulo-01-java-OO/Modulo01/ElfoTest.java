@@ -158,6 +158,28 @@ public class ElfoTest
         assertEquals(72, elfo.getVida());
     }
     
+    @Test
+    public void elfoTemInventario(){
+        Elfo elfo = new Elfo(null);
+        Inventario mochilaElfo = new Inventario();
+        Item facas = new Item(2, "Facas");
+        Item flechas = new Item(1,"Flechas");
+        
+        mochilaElfo.adicionarItem(flechas);
+        mochilaElfo.adicionarItem(facas);
+        
+        assertEquals(2, mochilaElfo.getItens().size());
+        assertTrue( mochilaElfo.getItens().indexOf(facas) != -1 );
+        assertTrue( mochilaElfo.getItens().indexOf(flechas) == 0 );
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

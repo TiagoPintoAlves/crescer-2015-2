@@ -14,6 +14,7 @@ dependency12.type=UsesDependency
 dependency13.from=Dwarf
 dependency13.to=Item
 dependency13.type=UsesDependency
+<<<<<<< HEAD
 dependency14.from=InventarioTest
 dependency14.to=Item
 dependency14.type=UsesDependency
@@ -31,10 +32,30 @@ dependency18.to=Inventario
 dependency18.type=UsesDependency
 dependency19.from=InventarioTest
 dependency19.to=Inventario
+=======
+dependency14.from=Dwarf
+dependency14.to=Inventario
+dependency14.type=UsesDependency
+dependency15.from=Dwarf
+dependency15.to=Item
+dependency15.type=UsesDependency
+dependency16.from=DwarfTest
+dependency16.to=Item
+dependency16.type=UsesDependency
+dependency17.from=DwarfTest
+dependency17.to=Inventario
+dependency17.type=UsesDependency
+dependency18.from=IrishDwarf
+dependency18.to=Status
+dependency18.type=UsesDependency
+dependency19.from=IrishDwarf
+dependency19.to=DataTerceiraEra
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 dependency19.type=UsesDependency
 dependency2.from=ElfoTest
 dependency2.to=Elfo
 dependency2.type=UsesDependency
+<<<<<<< HEAD
 dependency20.from=ItemTest
 dependency20.to=Item
 dependency20.type=UsesDependency
@@ -48,11 +69,27 @@ dependency23.from=IrishDwarf
 dependency23.to=Inventario
 dependency23.type=UsesDependency
 dependency24.from=IrishDwarf
+=======
+dependency20.from=IrishDwarf
+dependency20.to=Inventario
+dependency20.type=UsesDependency
+dependency21.from=IrishDwarf
+dependency21.to=Item
+dependency21.type=UsesDependency
+dependency22.from=IrishDwarfTest
+dependency22.to=Dwarf
+dependency22.type=UsesDependency
+dependency23.from=IrishDwarfTest
+dependency23.to=DataTerceiraEra
+dependency23.type=UsesDependency
+dependency24.from=IrishDwarfTest
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 dependency24.to=Item
 dependency24.type=UsesDependency
 dependency25.from=IrishDwarfTest
 dependency25.to=Inventario
 dependency25.type=UsesDependency
+<<<<<<< HEAD
 dependency26.from=IrishDwarfTest
 dependency26.to=DataTerceiraEra
 dependency26.type=UsesDependency
@@ -64,19 +101,37 @@ dependency28.to=IrishDwarf
 dependency28.type=UsesDependency
 dependency29.from=Orc
 dependency29.to=Status
+=======
+dependency26.from=InventarioTest
+dependency26.to=Inventario
+dependency26.type=UsesDependency
+dependency27.from=Orc
+dependency27.to=Inventario
+dependency27.type=UsesDependency
+dependency28.from=Orc
+dependency28.to=Status
+dependency28.type=UsesDependency
+dependency29.from=Orc
+dependency29.to=TipoOrc
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 dependency29.type=UsesDependency
 dependency3.from=ElfoTest
 dependency3.to=Dwarf
 dependency3.type=UsesDependency
 dependency30.from=Orc
+<<<<<<< HEAD
 dependency30.to=Inventario
+=======
+dependency30.to=Dwarf
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 dependency30.type=UsesDependency
 dependency31.from=Orc
 dependency31.to=Elfo
 dependency31.type=UsesDependency
 dependency32.from=Orc
-dependency32.to=Dwarf
+dependency32.to=Item
 dependency32.type=UsesDependency
+<<<<<<< HEAD
 dependency33.from=Orc
 dependency33.to=Item
 dependency33.type=UsesDependency
@@ -84,6 +139,54 @@ dependency4.from=DwarfTest
 dependency4.to=Dwarf
 dependency4.type=UsesDependency
 dependency5.from=Elfo
+=======
+dependency33.from=ElfoTest
+dependency33.to=Orc
+dependency33.type=UsesDependency
+dependency34.from=ElfoTest
+dependency34.to=TipoOrc
+dependency34.type=UsesDependency
+dependency35.from=ItemTest
+dependency35.to=Item
+dependency35.type=UsesDependency
+dependency36.from=Elfo
+dependency36.to=Orc
+dependency36.type=UsesDependency
+dependency37.from=IrishDwarfTest
+dependency37.to=IrishDwarf
+dependency37.type=UsesDependency
+dependency38.from=Dwarf
+dependency38.to=Orc
+dependency38.type=UsesDependency
+dependency39.from=DwarfTest
+dependency39.to=Orc
+dependency39.type=UsesDependency
+dependency4.from=ElfoTest
+dependency4.to=Status
+dependency4.type=UsesDependency
+dependency40.from=DwarfTest
+dependency40.to=TipoOrc
+dependency40.type=UsesDependency
+dependency41.from=OrcTest
+dependency41.to=Orc
+dependency41.type=UsesDependency
+dependency42.from=OrcTest
+dependency42.to=Inventario
+dependency42.type=UsesDependency
+dependency43.from=OrcTest
+dependency43.to=Item
+dependency43.type=UsesDependency
+dependency44.from=OrcTest
+dependency44.to=Elfo
+dependency44.type=UsesDependency
+dependency45.from=OrcTest
+dependency45.to=TipoOrc
+dependency45.type=UsesDependency
+dependency46.from=OrcTest
+dependency46.to=Status
+dependency46.type=UsesDependency
+dependency5.from=Dwarf
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 dependency5.to=Status
 dependency5.type=UsesDependency
 dependency6.from=Dwarf
@@ -98,6 +201,7 @@ dependency8.type=UsesDependency
 dependency9.from=DwarfTest
 dependency9.to=DataTerceiraEra
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 objectbench.height=115
 objectbench.width=1318
 package.editor.height=532
@@ -106,6 +210,16 @@ package.editor.x=-8
 package.editor.y=-8
 package.numDependencies=33
 package.numTargets=14
+=======
+objectbench.height=128
+objectbench.width=955
+package.editor.height=459
+package.editor.width=1152
+package.editor.x=1
+package.editor.y=23
+package.numDependencies=46
+package.numTargets=16
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -123,6 +237,7 @@ target1.naviview.expanded=false
 target1.showInterface=false
 target1.type=EnumTarget
 target1.typeParameters=
+<<<<<<< HEAD
 target1.width=120
 target1.x=770
 target1.y=80
@@ -132,11 +247,23 @@ target10.editor.width=900
 target10.editor.x=231
 target10.editor.y=0
 target10.height=80
+=======
+target1.width=80
+target1.x=70
+target1.y=10
+target10.association=ItemTest
+target10.editor.height=650
+target10.editor.width=1280
+target10.editor.x=0
+target10.editor.y=23
+target10.height=50
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target10.name=Item
 target10.naviview.expanded=false
 target10.showInterface=false
 target10.type=ClassTarget
 target10.typeParameters=
+<<<<<<< HEAD
 target10.width=90
 target10.x=690
 target10.y=330
@@ -144,18 +271,36 @@ target11.editor.height=719
 target11.editor.width=900
 target11.editor.x=426
 target11.editor.y=8
+=======
+target10.width=80
+target10.x=540
+target10.y=140
+target11.editor.height=650
+target11.editor.width=900
+target11.editor.x=40
+target11.editor.y=23
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target11.height=50
 target11.name=IrishDwarfTest
 target11.naviview.expanded=false
 target11.showInterface=false
 target11.type=UnitTestTargetJunit4
 target11.typeParameters=
+<<<<<<< HEAD
 target11.width=110
 target11.x=90
 target11.y=160
 target12.association=DwarfTest
 target12.editor.height=728
 target12.editor.width=683
+=======
+target11.width=120
+target11.x=70
+target11.y=110
+target12.association=DwarfTest
+target12.editor.height=650
+target12.editor.width=1280
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target12.editor.x=0
 target12.editor.y=0
 target12.height=70
@@ -164,6 +309,7 @@ target12.naviview.expanded=false
 target12.showInterface=false
 target12.type=ClassTarget
 target12.typeParameters=
+<<<<<<< HEAD
 target12.width=100
 target12.x=170
 target12.y=320
@@ -172,11 +318,22 @@ target13.editor.width=1382
 target13.editor.x=-8
 target13.editor.y=-8
 target13.height=70
+=======
+target12.width=80
+target12.x=270
+target12.y=80
+target13.editor.height=730
+target13.editor.width=1280
+target13.editor.x=0
+target13.editor.y=23
+target13.height=50
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target13.name=DwarfTest
 target13.naviview.expanded=false
 target13.showInterface=false
 target13.type=UnitTestTargetJunit4
 target13.typeParameters=
+<<<<<<< HEAD
 target13.width=100
 target13.x=200
 target13.y=290
@@ -188,9 +345,21 @@ target14.editor.y=17
 target14.height=70
 target14.name=DataTerceiraEra
 target14.naviview.expanded=false
+=======
+target13.width=90
+target13.x=300
+target13.y=50
+target14.editor.height=697
+target14.editor.width=900
+target14.editor.x=0
+target14.editor.y=2
+target14.height=50
+target14.name=TipoOrc
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target14.showInterface=false
 target14.type=ClassTarget
 target14.typeParameters=
+<<<<<<< HEAD
 target14.width=110
 target14.x=760
 target14.y=200
@@ -198,6 +367,37 @@ target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=970
 target2.editor.y=153
+=======
+target14.width=80
+target14.x=540
+target14.y=10
+target15.association=DataTerceiraEraTest
+target15.editor.height=650
+target15.editor.width=1280
+target15.editor.x=0
+target15.editor.y=23
+target15.height=50
+target15.name=DataTerceiraEra
+target15.naviview.expanded=false
+target15.showInterface=false
+target15.type=ClassTarget
+target15.typeParameters=
+target15.width=120
+target15.x=60
+target15.y=300
+target16.height=50
+target16.name=OrcTest
+target16.showInterface=false
+target16.type=UnitTestTargetJunit4
+target16.typeParameters=
+target16.width=80
+target16.x=360
+target16.y=110
+target2.editor.height=650
+target2.editor.width=1244
+target2.editor.x=36
+target2.editor.y=23
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target2.height=50
 target2.name=InventarioTest
 target2.naviview.expanded=false
@@ -205,6 +405,7 @@ target2.showInterface=false
 target2.type=UnitTestTargetJunit4
 target2.typeParameters=
 target2.width=110
+<<<<<<< HEAD
 target2.x=830
 target2.y=380
 target3.editor.height=700
@@ -214,10 +415,21 @@ target3.editor.y=10
 target3.height=50
 target3.name=Orc
 target3.naviview.expanded=false
+=======
+target2.x=510
+target2.y=270
+target3.editor.height=697
+target3.editor.width=900
+target3.editor.x=0
+target3.editor.y=2
+target3.height=50
+target3.name=Orc
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target3.showInterface=false
 target3.type=ClassTarget
 target3.typeParameters=
 target3.width=80
+<<<<<<< HEAD
 target3.x=210
 target3.y=50
 target4.editor.height=700
@@ -225,11 +437,21 @@ target4.editor.width=900
 target4.editor.x=41
 target4.editor.y=43
 target4.height=70
+=======
+target3.x=160
+target3.y=10
+target4.editor.height=730
+target4.editor.width=1280
+target4.editor.x=0
+target4.editor.y=23
+target4.height=50
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target4.name=ElfoTest
 target4.naviview.expanded=false
 target4.showInterface=false
 target4.type=UnitTestTargetJunit4
 target4.typeParameters=
+<<<<<<< HEAD
 target4.width=100
 target4.x=500
 target4.y=60
@@ -237,12 +459,22 @@ target5.editor.height=700
 target5.editor.width=900
 target5.editor.x=36
 target5.editor.y=16
+=======
+target4.width=80
+target4.x=450
+target4.y=20
+target5.editor.height=650
+target5.editor.width=1280
+target5.editor.x=0
+target5.editor.y=23
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target5.height=50
 target5.name=DataTerceiraEraTest
 target5.naviview.expanded=false
 target5.showInterface=false
 target5.type=UnitTestTargetJunit4
 target5.typeParameters=
+<<<<<<< HEAD
 target5.width=130
 target5.x=790
 target5.y=170
@@ -250,6 +482,15 @@ target6.editor.height=700
 target6.editor.width=900
 target6.editor.x=929
 target6.editor.y=89
+=======
+target5.width=150
+target5.x=90
+target5.y=270
+target6.editor.height=700
+target6.editor.width=1241
+target6.editor.x=36
+target6.editor.y=43
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target6.height=50
 target6.name=ItemTest
 target6.naviview.expanded=false
@@ -257,6 +498,7 @@ target6.showInterface=false
 target6.type=UnitTestTargetJunit4
 target6.typeParameters=
 target6.width=80
+<<<<<<< HEAD
 target6.x=720
 target6.y=300
 target7.association=IrishDwarfTest
@@ -265,11 +507,22 @@ target7.editor.width=683
 target7.editor.x=683
 target7.editor.y=1
 target7.height=60
+=======
+target6.x=570
+target6.y=110
+target7.association=IrishDwarfTest
+target7.editor.height=650
+target7.editor.width=1240
+target7.editor.x=40
+target7.editor.y=23
+target7.height=50
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target7.name=IrishDwarf
 target7.naviview.expanded=false
 target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
+<<<<<<< HEAD
 target7.width=100
 target7.x=60
 target7.y=190
@@ -279,12 +532,24 @@ target8.editor.width=960
 target8.editor.x=203
 target8.editor.y=32
 target8.height=60
+=======
+target7.width=90
+target7.x=40
+target7.y=140
+target8.association=InventarioTest
+target8.editor.height=650
+target8.editor.width=1280
+target8.editor.x=0
+target8.editor.y=23
+target8.height=50
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target8.name=Inventario
 target8.naviview.expanded=false
 target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=
 target8.width=90
+<<<<<<< HEAD
 target8.x=800
 target8.y=410
 target9.editor.height=700
@@ -292,11 +557,27 @@ target9.editor.width=900
 target9.editor.x=41
 target9.editor.y=43
 target9.height=70
+=======
+target8.x=480
+target8.y=300
+target9.association=ElfoTest
+target9.editor.height=730
+target9.editor.width=1280
+target9.editor.x=0
+target9.editor.y=23
+target9.height=50
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656
 target9.name=Elfo
 target9.naviview.expanded=false
 target9.showInterface=false
 target9.type=ClassTarget
 target9.typeParameters=
+<<<<<<< HEAD
 target9.width=100
 target9.x=480
 target9.y=90
+=======
+target9.width=80
+target9.x=420
+target9.y=50
+>>>>>>> 5e5541c6e9cdfbbeaeb4e8c6eb8845bc97b89656

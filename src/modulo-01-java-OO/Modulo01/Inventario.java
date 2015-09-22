@@ -67,8 +67,7 @@ public class Inventario {
                 Item itemAtual = this.itens.get(j);
                 Item proximo = this.itens.get(j + 1);
                 
-                boolean precisaTrocar = 
-                    itemAtual.getQuantidade() > proximo.getQuantidade();
+                boolean precisaTrocar = itemAtual.getQuantidade() > proximo.getQuantidade();
                 
                 if (precisaTrocar) {
                     this.itens.set(j, proximo);
