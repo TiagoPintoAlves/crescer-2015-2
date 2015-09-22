@@ -1,5 +1,4 @@
-public class Orc
-{
+public class Orc{
     private int vida;
     private Inventario inventario;
     private Status status;

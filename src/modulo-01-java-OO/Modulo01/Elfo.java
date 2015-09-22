@@ -1,15 +1,9 @@
-public class Elfo {
+public class Elfo extends Personagem {
     private String nome;
     private int flechas, experiencia, vida;
     private Status status;
-    private Inventario mochilaElfo = new Inventario();
-
-    /* Type initializer
-     * Executa antes de cada construtor
-    {
-    flechas = 42;
-    }
-     */
+    private Inventario inventario = new Inventario();
+    
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
@@ -30,12 +24,6 @@ public class Elfo {
         this(nome, 42);
     }
 
-    /* PascalCase (C#, VB.NET)
-     *      public void AtirarFlechaDeFogo
-     * camelCase (Java, JavaScript)
-     *      public void atirarFlechaDeFogo
-     */
-
     public void atirarFlecha(Dwarf dwarf) {
         flechas--;
         experiencia++;
@@ -44,34 +32,8 @@ public class Elfo {
         //experiencia = experiencia + 1;
     }
 
-    public void receberAtaqueDoOrc(Orc orc){
-        int dano = orc.getDanoDeAtaque();
-        this.vida -= dano;
-    }
-    
-    public void atacarOrc(Orc orc){
-        orc.levarAtaqueDeElfo();
-    }
-    
-    public int getVida(){
-        return this.vida;
-    }
-   
-
-    public String getNome() {
-        return nome;
-    }
-
     public int getFlechas() {
         return this.flechas;
-    }
-
-    public int getExperiencia() {
-        return this.experiencia;
-    }
-    
-    public Status getStatus() {
-        return this.status;
     }
 
     /* 
@@ -80,7 +42,7 @@ public class Elfo {
     this.flechas = flechas;
     }
      */
-
+    
     public String toString() {
 
         boolean flechaNoSingular = Math.abs(this.flechas) == 1;
