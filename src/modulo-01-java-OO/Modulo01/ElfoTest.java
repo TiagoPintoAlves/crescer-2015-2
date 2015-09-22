@@ -138,7 +138,25 @@ public class ElfoTest
         assertEquals(textoEsperado, elfo1.toString());
     }
     
+    @Test
+    public void elfoRecebeEspadadaDoOrcUrukHai(){
+        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Elfo elfo = new Elfo(null);
+        
+        orc.atacarElfo(elfo);
+        
+        assertEquals(68, elfo.getVida());
+    }
     
+    @Test
+    public void elfoRecebeFlechadaDoOrcSnaga(){
+        Orc orc = new Orc(TipoOrc.SNAGA);
+        Elfo elfo = new Elfo(null);
+        
+        orc.atacarElfo(elfo);
+        
+        assertEquals(72, elfo.getVida());
+    }
     
     
     

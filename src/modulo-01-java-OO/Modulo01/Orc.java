@@ -1,68 +1,145 @@
-public class Orc{
-    
-    public int VIDA;
-    protected Status status;
-    protected Inventario inventario = new Inventario();
 
-    public Orc(){
-        VIDA = (int)(100 / 10 * 2.5);
-    }
 
-    public void gerarVida(int vidaAleatoria) {
-        VIDA = vidaAleatoria;
+public class Orc
+{
+    private int vida;
+    private Inventario inventario;
+    private Status status;
+    private TipoOrc tipoOrc;
+
+    public Orc(TipoOrc tipoOrc)
+    {
+        this.inventario = new Inventario();
+        this.tipoOrc = tipoOrc;
+        gerarVidaInicial();
+        gerarInventario();
+        this.status = Status.VIVO;
     }
-	
-	public void receberFlechadaElfo(Elfo elfo) {
-		this.gerarVida(this.VIDA - 8);
-	}
-	
-	public void receberFlechadaDwarf(Dwarf dwarf) {
-		if(inventario.adicionarItem(inventario.getInventario())) {
-			gerarVida(this.VIDA - 5);
-		}
-		gerarVida(this.VIDA - 10);
-	}
     
-    public void adicionarNovoItem(Item i) {
+    public void levarAtaqueDeAnao() {
         
-        if(i.getDescricao() == "Escudo Uruk-Hai") {
-            this.EscudoUrukHai = i;
-        }
-        else if(i.getDescricao().indexOf("Flecha") >= 0) {
-			
-			if(i.getDescricao() == "Flecha1")
-				this.Flecha1 = i;
-			if(i.getDescricao() == "Flecha2")
-				this.Flecha2 = i;
-			if(i.getDescricao() == "Flecha3")
-				this.Flecha3 = i;
-			else
-				this.Arco = new Item(1, "Arco  Uruk-Hai");
-				this.Flecha1 = new Item(1, "Flecha");
+        if(getItem("Escudo Uruk-Hai") == null){
+            perderVida(10);
         }
         else {
-            this.Arco = i;
+            perderVida(5);
         }
-        
     }
     
-    public void AtacarAnao(Dwarf anao) {
+    public void levarAtaqueDeElfo() {
+        perderVida(8);
+    }
     
-        anao.vida -= 10;
+    public void atacarAnao(Dwarf anao){
+        if(podeAtacarComEspada()){
+            anao.receberAtaqueDoOrc(this);
+        }
+        else if(podeAtacarComArco()) {
+            anao.receberAtaqueDoOrc(this);
+            debitarFlecha();
+        }
+        else {
+            this.status = Status.FUGINDO;
+        }
+    }
+    
+    public void atacarElfo(Elfo elfo){
+        if(podeAtacarComEspada()){
+            elfo.receberAtaqueDoOrc(this);
+        }
+        else if(podeAtacarComArco()) {
+            elfo.receberAtaqueDoOrc(this);
+            debitarFlecha();
+        }
+        else {
+            this.status = Status.FUGINDO;
+        }
+    }
+    
+    public int getDanoDeAtaque(){
+        if(podeAtacarComEspada()){
+            return 12;
+        }
         
-        for (Item item : this.novosItens) {
-            
-			ArrayList<int> numeroDeFlechas = new ArrayList<int>();
-			numeroDeFlechas.add(1);
-			numeroDeFlechas.add(2);
-			numeroDeFlechas.add(3);
-			
-			for(int i = 0; i <= 3  ;i++) {
-				
-				if(item.getDescricao() == "Flecha" + i) {
-					this.novosItens.remove(item);
-				}
-			}
+        if(podeAtacarComArco()){
+            return 8;
+        }
+        
+        return 0;
+    }
+    
+    public int getVida(){
+        return this.vida;
+    }
+    
+    public Inventario getInventario(){
+        return this.inventario;
+    }
+    
+    public Status getStatus(){
+        return this.status;
+    }
+    
+    private void debitarFlecha() {
+        Item flecha = getItem("Flecha");
+        
+        if(flecha.getQuantidade() == 1){
+            this.inventario.perderItem(flecha);
+        }
+        else {
+            flecha.debitarUmaUnidade();
+        }
+    }
+    
+    private boolean podeAtacarComEspada() {
+        return getItem("Espada") != null;
+    }
+    
+    private boolean podeAtacarComArco(){
+        boolean temArco = getItem("Arco") != null;
+        Item flecha = getItem("Flecha");
+        boolean temFlechaProArco = flecha != null && flecha.getQuantidade() > 0;
+        
+        return temArco && temFlechaProArco;
+    }
+    
+    private void perderVida(int qtdVidaPerdida) {
+        this.vida -= qtdVidaPerdida;
+        
+        if(vida <= 0){
+            vida = 0;
+            this.status = Status.MORTO;
+        }
+        else {
+            this.status = Status.FERIDO;
+        }
+    }
+    
+    private Item getItem(String descricao){
+        return this.inventario.getItemPorDescricao(descricao);
+    }
+    
+    private void gerarInventario() {
+        if(this.tipoOrc == TipoOrc.URUKHAI) {
+            Item escudoUrukHai = new Item(1, "Escudo Uruk-Hai");
+            Item espada = new Item(1, "Espada");
+            this.inventario.adicionarItem(escudoUrukHai);
+            this.inventario.adicionarItem(espada);
+        }
+        else if(this.tipoOrc == TipoOrc.SNAGA){
+            Item arco = new Item(1, "Arco");
+            Item flechas = new Item(5, "Flecha");
+            this.inventario.adicionarItem(arco);
+            this.inventario.adicionarItem(flechas);
+        }
+    }
+    
+    private void gerarVidaInicial() {
+        if(this.tipoOrc == TipoOrc.URUKHAI) {
+            this.vida = 150;
+        }
+        else if(this.tipoOrc == TipoOrc.SNAGA){
+            this.vida = 70;
         }
     }
     
