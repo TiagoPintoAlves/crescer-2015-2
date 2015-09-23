@@ -37,25 +37,25 @@ public class OrcTest
     public void orcUrukHaiRecebeDanoDeAnao(){
         Orc orc = new Orc(TipoOrc.URUKHAI);
         
-        orc.levarAtaqueDeAnao();
+        orc.recebeAtaque();
         
-        assertEquals(145, orc.getVida());
+        assertEquals(144, orc.getVida());
     }
     
     @Test
     public void orcUrukHaiRecebeDanoDeElfo(){
         Orc orc = new Orc(TipoOrc.URUKHAI);
         
-        orc.levarAtaqueDeElfo();
+        orc.recebeAtaque();
         
-        assertEquals(142, orc.getVida());
+        assertEquals(144, orc.getVida());
     }
     
     @Test
     public void orcSnagaRecebeDanoDeAnao(){
         Orc orc = new Orc(TipoOrc.SNAGA);
         
-        orc.levarAtaqueDeAnao();
+        orc.recebeAtaque();
         
         assertEquals(60, orc.getVida());
     }
@@ -64,9 +64,9 @@ public class OrcTest
     public void orcSnagaRecebeDanoDeElfo(){
         Orc orc = new Orc(TipoOrc.SNAGA);
         
-        orc.levarAtaqueDeElfo();
+        orc.recebeAtaque();
         
-        assertEquals(62, orc.getVida());
+        assertEquals(60, orc.getVida());
     }
     
     @Test

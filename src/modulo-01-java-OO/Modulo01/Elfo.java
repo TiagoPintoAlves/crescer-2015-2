@@ -1,15 +1,6 @@
-/**
- * Representa objetos do tipo Elfo.
- */
 public class Elfo extends Personagem {
     private int flechas;
 
-    /* Type initializer
-     * Executa antes de cada construtor
-    {
-    flechas = 42;
-    }
-     */
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
@@ -30,12 +21,6 @@ public class Elfo extends Personagem {
         this(nome, 42);
     }
 
-    /* PascalCase (C#, VB.NET)
-     *      public void AtirarFlechaDeFogo
-     * camelCase (Java, JavaScript)
-     *      public void atirarFlechaDeFogo
-     */
-
     public void atirarFlecha(Dwarf dwarf) {
         flechas--;
         experiencia++;
@@ -45,31 +30,8 @@ public class Elfo extends Personagem {
     }
 
     public void atacarOrc(Orc orc){
-        orc.levarAtaqueDeElfo();
+        orc.recebeAtaque();
     }
-
-    /*
-     * ANTES:
-     * public atirarFlechaRefactory(this.flechas, this.experiencia){
-     *     if(boolean acertar == true){
-     *         flechas--;
-     *         experiencia++;
-     *      }else{
-     *          flechas--;
-     *      }
-     *  }
-
-     *  DEPOIS:
-
-    public void atirarFlechaRefactory(){
-    boolean acertar = true;
-    if (acertar) {
-    experiencia++;
-    }
-    flechas--;
-    }
-
-     */
 
     public int getFlechas() {
         return this.flechas;

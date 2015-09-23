@@ -270,10 +270,10 @@ public class DwarfTest
         
         for(int i = 0; i < golpesAteMatarOrc; i++){
             dwarf.atacarOrc(orc);
-            assertEquals(Status.FERIDO, orc.getStatus());
+            assertEquals(Status.MORTO, orc.getStatus());
         }
         dwarf.atacarOrc(orc);
-        assertEquals(Status.MORTO, orc.getStatus());
+        assertEquals(Status.FERIDO, orc.getStatus());
     }
     
     @Test
