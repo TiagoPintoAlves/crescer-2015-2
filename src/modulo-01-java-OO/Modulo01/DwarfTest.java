@@ -210,46 +210,86 @@ public class DwarfTest
     }
 
     @Test
-    public void dwarfReceberInventarioComItensRetornaIventario(){
-        Inventario mochila = new Inventario();
+    public void dwarfTentarSorteComSorte() {
+        Dwarf dwarf = new Dwarf("Leprechaun sortudo", new DataTerceiraEra(1, 1, 2000));
+        dwarf.receberFlechada();
+        dwarf.receberFlechada();
+        dwarf.adicionarItem(new Item(5, "Lança"));
+        dwarf.adicionarItem(new Item(25, "Poção"));
+        
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(1005, "Lança"));
+        esperado.adicionarItem(new Item(1025, "Poção"));
+        
+        dwarf.tentarSorte();
+        
+        assertEquals(esperado, dwarf.getInventario());
+    }
+
+    @Test
+    public void dwarfTentarSorteSemSorte() {
         Dwarf dwarf = new Dwarf();
-        Item pocoes = new Item("Poções", 4);
-        Item facas = new Item("Facas", 3);
-        Item machado = new Item("Machado", 1);
+        dwarf.adicionarItem(new Item(5, "Lança"));
+        dwarf.adicionarItem(new Item(25, "Poção"));
         
-        dwarf.adicionarItem(pocoes);
-        dwarf.adicionarItem(facas);
-        dwarf.adicionarItem(machado);
-        mochila.adicionarItem(pocoes);
-        mochila.adicionarItem(facas);
-        mochila.adicionarItem(machado);
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(5, "Lança"));
+        esperado.adicionarItem(new Item(25, "Poção"));
         
-        assertEquals(pocoes, mochila.getInventario().get(0));
-        assertEquals(facas, mochila.getInventario().get(1));
-        assertEquals(machado, mochila.getInventario().get(2));
+        dwarf.tentarSorte();
+        
+        assertEquals(esperado, dwarf.getInventario());
     }
     
     @Test
-    public void dwarfSortudoNasceEmBissextoVida90Aumenta1000Itens(){
-        Inventario mochila = new Inventario();
-        Dwarf sortudo = new Dwarf("Sortudo", new DataTerceiraEra(1, 1, 2016));
-        Item pocoes = new Item("Poções", 2);
-        Item machado = new Item("Machado", 1);
+    public void dwarfRecebeEspadadaDoOrcUrukHai(){
+        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Dwarf dwarf = new Dwarf();
         
-        sortudo.receberFlechada();
-        sortudo.receberFlechada();
-        sortudo.adicionarItem(pocoes);
-        sortudo.adicionarItem(machado);
-        mochila.adicionarItem(pocoes);
-        mochila.adicionarItem(machado);
-        sortudo.tentarSorte();
-        sortudo.gerarNumero();
+        orc.atacarAnao(dwarf);
         
-        assertEquals(2016 ,sortudo.getDataNascimento().getAno());
-        assertEquals(90, sortudo.getVida());
-        assertEquals(1002, pocoes.getQuantidade());
-        assertEquals(1001, machado.getQuantidade());
+        assertEquals(98, dwarf.getVida());
+    }
+    
+    @Test
+    public void dwarfRecebeFlechadaDoOrcSnaga(){
+        Orc orc = new Orc(TipoOrc.SNAGA);
+        Dwarf dwarf = new Dwarf();
+        
+        orc.atacarAnao(dwarf);
+        
+        assertEquals(102, dwarf.getVida());
+    }
+    
+    @Test
+    public void dwarfMataOrcUrukHai(){
+        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Dwarf dwarf = new Dwarf();
+        
+        int golpesAteMatarOrc = 29;
+        
+        for(int i = 0; i < golpesAteMatarOrc; i++){
+            dwarf.atacarOrc(orc);
+            assertEquals(Status.FERIDO, orc.getStatus());
+        }
+        dwarf.atacarOrc(orc);
+        assertEquals(Status.MORTO, orc.getStatus());
+    }
+    
+    @Test
+    public void dwarfMataOrcSnaga(){
+        Orc orc = new Orc(TipoOrc.SNAGA);
+        Dwarf dwarf = new Dwarf();
+        
+        int golpesAteMatarOrc = 6;
+        
+        for(int i = 0; i < golpesAteMatarOrc; i++){
+            dwarf.atacarOrc(orc);
+            assertEquals(Status.FERIDO, orc.getStatus());
+        }
+        
+        dwarf.atacarOrc(orc);
+        assertEquals(Status.MORTO, orc.getStatus());
     }
 
 }
-    

@@ -3,18 +3,22 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class IrishDwarfTest{
+public class IrishDwarfTest
+{
     @Test
-    public void irishDwarfTem3EFicaCom1009(){
-        DataTerceiraEra data = new DataTerceiraEra(1,1,2000);
-        IrishDwarf dwarf = new IrishDwarf("ose", data);
+    public void irishDwarfComSorte() {
+        IrishDwarf dwarf = new IrishDwarf("Leprechaun sortudo", new DataTerceiraEra(1, 1, 2000));
         dwarf.receberFlechada();
         dwarf.receberFlechada();
-        Item item = new Item("batata", 3);
-        dwarf.getMochila().adicionarItem(item);
-        dwarf.tentarSuperSorte();
-        assertEquals(6003, dwarf.getMochila().getInventario().get(0).getQuantidade());
+        dwarf.adicionarItem(new Item(5, "Lança"));
+        dwarf.adicionarItem(new Item(25, "Poção"));
+        
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(15005, "Lança"));
+        esperado.adicionarItem(new Item(325025, "Poção"));
+        
+        dwarf.tentarSorte();
+        
+        assertEquals(esperado, dwarf.getInventario());
     }
-    
-    
 }
