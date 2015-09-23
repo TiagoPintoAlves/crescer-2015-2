@@ -243,7 +243,7 @@ public class DwarfTest
     
     @Test
     public void dwarfRecebeEspadadaDoOrcUrukHai(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Orc orc = new Orc();
         Dwarf dwarf = new Dwarf();
         
         orc.atacarAnao(dwarf);
@@ -253,7 +253,7 @@ public class DwarfTest
     
     @Test
     public void dwarfRecebeFlechadaDoOrcSnaga(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+        Orc orc = new Orc();
         Dwarf dwarf = new Dwarf();
         
         orc.atacarAnao(dwarf);
@@ -263,7 +263,7 @@ public class DwarfTest
     
     @Test
     public void dwarfMataOrcUrukHai(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Orc orc = new Orc();
         Dwarf dwarf = new Dwarf();
         
         int golpesAteMatarOrc = 29;
@@ -278,7 +278,7 @@ public class DwarfTest
     
     @Test
     public void dwarfMataOrcSnaga(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+        Orc orc = new Orc();
         Dwarf dwarf = new Dwarf();
         
         int golpesAteMatarOrc = 6;

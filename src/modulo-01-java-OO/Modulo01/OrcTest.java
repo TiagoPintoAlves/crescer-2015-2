@@ -9,7 +9,7 @@ public class OrcTest
 {
     @Test
     public void criaUrukHai(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Orc orc = new Orc();
         
         int vidaEsperada = 150;
         Inventario inventarioEsperado = new Inventario();
@@ -22,7 +22,7 @@ public class OrcTest
     
     @Test
     public void criaSnaga(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+        Orc orc = new Orc();
         
         int vidaEsperada = 70;
         Inventario inventarioEsperado = new Inventario();
@@ -35,7 +35,7 @@ public class OrcTest
     
     @Test
     public void orcUrukHaiRecebeDanoDeAnao(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Orc orc = new Orc();
         
         orc.recebeAtaque();
         
@@ -44,7 +44,7 @@ public class OrcTest
     
     @Test
     public void orcUrukHaiRecebeDanoDeElfo(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+        Orc orc = new Orc();
         
         orc.recebeAtaque();
         
@@ -53,7 +53,7 @@ public class OrcTest
     
     @Test
     public void orcSnagaRecebeDanoDeAnao(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+        Orc orc = new Orc();
         
         orc.recebeAtaque();
         
@@ -62,7 +62,7 @@ public class OrcTest
     
     @Test
     public void orcSnagaRecebeDanoDeElfo(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+        Orc orc = new Orc();
         
         orc.recebeAtaque();
         
@@ -71,7 +71,7 @@ public class OrcTest
     
     @Test
     public void orcSnagaFicaSemFlechasParaAtirarEFoge(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+        Orc orc = new Orc();
         Elfo elfo = new Elfo(null);
         
         for(int i = 0; i < 6; i++){
@@ -84,7 +84,7 @@ public class OrcTest
     @Test
     public void orcSnagaAtiraFlechaEmElfoEFicaCom4Flechas(){
     
-        Orc orc = new Orc(TipoOrc.SNAGA);
+        Orc orc = new Orc();
         Elfo elfo = new Elfo(null);
         
         orc.atacarElfo(elfo);

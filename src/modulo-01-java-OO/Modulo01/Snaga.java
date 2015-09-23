@@ -1,9 +1,11 @@
 public class Snaga extends Orc{
-    private Inventario inventario;
-    
-    public Snaga(TipoOrc tipoOrc){
-        super(tipoOrc);
+
+    public Snaga(){
+        Item arco = new Item(1, "Arco");
+        Item flechas = new Item(5, "Flecha");
+        super.adicionarItem(arco);
+        super.adicionarItem(flechas);
+        super.vida = 70;
     }
-    
-    
+
 }

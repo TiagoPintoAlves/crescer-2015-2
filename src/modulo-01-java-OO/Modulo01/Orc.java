@@ -1,16 +1,9 @@
 public class Orc extends Personagem{
-    protected TipoOrc tipoOrc;
-
-    public Orc(TipoOrc tipoOrc){
-        this.inventario = new Inventario();
-        this.tipoOrc = tipoOrc;
-        gerarVidaInicial();
-        gerarInventario();
-        this.status = Status.VIVO;
+    public Orc(){
+        super();
     }
 
     public void recebeAtaque() {
-
         if(getItem("Escudo Uruk-Hai") == null){
             perderVida(10);
         }
@@ -28,7 +21,7 @@ public class Orc extends Personagem{
             debitarFlecha();
         }
         else {
-            this.status = Status.FUGINDO;
+            super.status = Status.FUGINDO;
         }
     }
 
@@ -41,7 +34,7 @@ public class Orc extends Personagem{
             debitarFlecha();
         }
         else {
-            this.status = Status.FUGINDO;
+            super.status = Status.FUGINDO;
         }
     }
 
@@ -61,7 +54,7 @@ public class Orc extends Personagem{
         Item flecha = getItem("Flecha");
 
         if(flecha.getQuantidade() == 1){
-            this.inventario.perderItem(flecha);
+            perderItem(flecha);
         }else {
             flecha.debitarUmaUnidade();
         }
@@ -92,30 +85,6 @@ public class Orc extends Personagem{
 
     private Item getItem(String descricao){
         return this.inventario.getItemPorDescricao(descricao);
-    }
-
-    private void gerarInventario() {
-        if(this.tipoOrc == TipoOrc.URUKHAI) {
-            Item escudoUrukHai = new Item(1, "Escudo Uruk-Hai");
-            Item espada = new Item(1, "Espada");
-            this.inventario.adicionarItem(escudoUrukHai);
-            this.inventario.adicionarItem(espada);
-        }
-        else if(this.tipoOrc == TipoOrc.SNAGA){
-            Item arco = new Item(1, "Arco");
-            Item flechas = new Item(5, "Flecha");
-            this.inventario.adicionarItem(arco);
-            this.inventario.adicionarItem(flechas);
-        }
-    }
-
-    private void gerarVidaInicial() {
-        if(this.tipoOrc == TipoOrc.URUKHAI) {
-            this.vida = 150;
-        }
-        else if(this.tipoOrc == TipoOrc.SNAGA){
-            this.vida = 70;
-        }
     }
 
 }
