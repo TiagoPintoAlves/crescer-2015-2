@@ -22,6 +22,12 @@ public class ElfoTest
         Elfo legolas = new Elfo("Legolas");
         assertEquals(Status.VIVO, legolas.getStatus());
     }
+    
+    @Test
+    public void elfoNasceComInventarioVazio() {
+        Elfo legolas = new Elfo("Legolas");
+        assertEquals(new Inventario(), legolas.getInventario());
+    }
 
     @Test
     public void elfoCriadoNasceCom0DeExperiencia() {

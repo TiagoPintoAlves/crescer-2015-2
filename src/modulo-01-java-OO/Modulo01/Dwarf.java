@@ -1,16 +1,10 @@
-public class Dwarf extends Personagem{
-    protected String nome;
-    protected int vida, experiencia;
-    protected Status status;
+public class Dwarf extends Personagem {
     protected DataTerceiraEra dataNascimento;
-    protected Inventario inventario;
 
     public Dwarf() {
         this.vida = 110;
         this.status = Status.VIVO;
         this.dataNascimento = new DataTerceiraEra(1,1,1);
-        this.inventario = new Inventario();
-
     }
 
     public Dwarf(String nome) {
@@ -41,6 +35,10 @@ public class Dwarf extends Personagem{
             }
         }
     }
+    
+    public void atacarOrc(Orc orc){
+        orc.levarAtaqueDeAnao();
+    }
 
     public DataTerceiraEra getDataNascimento() {
         return this.dataNascimento;
@@ -60,14 +58,6 @@ public class Dwarf extends Personagem{
         }
 
         return resultado;
-    }
-    
-    public void adicionarItem(Item item) {
-        this.inventario.adicionarItem(item);
-    }
-    
-    public void perderItem(Item item) {
-        this.inventario.perderItem(item);
     }
     
     public void tentarSorte() {
