@@ -146,45 +146,23 @@ public class ElfoTest
     
     @Test
     public void elfoRecebeEspadadaDoOrcUrukHai(){
-        Orc orc = new Orc();
+        Orc orc = new UrukHai();
         Elfo elfo = new Elfo(null);
         
-        orc.atacarElfo(elfo);
+        orc.atacar(elfo);
         
         assertEquals(68, elfo.getVida());
     }
     
     @Test
     public void elfoRecebeFlechadaDoOrcSnaga(){
-        Orc orc = new Orc();
+        Orc orc = new Snaga();
         Elfo elfo = new Elfo(null);
         
-        orc.atacarElfo(elfo);
+        orc.atacar(elfo);
         
         assertEquals(72, elfo.getVida());
     }
-    
-    @Test
-    public void elfoTemInventario(){
-        Elfo elfo = new Elfo(null);
-        Inventario mochilaElfo = new Inventario();
-        Item facas = new Item(2, "Facas");
-        Item flechas = new Item(1,"Flechas");
-        
-        mochilaElfo.adicionarItem(flechas);
-        mochilaElfo.adicionarItem(facas);
-        
-        assertEquals(2, mochilaElfo.getItens().size());
-        assertTrue( mochilaElfo.getItens().indexOf(facas) != -1 );
-        assertTrue( mochilaElfo.getItens().indexOf(flechas) == 0 );
-    }
-    
-    
-    
-    
-    
-    
-    
     
     
     

@@ -1,8 +1,10 @@
+// public sealed class Personagem {
+// public final class Personagem {
 public class Personagem {
     protected String nome;
     protected Status status;
     protected int experiencia, vida;
-    protected Inventario inventario;
+    protected final Inventario inventario;
 
     public Personagem() {
         this.status = Status.VIVO;

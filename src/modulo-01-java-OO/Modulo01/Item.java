@@ -1,6 +1,6 @@
 public class Item
 {
-    private String descricao;
+    private final String descricao;
     private int quantidade;
 
     /**

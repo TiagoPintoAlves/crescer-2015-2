@@ -22,8 +22,7 @@ public class ElfoVerde extends Elfo {
                 })
             );
         
-        boolean podeAdicionar = 
-            item != null && validas.contains(item.getDescricao());
+        boolean podeAdicionar = item != null && validas.contains(item.getDescricao());
         
         if (podeAdicionar) {
             super.adicionarItem(item);
