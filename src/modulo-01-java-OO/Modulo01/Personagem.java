@@ -3,7 +3,8 @@
 public class Personagem {
     protected String nome;
     protected Status status;
-    protected int experiencia, vida;
+    protected int vida;
+    protected int experiencia;
     protected final Inventario inventario;
 
     public Personagem() {

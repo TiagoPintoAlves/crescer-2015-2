@@ -1,20 +1,13 @@
-/**
- * Representa objetos do tipo Elfo.
- */
 public class Elfo extends Personagem {
-    private int flechas;
+    protected int flechas;
+    protected static int cont = 0;
 
-    /* Type initializer
-     * Executa antes de cada construtor
-    {
-    flechas = 42;
-    }
-     */
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
         this.status = Status.VIVO;
-        this.vida = 80;
+        this.vida = 100;
+        Elfo.cont += 1;
     }
 
     /* Apenas para elucidar as diferenças entre int X Integer, esta duplicação não faz sentido.
@@ -25,54 +18,31 @@ public class Elfo extends Personagem {
     }
     }
      */
-
+    
     public Elfo(String nome) {
         this(nome, 42);
+        Elfo.cont += 1;
     }
 
-    /* PascalCase (C#, VB.NET)
-     *      public void AtirarFlechaDeFogo
-     * camelCase (Java, JavaScript)
-     *      public void atirarFlechaDeFogo
-     */
-
-    public void atirarFlecha(Dwarf dwarf) {
+    public void atirarFlecha(Object obj) {
         flechas--;
         experiencia++;
-        dwarf.receberFlechada();
-        //experiencia += 1;
-        //experiencia = experiencia + 1;
+        
+        if(obj instanceof Dwarf){
+            Dwarf dwarf = (Dwarf)obj;
+            dwarf.receberFlechada();
+        }else if(obj instanceof Orc){
+            Orc orc = (Orc)obj;
+            orc.levarAtaque();
+        }
     }
-
-    public void atacarOrc(Orc orc){
-        orc.levarAtaque();
-    }
-
-    /*
-     * ANTES:
-     * public atirarFlechaRefactory(this.flechas, this.experiencia){
-     *     if(boolean acertar == true){
-     *         flechas--;
-     *         experiencia++;
-     *      }else{
-     *          flechas--;
-     *      }
-     *  }
-
-     *  DEPOIS:
-
-    public void atirarFlechaRefactory(){
-    boolean acertar = true;
-    if (acertar) {
-    experiencia++;
-    }
-    flechas--;
-    }
-
-     */
 
     public int getFlechas() {
         return this.flechas;
+    }
+    
+    public static int getTotalDeElfos(){
+        return Elfo.cont;
     }
 
     /* 
@@ -100,4 +70,6 @@ public class Elfo extends Personagem {
             this.experiencia,
             nivelNoSingular ? "nível" : "níveis");
     }
+    
+    
 }

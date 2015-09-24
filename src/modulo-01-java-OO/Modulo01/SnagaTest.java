@@ -76,7 +76,7 @@ public class SnagaTest
     public void orcSnagaCausa8DeDanoEmElfoPorqueAtacouComArco(){
         Orc orc = new Snaga();
         Elfo legolas = new Elfo("Legolas");
-        int vidaEsperada = 72;
+        int vidaEsperada = 92;
         
         orc.atacar(legolas);
         
@@ -88,7 +88,7 @@ public class SnagaTest
         Orc orc = new Snaga();
         orc.adicionarItem(new Item(1, "Espada"));
         Elfo legolas = new Elfo("Legolas");
-        int vidaEsperada = 68;
+        int vidaEsperada = 88;
         
         orc.atacar(legolas);
         
@@ -101,7 +101,7 @@ public class SnagaTest
         orc.perderItem(new Item(1, "Arco"));
         orc.perderItem(new Item(5, "Flecha"));
         Elfo legolas = new Elfo("Legolas");
-        int vidaEsperada = 80;
+        int vidaEsperada = 100;
         
         orc.atacar(legolas);
         

@@ -1,11 +1,9 @@
-public class Orc extends Personagem
-{
+public class Orc extends Personagem{
 
     public Orc(){
     }
     
     public void levarAtaque() {
-        
         int dano = getItem("Escudo Uruk-Hai") == null ? 10 : 6;
         perderVida(dano);
     }
@@ -48,8 +46,7 @@ public class Orc extends Personagem
         
         if(flecha.getQuantidade() == 1){
             perderItem(flecha);
-        }
-        else {
+        }else {
             flecha.debitarUmaUnidade();
         }
     }
@@ -72,7 +69,6 @@ public class Orc extends Personagem
     }
     
     private void definirStatusComBaseNaVida(){
-        
         super.status = vida <= 0 ? Status.MORTO : Status.FERIDO;
     }
     
