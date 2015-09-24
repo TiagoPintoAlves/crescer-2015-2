@@ -1,13 +1,12 @@
 public class Elfo extends Personagem {
     protected int flechas;
-    protected static int cont = 0;
+    private static int cont = 0;
 
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
         this.status = Status.VIVO;
         this.vida = 100;
-        Elfo.cont += 1;
     }
 
     /* Apenas para elucidar as diferenças entre int X Integer, esta duplicação não faz sentido.
@@ -21,6 +20,10 @@ public class Elfo extends Personagem {
     
     public Elfo(String nome) {
         this(nome, 42);
+
+    }
+    
+    public Elfo(){
         Elfo.cont += 1;
     }
 
@@ -41,7 +44,7 @@ public class Elfo extends Personagem {
         return this.flechas;
     }
     
-    public static int getTotalDeElfos(){
+    public int getTotalDeElfos(){
         return Elfo.cont;
     }
 

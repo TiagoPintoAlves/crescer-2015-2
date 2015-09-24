@@ -165,9 +165,10 @@ public class ElfoTest
     }
     
     @Test
-    public void elfoTotalDeElfosNormais(){
-        int total = Elfo.getTotalDeElfos();
-        assertEquals(1, total);
+    public void elfoTotalDeElfos(){
+        Elfo elf = new Elfo();
+        int totalElfos = elf.getTotalDeElfos();
+        assertEquals(1 , totalElfos);
     }
     
     
