@@ -10,6 +10,10 @@ public class ElfoVerde extends Elfo {
         super(nome);
     }
     
+    public ElfoVerde(){
+        super();
+    }
+    
     public void adicionarItem(Item item) {
         
         // C#

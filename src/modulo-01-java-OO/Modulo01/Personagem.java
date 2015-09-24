@@ -1,5 +1,4 @@
-// public sealed class Personagem {
-// public final class Personagem {
+import java.util.*;
 public class Personagem {
     protected String nome;
     protected Status status;
@@ -44,7 +43,6 @@ public class Personagem {
         int dano = orc.getDanoDeAtaque();
         this.vida -= dano;
     }
-    
     
     
     

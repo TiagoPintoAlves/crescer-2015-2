@@ -17,12 +17,12 @@ public class Elfo extends Personagem {
     }
     }
      */
-    
+
     public Elfo(String nome) {
         this(nome, 42);
 
     }
-    
+
     public Elfo(){
         Elfo.cont += 1;
     }
@@ -30,7 +30,7 @@ public class Elfo extends Personagem {
     public void atirarFlecha(Object obj) {
         flechas--;
         experiencia++;
-        
+
         if(obj instanceof Dwarf){
             Dwarf dwarf = (Dwarf)obj;
             dwarf.receberFlechada();
@@ -43,7 +43,7 @@ public class Elfo extends Personagem {
     public int getFlechas() {
         return this.flechas;
     }
-    
+
     public int getTotalDeElfos(){
         return Elfo.cont;
     }
@@ -74,5 +74,5 @@ public class Elfo extends Personagem {
             nivelNoSingular ? "nível" : "níveis");
     }
     
-    
+
 }
