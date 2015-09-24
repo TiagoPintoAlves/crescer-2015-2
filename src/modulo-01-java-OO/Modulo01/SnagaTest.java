@@ -5,12 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * A classe de teste SnagaTest.
- *
- * @author  (seu nome)
- * @version (um número de versão ou data)
- */
 public class SnagaTest
 {
     @Test

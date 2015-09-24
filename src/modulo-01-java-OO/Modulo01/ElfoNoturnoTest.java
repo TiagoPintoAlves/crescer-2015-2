@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class ElfoNoturnoTest{
     @Test
-    public void elfoNoturnoAtiraFlechaEmAnao(){
+    public void elfoNoturnoAtiraFlechaEmDwarf(){
         ElfoNoturno dark = new ElfoNoturno("Dark", 5);
         Dwarf alvo = new Dwarf();
         dark.atirarFlecha(alvo);
@@ -21,4 +21,40 @@ public class ElfoNoturnoTest{
         assertEquals(4, dark.getFlechas());
         assertEquals(95, dark.getVida());
     }
+    
+    @Test
+    public void elfoNoturnoAtiraFlechaEmOrc(){
+        ElfoNoturno dark = new ElfoNoturno("Dark", 5);
+        Orc alvo = new Orc();
+        dark.atirarFlecha(alvo);
+        assertEquals(3, dark.getExperiencia());
+        assertEquals(4, dark.getFlechas());
+        assertEquals(95, dark.getVida());
+    }
+    
+    @Test
+    public void elfoNoturnoAtiraFlechaEmOrcSnaga(){
+        ElfoNoturno dark = new ElfoNoturno("Dark", 5);
+        Orc alvo = new Snaga();
+        dark.atirarFlecha(alvo);
+        assertEquals(3, dark.getExperiencia());
+        assertEquals(4, dark.getFlechas());
+        assertEquals(95, dark.getVida());
+        assertEquals(60, alvo.getVida());
+    }
+    
+    @Test
+    public void elfoNoturnoAtiraFlechaEmOrcUrukHai(){
+        ElfoNoturno dark = new ElfoNoturno("Dark", 5);
+        Orc alvo = new UrukHai();
+        dark.atirarFlecha(alvo);
+        assertEquals(3, dark.getExperiencia());
+        assertEquals(4, dark.getFlechas());
+        assertEquals(95, dark.getVida());
+        assertEquals(144, alvo.getVida());
+    }
+    
+    
+    
+    
 }

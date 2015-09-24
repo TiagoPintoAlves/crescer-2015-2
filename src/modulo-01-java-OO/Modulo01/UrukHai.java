@@ -1,10 +1,4 @@
 
-/**
- * Escreva a descrição da classe UrukHai aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
 public class UrukHai extends Orc
 {
     public UrukHai(){
