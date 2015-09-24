@@ -44,8 +44,4 @@ public class Personagem {
         this.vida -= dano;
     }
     
-    
-    
-    
-    
 }

@@ -1,4 +1,3 @@
-
 public class ElfoNoturno extends Elfo{
 
     public ElfoNoturno(String nome, int flechas) {
