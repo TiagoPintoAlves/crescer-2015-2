@@ -155,13 +155,8 @@ public class ElfoTest
         Elfo elfo = new Elfo(null);
 
         orc.atacar(elfo);
-<<<<<<< HEAD
-        
-        assertEquals(88, elfo.getVida());
-=======
 
         assertEquals(88, elfo.getVida(), 0.0);
->>>>>>> 91040aa0dba51792e602e20302333545a7270d20
     }
 
     @Test
@@ -170,22 +165,6 @@ public class ElfoTest
         Elfo elfo = new Elfo(null);
 
         orc.atacar(elfo);
-<<<<<<< HEAD
-        
-        assertEquals(92, elfo.getVida());
-    }
-    
-    @Test
-    public void elfoTotalDeElfos(){
-        int totalElfos = Elfo.getTotalDeElfos();
-        Elfo elf = new Elfo();
-        int esperado = totalElfos+1;
-        assertEquals(esperado , Elfo.getTotalDeElfos());
-    }
-    
-    
-    
-=======
 
         assertEquals(92, elfo.getVida(), 0.0);
     }
@@ -217,5 +196,4 @@ public class ElfoTest
         Elfo.resetaContador();
     }
     */
->>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 }

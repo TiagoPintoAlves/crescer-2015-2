@@ -1,8 +1,9 @@
 import java.util.*;
 
-public class ExercitoElfo{
-    HashMap<String, Elfo> exercitoElfo = new HashMap<>();
+public class ExercitoElfo implements EstrategiaDeAtaque{
+    HashMap<String, Elfo> exercitoElfo;
     HashMap<Status, ArrayList<Elfo>> statusElfo = new HashMap<>();
+    private EstrategiaDeAtaque estrategia = new EstrategiaGeneralElfo();
 
     public ExercitoElfo(){
         exercitoElfo = new HashMap<>();
@@ -10,7 +11,7 @@ public class ExercitoElfo{
 
     public void alistar(Elfo elfo ){
         boolean podeAlistar = elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
-        
+
         if(podeAlistar){
             this.exercitoElfo.put(elfo.getNome(), elfo);
         }
@@ -68,4 +69,8 @@ public class ExercitoElfo{
         return elfos;
     }
 
+    public void atacar(ArrayList<Elfo> ListaAtacantes, ArrayList<Dwarf> dwarves){
+    }
+    
+    
 }

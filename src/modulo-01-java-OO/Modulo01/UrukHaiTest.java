@@ -66,11 +66,7 @@ public class UrukHaiTest
         Orc orc = new UrukHai();
         orc.perderItem(new Item(1, "Espada"));
         Elfo legolas = new Elfo("Legolas");
-<<<<<<< HEAD
-        int vidaEsperada = 100;
-=======
         double vidaEsperada = 100;
->>>>>>> 91040aa0dba51792e602e20302333545a7270d20
         
         orc.atacar(legolas);
         

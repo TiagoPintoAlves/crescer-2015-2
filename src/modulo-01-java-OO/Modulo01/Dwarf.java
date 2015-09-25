@@ -26,11 +26,7 @@ public class Dwarf extends Personagem {
         } else if (numero > 100) {
 
             int dano = 10;
-<<<<<<< HEAD
-            int vidaAposFlechada = this.vida-dano;
-=======
             double vidaAposFlechada = this.vida-dano;
->>>>>>> 91040aa0dba51792e602e20302333545a7270d20
             if (vidaAposFlechada == 0) {
                 this.status = Status.MORTO;
             } 
