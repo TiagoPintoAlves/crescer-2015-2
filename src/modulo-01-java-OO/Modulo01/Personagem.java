@@ -2,8 +2,13 @@ import java.util.*;
 public class Personagem {
     protected String nome;
     protected Status status;
+<<<<<<< HEAD
     protected int vida;
     protected int experiencia;
+=======
+    protected int experiencia;
+    protected double vida;
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
     protected final Inventario inventario;
 
     public Personagem() {
@@ -27,7 +32,7 @@ public class Personagem {
         return this.experiencia;
     }
 
-    public int getVida() {
+    public double getVida() {
         return this.vida;
     }
 

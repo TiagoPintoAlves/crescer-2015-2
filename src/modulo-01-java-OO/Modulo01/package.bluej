@@ -257,6 +257,7 @@ dependency86.type=UsesDependency
 dependency9.from=ElfoTest
 dependency9.to=Status
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 objectbench.height=100
 objectbench.width=1318
 package.editor.height=571
@@ -265,6 +266,16 @@ package.editor.x=-8
 package.editor.y=-8
 package.numDependencies=86
 package.numTargets=26
+=======
+objectbench.height=76
+objectbench.width=1232
+package.editor.height=592
+package.editor.width=1152
+package.editor.x=0
+package.editor.y=23
+package.numDependencies=70
+package.numTargets=23
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
@@ -361,6 +372,7 @@ target15.naviview.expanded=false
 target15.showInterface=false
 target15.type=UnitTestTargetJunit4
 target15.typeParameters=
+<<<<<<< HEAD
 target15.width=150
 target15.x=1020
 target15.y=290
@@ -368,6 +380,15 @@ target16.editor.height=700
 target16.editor.width=1241
 target16.editor.x=36
 target16.editor.y=43
+=======
+target15.width=90
+target15.x=470
+target15.y=450
+target16.editor.height=700
+target16.editor.width=900
+target16.editor.x=0
+target16.editor.y=23
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 target16.height=50
 target16.name=ItemTest
 target16.naviview.expanded=false
@@ -429,6 +450,7 @@ target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
 target2.typeParameters=
+<<<<<<< HEAD
 target2.width=80
 target2.x=540
 target2.y=130
@@ -439,9 +461,17 @@ target20.editor.y=12
 target20.height=50
 target20.name=ElfoNoturno
 target20.naviview.expanded=false
+=======
+target2.width=110
+target2.x=510
+target2.y=270
+target20.height=50
+target20.name=TipoOrc
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 target20.showInterface=false
-target20.type=ClassTarget
+target20.type=EnumTarget
 target20.typeParameters=
+<<<<<<< HEAD
 target20.width=90
 target20.x=300
 target20.y=280
@@ -452,10 +482,23 @@ target21.editor.x=0
 target21.editor.y=0
 target21.height=50
 target21.name=ElfoVerde
+=======
+target20.width=80
+target20.x=540
+target20.y=10
+target21.association=DataTerceiraEraTest
+target21.editor.height=650
+target21.editor.width=1280
+target21.editor.x=0
+target21.editor.y=23
+target21.height=50
+target21.name=DataTerceiraEra
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 target21.naviview.expanded=false
 target21.showInterface=false
 target21.type=ClassTarget
 target21.typeParameters=
+<<<<<<< HEAD
 target21.width=80
 target21.x=180
 target21.y=240
@@ -527,6 +570,33 @@ target26.width=120
 target26.x=80
 target26.y=320
 target3.editor.height=714
+=======
+target21.width=120
+target21.x=60
+target21.y=300
+target22.editor.height=736
+target22.editor.width=1296
+target22.editor.x=-8
+target22.editor.y=-8
+target22.height=50
+target22.name=SnagaTest
+target22.naviview.expanded=true
+target22.showInterface=false
+target22.type=UnitTestTargetJunit4
+target22.typeParameters=
+target22.width=90
+target22.x=300
+target22.y=490
+target23.height=50
+target23.name=OrcTest
+target23.showInterface=false
+target23.type=UnitTestTargetJunit4
+target23.typeParameters=
+target23.width=80
+target23.x=360
+target23.y=110
+target3.editor.height=736
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 target3.editor.width=1296
 target3.editor.x=38
 target3.editor.y=11
@@ -550,6 +620,7 @@ target4.naviview.expanded=false
 target4.showInterface=false
 target4.type=UnitTestTargetJunit4
 target4.typeParameters=
+<<<<<<< HEAD
 target4.width=100
 target4.x=130
 target4.y=200
@@ -557,17 +628,33 @@ target5.editor.height=655
 target5.editor.width=900
 target5.editor.x=232
 target5.editor.y=35
+=======
+target4.width=80
+target4.x=290
+target4.y=400
+target5.editor.height=736
+target5.editor.width=1296
+target5.editor.x=-8
+target5.editor.y=-8
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 target5.height=50
 target5.name=ExercitoElfo
 target5.naviview.expanded=false
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
+<<<<<<< HEAD
 target5.width=90
 target5.x=130
 target5.y=360
 target6.association=ItemTest
 target6.editor.height=650
+=======
+target5.width=80
+target5.x=150
+target5.y=400
+target6.editor.height=730
+>>>>>>> 91040aa0dba51792e602e20302333545a7270d20
 target6.editor.width=1280
 target6.editor.x=0
 target6.editor.y=23
