@@ -73,5 +73,6 @@ public class ExercitoElfo {
     }
     
     public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
+        
     }
 }
