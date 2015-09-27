@@ -1,19 +1,20 @@
 import java.util.*;
 
-public class ExercitoElfo{
-    Map<String, Elfo> exercitoElfo;
-    Map<Status, ArrayList<Elfo>> statusElfo;
+public class ExercitoElfo {
+    HashMap<String, Elfo> exercitoElfo;
+    HashMap<Status, ArrayList<Elfo>> statusElfo = new HashMap<>();
+    private EstrategiaDeAtaque estrategia = new EstrategiaGeneralElfo();
 
     public ExercitoElfo(){
         exercitoElfo = new HashMap<>();
     }
 
-    public void alistarElfoVerde(ElfoVerde elfoVerde ){
-        exercitoElfo.put(elfoVerde.getNome(), elfoVerde);
-    }
+    public void alistar(Elfo elfo ){
+        boolean podeAlistar = elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
 
-    public void alistarElfoNoturno(ElfoNoturno elfoNoturno ){
-        exercitoElfo.put(elfoNoturno.getNome(), elfoNoturno);
+        if(podeAlistar){
+            this.exercitoElfo.put(elfo.getNome(), elfo);
+        }
     }
 
     public Elfo buscarElfoPorNome(String nome){
@@ -27,7 +28,6 @@ public class ExercitoElfo{
         Status statusVivo = Status.VIVO;
         Status statusMorto = Status.MORTO;
 
-        statusElfo = new HashMap<>();
         for(String nome : exercitoElfo.keySet()){
             Elfo elfo = exercitoElfo.get(nome);
 
@@ -69,4 +69,9 @@ public class ExercitoElfo{
         return elfos;
     }
 
+    public void atacar(ArrayList<Elfo> ListaAtacantes, ArrayList<Dwarf> dwarves){
+    }
+    
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
+    }
 }

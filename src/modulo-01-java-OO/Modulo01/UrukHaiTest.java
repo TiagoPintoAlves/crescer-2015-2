@@ -20,7 +20,7 @@ public class UrukHaiTest
         inventarioEsperado.adicionarItem(new Item(1, "Escudo Uruk-Hai"));
         inventarioEsperado.adicionarItem(new Item(1, "Espada"));
         
-        assertEquals(vidaEsperada, orc.getVida());
+        assertEquals(vidaEsperada, orc.getVida(), 0.0);
         assertEquals(inventarioEsperado, orc.getInventario());
     }
     
@@ -30,7 +30,7 @@ public class UrukHaiTest
         
         orc.levarAtaque();
         
-        assertEquals(144, orc.getVida());
+        assertEquals(144, orc.getVida(), 0.0);
     }
     
     @Test
@@ -41,7 +41,7 @@ public class UrukHaiTest
         
         orc.levarAtaque();
         
-        assertEquals(140, orc.getVida());
+        assertEquals(140, orc.getVida(), 0.0);
     }
     
     @Test
@@ -57,7 +57,7 @@ public class UrukHaiTest
         
         orc.atacar(anao);
         
-        assertEquals(102, anao.getVida());
+        assertEquals(102, anao.getVida(), 0.0);
         assertEquals(inventarioEsperado, orc.getInventario());
     }
     
@@ -66,12 +66,12 @@ public class UrukHaiTest
         Orc orc = new UrukHai();
         orc.perderItem(new Item(1, "Espada"));
         Elfo legolas = new Elfo("Legolas");
-        int vidaEsperada = 100;
+        double vidaEsperada = 100;
         
         orc.atacar(legolas);
         
         assertEquals(Status.FUGINDO, orc.getStatus());
-        assertEquals(vidaEsperada, legolas.getVida());
+        assertEquals(vidaEsperada, legolas.getVida(), 0.0);
     }
     
     @Test
@@ -81,7 +81,7 @@ public class UrukHaiTest
         
         urukHaiAlvo.receberAtaqueDoOrc(urukHaiAtacante);
         
-        assertEquals(urukHaiAlvo.getVida(), 144);
+        assertEquals(urukHaiAlvo.getVida(), 144, 0.0);
     }
     
     @Test
@@ -91,6 +91,6 @@ public class UrukHaiTest
         
         urukHaiAlvo.receberAtaqueDoOrc(snagaAtacante);
         
-        assertEquals(urukHaiAlvo.getVida(), 144);
+        assertEquals(urukHaiAlvo.getVida(), 144, 0.0);
     }
 }
