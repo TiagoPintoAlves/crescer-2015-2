@@ -5,7 +5,6 @@ public class EstrategiaGeneralElfo implements EstrategiaDeAtaque{
     
     public void atacar(ArrayList<Elfo> ListaAtacantes, ArrayList<Dwarf> dwarves){
         ordemDoUltimoAtaque.clear();
-        
         for(Elfo elfo : ListaAtacantes){
             ordemDoUltimoAtaque.add(elfo);
             for(Dwarf dwarf : dwarves){

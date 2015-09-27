@@ -69,10 +69,16 @@ public class ExercitoElfo {
         return elfos;
     }
 
-    public void atacar(ArrayList<Elfo> ListaAtacantes, ArrayList<Dwarf> dwarves){
+    public void atacar(ArrayList<Dwarf> alvos){
+        this.estrategia.atacar(new ArrayList<Elfo>(exercitoElfo.values()), alvos);
+    }
+
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
+        return estrategia.getOrdemDoUltimoAtaque();
+    }
+
+    public void mudarEstrategia(EstrategiaDeAtaque estrategia) {
+        this.estrategia = estrategia;
     }
     
-    public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
-        
-    }
 }
