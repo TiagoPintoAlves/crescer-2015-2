@@ -5,10 +5,9 @@ public class EstrategiaAntiNoturnos implements EstrategiaDeAtaque{
     public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
         return this.ordemDoUltimoAtaque;
     }
-    
+
     public void atacar(ArrayList<Elfo> ListaAtacantes, ArrayList<Dwarf> dwarves){
         ordemDoUltimoAtaque.clear();
-
         ArrayList<Elfo> vivos = new ArrayList<>();
         for(Elfo elfo : ListaAtacantes){
             if(elfo.getStatus() == Status.VIVO){
@@ -19,22 +18,21 @@ public class EstrategiaAntiNoturnos implements EstrategiaDeAtaque{
         int intencoesAtaque = vivos.size() * dwarves.size();
         int limiteElfosNoturnos = (int)(intencoesAtaque * 0.3);
         int qtdElfosNoturnosQueJáAtacaram = 0;
-        
+
         for( Elfo elfosVivos : vivos){
             boolean Noturnos = elfosVivos instanceof ElfoNoturno;
             if(Noturnos){
-               if(qtdElfosNoturnosQueJáAtacaram >= limiteElfosNoturnos){
+                if(qtdElfosNoturnosQueJáAtacaram >= limiteElfosNoturnos){
                     continue;
                 }
-               qtdElfosNoturnosQueJáAtacaram++;
+                qtdElfosNoturnosQueJáAtacaram++;
             }
-            
+
             ordemDoUltimoAtaque.add(elfosVivos);
             for(Dwarf dwarf : dwarves){
                 elfosVivos.atirarFlecha(dwarf);
             }
         }
     }
-    
-    
+
 }
