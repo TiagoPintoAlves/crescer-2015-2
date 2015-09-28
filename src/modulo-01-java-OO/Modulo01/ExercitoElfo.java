@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ExercitoElfo implements EstrategiaDeAtaque{
+public class ExercitoElfo {
     HashMap<String, Elfo> exercitoElfo;
     HashMap<Status, ArrayList<Elfo>> statusElfo = new HashMap<>();
     private EstrategiaDeAtaque estrategia = new EstrategiaGeneralElfo();
@@ -69,8 +69,16 @@ public class ExercitoElfo implements EstrategiaDeAtaque{
         return elfos;
     }
 
-    public void atacar(ArrayList<Elfo> ListaAtacantes, ArrayList<Dwarf> dwarves){
+    public void atacar(ArrayList<Dwarf> alvos){
+        this.estrategia.atacar(new ArrayList<Elfo>(exercitoElfo.values()), alvos);
     }
-    
+
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque(){
+        return estrategia.getOrdemDoUltimoAtaque();
+    }
+
+    public void mudarEstrategia(EstrategiaDeAtaque estrategia) {
+        this.estrategia = estrategia;
+    }
     
 }

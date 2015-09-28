@@ -9,7 +9,6 @@ public class ElfoNoturno extends Elfo
      * 
      * @param Orc orc que receberá a flechada.
      */
-    
     public void atirarFlecha(Dwarf dwarf) {
         super.atirarFlecha(dwarf);
         this.experiencia += 2;

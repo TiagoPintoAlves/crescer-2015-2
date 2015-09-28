@@ -1,6 +1,6 @@
 public class Orc extends Personagem{
-
     public Orc(){
+    
     }
     
     public void levarAtaque() {
