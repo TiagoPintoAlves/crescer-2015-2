@@ -178,6 +178,8 @@ public class ElfoTest
 
     @Test
     public void quandoCriaMuitosElfos() {
+        // ArrayList<Elfo> fixture = MontadorDeCenario.meVeAi5ElfosVerdes();
+        
         int esperado = 100;
         for (int i = 0; i < 100; i++) {
             new Elfo("Qualquer: " + i);
