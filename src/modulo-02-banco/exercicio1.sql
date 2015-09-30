@@ -1,6 +1,7 @@
+use CursoSQL;
 create table Governador(
         IDGovernador int IDENTITY not null,
-        Nome varchar(40) not null,
+        NomeGovernador varchar(40) not null,
         CidadeNatal varchar(40) ,
         DataNascimento datetime ,
         InicioMandato datetime not null,
@@ -18,9 +19,7 @@ insert into Governador values (5, 'José Egídio Gordilho de Barbuda', 'Chamusca',
 select * from Governador
 
 select
-    Nome, 
+    NomeGovernador, 
     DATEDIFF(year, DataNascimento, InicioMandato) as Idade_Inicio_Mandato, 
     DATEDIFF(month, InicioMandato, FimMandato) as Tempo_Mandato
 from Governador
-
-ALTER TABLE Governador ADD PRIMARY KEY (IDGovernador);
