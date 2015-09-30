@@ -17,7 +17,7 @@ insert into Governador values (5, 'José Egídio Gordilho de Barbuda', 'Chamusca',
 
 select * from Governador
 
-select 
+select
     Nome, 
     DATEDIFF(year, DataNascimento, InicioMandato) as Idade_Inicio_Mandato, 
     DATEDIFF(month, InicioMandato, FimMandato) as Tempo_Mandato
