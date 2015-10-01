@@ -52,14 +52,27 @@ from Cidade
 group by UF
 
 -- Questao 8)
-select	Nome 
+select	Nome,
+		count(1) as NomeRepetido,
+		UF,
+		count(1) as UFRepetido,
+		case when count(1) > 1 then Nome
+		else ''
+		end CidadesRepetidas
 from Cidade
-where UF = Nome
+group by Nome, UF
+having count(1) > 1
 
 -- Questao 9)
 select max(IDAssociado) + 1 as ProximoID
 from Associado
 
 -- Questao 10)
+Select	UF,
+		distinct,
+		Nome,
+		distinct
+into CidadeAux
+from Cidade
 
 -- Questao 11)
