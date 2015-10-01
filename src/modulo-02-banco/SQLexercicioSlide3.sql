@@ -1,5 +1,5 @@
 select * from Associado
-
+--Questao 1)
 select  substring(Nome, 0, charindex(' ', Nome)) as PrimeiroNome,
 		charindex(' ', Nome) primeiroEspaco,
 		Nome
@@ -20,7 +20,6 @@ from Empregado
 where DataAdmissao >= convert(datetime, '01/05/1980',103) and DataAdmissao <= convert(datetime, '20/01/1982',103);
 
 -- Questao 4)
-
 select Top 1 with ties
        Cargo,
 	   COUNT(1) as TotalEmpregados
@@ -29,10 +28,38 @@ Group By Cargo
 Order by TotalEmpregados Desc;
 
 -- Questao 5)
-
 select Nome
 from Associado
 where len(Nome) = select(max(len Nome))
 
---
+-- Questao 6)
+select Nome,
+	   DataNascimento,
+	   DateDiff(year, DataNascimento, getdate()) as IdadeAtual,
+	   DateDiff(year, DataNascimento, getdate()) - 50 as IdadeFaltando,
+	   case when DateDiff(year, DataNascimento, getdate()) - 50 < 0 then DateDiff(year, DataNascimento, getdate()) - 50 + 65
+			when DateDiff(year, DataNascimento, getdate()) - 50 > 0 then DateDiff(year, DataNascimento, getdate()) - (DateDiff(year, DataNascimento, getdate()) - 50)
+	   else null
+	end IdadeFuturo
+from Associado
 
+-- Questao 7)
+select * from Cidade
+
+select	UF,
+		count(1) as TotalDeCidades
+from Cidade
+group by UF
+
+-- Questao 8)
+select	Nome 
+from Cidade
+where UF = Nome
+
+-- Questao 9)
+select max(IDAssociado) + 1 as ProximoID
+from Associado
+
+-- Questao 10)
+
+-- Questao 11)
