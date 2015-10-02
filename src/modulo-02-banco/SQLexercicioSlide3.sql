@@ -1,3 +1,5 @@
+use CursoSQL
+
 select * from Associado
 --Questao 1)
 select  substring(Nome, 0, charindex(' ', Nome)) as PrimeiroNome,
@@ -33,15 +35,15 @@ from Associado
 where len(Nome) = select(max(len Nome))
 
 -- Questao 6)
+Set language portuguese
+
 select Nome,
 	   DataNascimento,
-	   DateDiff(year, DataNascimento, getdate()) as IdadeAtual,
-	   DateDiff(year, DataNascimento, getdate()) - 50 as IdadeFaltando,
-	   case when DateDiff(year, DataNascimento, getdate()) - 50 < 0 then DateDiff(year, DataNascimento, getdate()) - 50 + 65
-			when DateDiff(year, DataNascimento, getdate()) - 50 > 0 then DateDiff(year, DataNascimento, getdate()) - (DateDiff(year, DataNascimento, getdate()) - 50)
-	   else null
-	end IdadeFuturo
-from Associado
+	   --DateDiff(year, DataNascimento, getdate()) as IdadeAtual,
+	   --DateDiff(year, DataNascimento, getdate()) - 50 as IdadeFaltando,
+	   DATEADD(year, 50, DataNascimento) as Cinquenta_anos,
+	   DateName(weekday, DATEADD(year, 50, DataNascimento)) as Dia_Semana
+from Associado;
 
 -- Questao 7)
 select * from Cidade
@@ -51,28 +53,23 @@ select	UF,
 from Cidade
 group by UF
 
--- Questao 8) 
-select	Nome,
-		count(1) as NomeRepetido,
-		UF,
-		count(1) as UFRepetido,
-		case when count(1) > 1 then Nome
-		else ''
-		end CidadesRepetidas
+-- Questao 8)
+select	Nome, UF, count(1) as TotalRepetições
 from Cidade
 group by Nome, UF
-having count(1) > 1
+having count(1) > 1;
 
 -- Questao 9)
-select max(IDAssociado) + 1 as ProximoID
+select	ISNULL(max(IDAssociado), 0) + 1 as ProximoID
 from Associado
 
 -- Questao 10)
-Select	UF,
-		distinct,
-		Nome,
-		distinct
-into CidadeAux
+select * from CidadeAux
+
+insert into CidadeAux
+	(IDCidade, Nome, UF);
+select min(IDCidade) as Menor_IDCidade, Nome, UF
 from Cidade
+group by Nome, UF;
 
 -- Questao 11)
