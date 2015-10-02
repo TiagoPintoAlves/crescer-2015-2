@@ -23,11 +23,10 @@ from Associado a
 	left join Cidade c ON a.IDCidade = c.IDCidade;
 
 --Questao 3)
-select	c.UF as Estado,
-		c.Nome as NomeCidade,
-		Count(1) as totalCidade
-from Associado a
-where exists(select 1 
-			 from Cidade c 
-			 where a.IDCidade = c.IDCidade)
-group by c.UF, c.Nome
+
+select	c.UF, Count(1) as TotalCidade 
+from Cidade c
+where NOT EXISTS (Select 1
+				  from Associado a
+				  where a.IDCidade = c.IDCidade)
+group by c.UF
