@@ -51,7 +51,7 @@ select	UF,
 from Cidade
 group by UF
 
--- Questao 8)
+-- Questao 8) 
 select	Nome,
 		count(1) as NomeRepetido,
 		UF,
