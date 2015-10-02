@@ -1,7 +1,11 @@
+/*
+		Exercício 04 - SQL Server - Comandos SQL - parte 3 - DML
+*/
 use CursoSQL
 
-select * from Associado
 --Questao 1)
+select * from Associado
+
 select  substring(Nome, 0, charindex(' ', Nome)) as PrimeiroNome,
 		charindex(' ', Nome) primeiroEspaco,
 		Nome
@@ -30,9 +34,9 @@ Group By Cargo
 Order by TotalEmpregados Desc;
 
 -- Questao 5)
-select Nome
-from Associado
-where len(Nome) = select(max(len Nome))
+Select nome
+from   Associado
+where  LEN(Nome) = (select max(len(nome)) from associado);
 
 -- Questao 6)
 Set language portuguese
@@ -67,9 +71,17 @@ from Associado
 select * from CidadeAux
 
 insert into CidadeAux
-	(IDCidade, Nome, UF);
+	(IDCidade, Nome, UF)
 select min(IDCidade) as Menor_IDCidade, Nome, UF
 from Cidade
-group by Nome, UF;
+group by Nome, UF
 
 -- Questao 11)
+select	count(1) as TotalRepetições,
+		case when count(1) > 1 then '*'+Nome
+		else Nome
+		end cidadeRepitida
+from Cidade
+group by Nome, UF
+
+-- Questao 12)
