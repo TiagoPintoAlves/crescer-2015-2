@@ -34,9 +34,11 @@ Group By Cargo
 Order by TotalEmpregados Desc;
 
 -- Questao 5)
-Select nome
+Select top 1
+       LEN(Nome) as numero_caracteres, 
+       nome
 from   Associado
-where  LEN(Nome) = (select max(len(nome)) from associado);
+Order by numero_caracteres desc
 
 -- Questao 6)
 Set language portuguese
