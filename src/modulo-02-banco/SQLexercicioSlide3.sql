@@ -39,6 +39,12 @@ Select top 1
        nome
 from   Associado
 Order by numero_caracteres desc
+------------------------------------------------------------
+-- alternativa utilizando do MAX()
+Select	top 1
+		nome
+from   Associado
+where  LEN(Nome) = (select max(len(nome)) from associado);
 
 -- Questao 6)
 Set language portuguese
@@ -85,5 +91,3 @@ select	count(1) as TotalRepetições,
 		end cidadeRepitida
 from Cidade
 group by Nome, UF
-
--- Questao 12)
