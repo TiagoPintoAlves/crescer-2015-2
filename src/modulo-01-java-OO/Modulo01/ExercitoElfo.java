@@ -1,13 +1,9 @@
 import java.util.*;
 
 public class ExercitoElfo {
-    HashMap<String, Elfo> exercitoElfo;
+    HashMap<String, Elfo> exercitoElfo = new HashMap<>();
     HashMap<Status, ArrayList<Elfo>> statusElfo = new HashMap<>();
     private EstrategiaDeAtaque estrategia = new EstrategiaGeneralElfo();
-
-    public ExercitoElfo(){
-        exercitoElfo = new HashMap<>();
-    }
 
     public void alistar(Elfo elfo ){
         boolean podeAlistar = elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
