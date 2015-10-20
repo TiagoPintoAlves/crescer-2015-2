@@ -82,7 +82,7 @@ function somarPorTodosTitulos(clubes){
 //Exercicio 3
 
 function apenasOsMelhores(clubes){
-  return clubes.filter(function(elem){
-    return elem.titulos.length;
+  return clubes.filter(function(elem, index){
+    return elem.titulos[0].qtd > 18;
   })
 }
