@@ -21,17 +21,19 @@ function maiorTexto(array) {
 }
 
 //Exercicio 3
-function imprime(instrutor, funcao){
-  try {
-   funcao(instrutor);
-    for(i = 0; i < instrutor.length; i++){
-     console.log('olá querido instrutor:', instrutor[i]);
-    }
+function isFunction(funcao) {
+  return typeof funcao === 'function';
+};
 
-  } catch (e) {
-    console.log("TypeError: number is not a function");
+function imprime(instrutor, funcao){
+  if(isFunction(funcao)){
+    instrutor.forEach(funcao);
+  }else{
+    return TypeError(funcao);
   }
-}
+};
+
+
 
 //Exercicio 4
 function fiboSum(n){
