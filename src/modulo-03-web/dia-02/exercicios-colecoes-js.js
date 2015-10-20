@@ -33,15 +33,56 @@ var clubes = [
   }
 ];
 
+
 //Exercicio 1.A
-function filterByQtd(Array){
-  var maior = 0;
-  if(Array.titulos[0].qtd > maior){
-    maior = Array.titulos[0].qtd;
-  }
-  return maior;
+function ordenaPorNacionais(Array){
+  return Array.sort(function(x,y) {
+    return x.titulos[0].qtd < y.titulos[0].qtd;
+  });
+};
+
+//Exercicio 1.B
+function ordenaPorContinentais(Array){
+  return Array.sort(function(x,y) {
+    return x.titulos[1].qtd < y.titulos[1].qtd;
+  });
+};
+
+//Exercicio 1.C
+function ordenaPorMundiais(Array){
+  return Array.sort(function(x,y) {
+    return x.titulos[2].qtd < y.titulos[2].qtd;
+  });
+};
+
+
+//Exercicio2 Somatório de titulos
+//Exercicio 2.A
+function somaPorTitulos(index, clubes){
+  return clubes.reduce(function(acumulador, elemAtual){
+    return acumulador + elemAtual.titulos[index].qtd;
+  }, 0);
 }
 
-function ordenaPorNacionais(Array){
-  return Array.filter(filterByQtd).sort(byname);
+function somarPorNacionais(clubes){
+  return somaPorTitulos(0, clubes);
+}
+
+
+//Exercicio 2.B
+function somarPorContinentais(clubes){
+  return somaPorTitulos(1, clubes);
+}
+
+//Exercicio 2.C
+function somarPorTodosTitulos(clubes){
+  return somaPorTitulos(0, clubes) + somaPorTitulos(1, clubes) + somaPorTitulos(2, clubes) + somaPorTitulos(3, clubes);
+}
+
+//Exercicio 3
+
+function apenasOsMelhores(clubes){
+  return clubes.filter(function(elem){
+    return elem.titulos.length;
+  })
 }
