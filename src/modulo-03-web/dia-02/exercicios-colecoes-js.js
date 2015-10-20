@@ -4,10 +4,10 @@ function byname(time_a, time_b) {
     return time_a.nome < time_b.nome;
 }
 
-function filterByQtd(club){
+function filterByQtd(Array){
   var maior = 0;
-  if(club.titulos[0].qtd > maior){
-    maior = club.titulos[0].qtd;
+  if(Array.titulos[0].qtd > maior){
+    maior = Array.titulos[0].qtd;
   }
   return maior;
 }
