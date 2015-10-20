@@ -2,21 +2,21 @@
 //Exercicio 1
 function daisyGame(numero) {
    if(numero % 2 === 0){
-      console.log("Love me not");
-  }else if(numero % 2 !== 1){
-      console.log("Love me");
+      return "Love me not";
+  }else{
+      return "Love me"
   }
 }
 
 //Exercicio 2
 var array = ["Apple", "Banana", "Orange"];
-var maior = 0;
 function maiorTexto(array) {
-  for (i = 0; i < array.length; i++) {
-    if(array[i].length > maior){
-      maior = array[i];
+  var maiortxt = '';
+  for (var i = 0; i < array.length; i++) {
+    if(array[i].length > maiortxt.length){
+      maiortxt = array[i];
     }
-    console.log(maior);
+    return maiortxt;
   }
 }
 
