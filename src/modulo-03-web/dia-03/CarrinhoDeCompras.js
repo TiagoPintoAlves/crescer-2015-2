@@ -1,7 +1,6 @@
-
 function CarrinhoDeCompras(Item){
   this.Itens = [Item];
-}
+};
 
 CarrinhoDeCompras.prototype.addItem = function (nItem) {
   this.Itens.push(nItem);
@@ -24,6 +23,3 @@ CarrinhoDeCompras.prototype.atualizarQuantidade = function (sku, novaQuantia) {
     }
   }
 };
-
-
-//Teste para atualizarQuantidade:
