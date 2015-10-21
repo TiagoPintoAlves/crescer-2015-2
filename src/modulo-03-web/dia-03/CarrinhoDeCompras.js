@@ -1,4 +1,4 @@
-//Exercicio 1
+
 function CarrinhoDeCompras(Item){
   this.Itens = [Item];
 }
@@ -8,7 +8,9 @@ CarrinhoDeCompras.prototype.addItem = function (nItem) {
 };
 
 CarrinhoDeCompras.prototype.removeItem = function (SKU) {
-  this.Itens.forEach(function(elem, index, array){
-      array.splice(array.indexOf(SKU, 0), 1);
-  })
+  for (var i = 0, len = this.Itens.length ; i < len; i++) {
+    if(this.Itens[i].sku == SKU){
+      this.Itens.splice(i,1);
+    }
+  }
 };
