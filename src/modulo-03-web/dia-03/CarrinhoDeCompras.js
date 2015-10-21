@@ -36,3 +36,19 @@ CarrinhoDeCompras.prototype.valorTotal = function () {
 CarrinhoDeCompras.prototype.sortearDesconto = function () {
   return Math.random() < 0.4;
 };
+
+CarrinhoDeCompras.prototype.forcarCompra = function () {
+  var self = this;
+  if(!intervalo){
+    this.intervalo = setInterval(function(){
+      self.Itens.forEach(function(elem){
+        elem.valorUnitario += elem.valorUnitario * 0.1;
+      });
+    }, 5000);
+  }
+};
+
+CarrinhoDeCompras.prototype.concluirPedido = function () {
+  clearInterval(this.intervalo);
+  delete this.intervalo;
+};
