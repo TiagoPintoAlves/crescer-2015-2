@@ -1,5 +1,5 @@
-function CarrinhoDeCompras(){
-  this.Itens = [];
+function CarrinhoDeCompras(Itens){
+  this.Itens = Itens || [];
 };
 
 CarrinhoDeCompras.prototype.addItem = function (nItem) {
