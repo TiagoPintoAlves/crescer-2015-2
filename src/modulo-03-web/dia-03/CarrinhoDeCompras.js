@@ -1,5 +1,5 @@
-function CarrinhoDeCompras(Item){
-  this.Itens = [Item];
+function CarrinhoDeCompras(){
+  this.Itens = [];
 };
 
 CarrinhoDeCompras.prototype.addItem = function (nItem) {
@@ -22,4 +22,17 @@ CarrinhoDeCompras.prototype.atualizarQuantidade = function (sku, novaQuantia) {
       }).splice(i, 1, novaQuantia);
     }
   }
+};
+
+CarrinhoDeCompras.prototype.valorTotal = function () {
+    var somaSubTotal = this.Itens.map(function(elem){
+      return elem.calcularSubTotal();
+    }).reduce(function(acumulador, elem){
+      return acumulador + elem;
+    });
+  return somaSubTotal * (this.sortearDesconto()? 0.9:1);
+};
+
+CarrinhoDeCompras.prototype.sortearDesconto = function () {
+  return Math.random() < 0.4;
 };
