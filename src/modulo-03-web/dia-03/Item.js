@@ -1,8 +1,9 @@
-function Item(sku, descricao, quantidade, valorUnitario){
-  this.sku = sku;
-  this.descricao = descricao;
-  this.quantidade = quantidade;
-  this.valorUnitario = valorUnitario;
+function Item(options){
+  options = options || {};
+  options.sku = sku;
+  options.descricao = descricao;
+  options.quantidade = quantidade || 0;
+  options.valorUnitario = valorUnitario;
 };
 
 Item.prototype.calcularSubTotal = function () {

@@ -38,10 +38,9 @@ CarrinhoDeCompras.prototype.sortearDesconto = function () {
 };
 
 CarrinhoDeCompras.prototype.forcarCompra = function () {
-  var self = this;
-  if(!intervalo){
+  if(!this.intervalo){
     this.intervalo = setInterval(function(){
-      self.Itens.forEach(function(elem){
+      this.Itens.forEach(function(elem){
         elem.valorUnitario += elem.valorUnitario * 0.1;
       });
     }, 5000);
