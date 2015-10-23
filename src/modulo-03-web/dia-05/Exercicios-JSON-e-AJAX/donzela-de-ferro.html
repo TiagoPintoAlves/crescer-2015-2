@@ -1,0 +1,47 @@
+<!doctype>
+<html>
+  <head>
+    <title>Up the Irons !</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+      h2{
+        position: absolute;
+        display: block;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Up The Irons !</h2>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+      (function buscaAlbuns() {
+        $.get('https://api.spotify.com/v1/artists/6mdiAmATAx73kdxrNrnlao/albums?limit=50')
+        .done(function(data){
+          var img;
+          for (var i = 0, len = data.items.length; i < len; i++) {
+            data.items[i].images.forEach(function(elem){
+              if (elem.width == 300 && elem.height == 300) {
+                $('h2').append(
+                  $('<img>')
+                  .attr('src', elem.url)
+                )
+              }
+            });
+          }
+        });
+      })();
+
+
+
+
+
+
+
+    })
+    </script>
+  </body>
