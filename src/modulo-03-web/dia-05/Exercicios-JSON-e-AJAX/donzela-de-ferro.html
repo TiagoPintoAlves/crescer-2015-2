@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <style type="text/css">
       h2{
-        position: absolute;
         display: block;
         text-align: center;
         margin-left: auto;
@@ -16,6 +15,11 @@
   <body>
     <h2>Up The Irons !</h2>
 
+    <div>
+      <ul>
+
+      </ul>
+    </div>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
     $(function() {
@@ -26,9 +30,9 @@
           for (var i = 0, len = data.items.length; i < len; i++) {
             data.items[i].images.forEach(function(elem){
               if (elem.width == 300 && elem.height == 300) {
-                $('h2').append(
+                $('ul').append(
                   $('<img>')
-                  .attr('src', elem.url)
+                    .attr('src', elem.url)
                 )
               }
             });
