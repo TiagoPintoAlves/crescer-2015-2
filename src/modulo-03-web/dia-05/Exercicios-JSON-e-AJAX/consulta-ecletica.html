@@ -1,0 +1,67 @@
+<!doctype>
+<html>
+  <head>
+    <title>Exercicio 2 JSON e AJAX</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+    </style>
+  </head>
+  <body>
+
+    <input name="artista" type="text" placeholder="Digite o artista">
+    <button id="submit">Enviar</button>
+
+    <h2></h2>
+
+    <div>
+      <ul>
+      </ul>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+
+      $('#submit').click(function(){
+        var nome = $('input:text').val();
+
+        (function consultarSpotify() {
+          $.get('https://api.spotify.com/v1/search?q='+nome+'&type=artist')
+          .done(function(data){
+            var id = data.artists.items[0].id;
+
+            buscaAlbuns(id);
+          })
+        })();
+      }).empty();
+
+      function buscaAlbuns(id) {
+        $.get('https://api.spotify.com/v1/artists/'+id+'/albums?limit=50')
+        .done(function(data){
+          var albums = data.items;
+          albums.forEach(function(album) {
+            var img = album.images;
+            img.forEach(function(elem) {
+              if (elem.width === 300 && elem.height === 300) {
+                $('ul').append(
+                  $('<img>')
+                    .attr('src', elem.url)
+                )
+              }
+            })
+          });
+      });
+    };
+
+
+
+
+
+
+
+
+
+
+    })
+    </script>
+  </body>

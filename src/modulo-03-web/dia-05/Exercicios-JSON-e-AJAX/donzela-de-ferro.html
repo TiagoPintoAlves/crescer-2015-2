@@ -1,4 +1,4 @@
-<!doctype>
+<!doctype html>
 <html>
   <head>
     <title>Up the Irons !</title>
@@ -17,35 +17,37 @@
 
     <div>
       <ul>
-
       </ul>
     </div>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
-    $(function() {
-      (function buscaAlbuns() {
-        $.get('https://api.spotify.com/v1/artists/6mdiAmATAx73kdxrNrnlao/albums?limit=50')
-        .done(function(data){
-          var img;
-          for (var i = 0, len = data.items.length; i < len; i++) {
-            data.items[i].images.forEach(function(elem){
-              if (elem.width == 300 && elem.height == 300) {
-                $('ul').append(
-                  $('<img>')
-                    .attr('src', elem.url)
-                )
-              }
-            });
-          }
-        });
-      })();
 
+      window.onload = function() {
+        console.log('Carregou onload');
+      };
 
+      $(function() {
+        console.log('Carregou DOM');
+      });
 
+      $(function() {
+        (function buscaAlbuns() {
+          $.get('https://api.spotify.com/v1/artists/6mdiAmATAx73kdxrNrnlao/albums?limit=50')
+          .done(function(data){
+            for (var i = 0, len = data.items.length; i < len; i++) {
+              data.items[i].images.forEach(function(elem){
+                if (elem.width === 300 && elem.height === 300) {
+                  $('ul').append(
+                    $('<img>')
+                      .attr('src', elem.url)
+                  )
+                }
+              });
+            }
+          });
+        })();
 
-
-
-
-    })
+      })
     </script>
   </body>
+</html>
