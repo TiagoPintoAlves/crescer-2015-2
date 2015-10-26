@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +10,11 @@ namespace ConsoleApp
     {
         public string Nome { get; set; }
         public int Numero { get; set; }
+        
+        public Contato(string nome, int numero)
+        {
+            this.Nome = nome;
+            this.Numero = numero;
+        }
     }
 }
