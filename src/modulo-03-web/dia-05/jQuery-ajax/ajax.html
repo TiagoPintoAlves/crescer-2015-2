@@ -11,18 +11,20 @@
   </head>
   <body>
     <h2>Olá ajax!</h2>
-
+    
     <button id="btnConsultar">Consultar</button>
     <button id="btnInserir">Inserir</button>
 
     <section>
       <ul id="pessoas"></ul>
     </section>
-
+    
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
       $(function() {
+
         var urlPessoas = 'http://localhost:3000/pessoas';
+
         function consultarSpotify() {
           $.get('https://api.spotify.com/v1/search?query=megadeth&offset=0&limit=20&type=artist')
           .done(function(data) {
@@ -36,6 +38,7 @@
             });
           });
         };
+
         function consultarPessoas() {
           var $pessoas = $('#pessoas');
           $pessoas.html('');
@@ -49,14 +52,28 @@
         }
 
         $('#btnConsultar').click(consultarPessoas);
+
         $('#btnInserir').click(function() {
-          $.post(urlPessoas,
+          $.post(urlPessoas, 
             { nome: 'Novo aluno', idade: 666 }
           );
           consultarPessoas();
         });
-
+        
       });
     </script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
