@@ -16,5 +16,8 @@ namespace ConsoleApp.Testes
 
             Assert.AreEqual(agenda.QuantidadeContatos, 1);
         }
+
+        [TestMethod]
+        public 
     }
 }
