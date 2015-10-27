@@ -5,9 +5,12 @@ namespace ConsoleApp
 {
     public class Agenda
     {
-        private List<Contato> contatos = new List<Contato>();        
-
+        public List<Contato> contatos;
         public int QuantidadeContatos { get { return contatos.Count; } }
+
+        public Agenda(){
+          contatos = new List<Contato>();
+        }
 
         public void AdicionarContato(Contato contato)
         {
@@ -18,7 +21,7 @@ namespace ConsoleApp
         //{
         //    foreach (var contato in contatos)
         //    {
-        //        if (contato.Nome == nomeContato)
+        //        if(contato.Nome == nomeContato)
         //        {
         //            contatos.Remove(contato);
         //            break;
@@ -26,7 +29,7 @@ namespace ConsoleApp
         //    }
         //}
 
-        public void RemoverContato(string nomeContato)
+        public void RemoverContatosPorNome(string nomeContato)
         {
             var contatosASeremRemovidos = new List<Contato>();
 
@@ -42,46 +45,31 @@ namespace ConsoleApp
             }
         }
 
-        public void ListarContatos()
+        public void RemoverContatoPorNumero(int numeroContato)
         {
-            foreach (var contato in contatos)
-            {
-                Console.WriteLine(contato.Nome + "-" + contato.Numero);
-            }
-        }
-
-        public List<Contato> ListarContatosOrdenadoPorNome()
-        {
-            List<Contato> ordenar = this.contatos.OrderBy(x => x.);
-            return
-        }
-
-        public void RemoverContatoPorNumero(int numero)
-        {
-            var listaContatosRemovidos = new List<Contato>();
+            var listaNumerosRemovidos = new List<Contato>();
 
             for (int i = 0; i < contatos.Count; i++)
             {
-                if (contatos[i].Numero == numero)
-                    listaContatosRemovidos.Add(contatos[i]);
+                if (contatos[i].Numero == numeroContato)
+                    listaNumerosRemovidos.Add(contatos[i]);
             }
 
-            foreach (var contato in listaContatosRemovidos)
+            foreach (var contato in listaNumerosRemovidos)
             {
                 contatos.Remove(contato);
             }
         }
 
-        public void RemoverContatosPorNome(string nome)
+        public List<Contato> ListarContatos()
         {
-            var ListaNomesRemovido = new List<Contato>();
-            for (int i = 0; i < contatos.Count; i++)
-            {
-                if (contatos[i].Nome == nome)
-                {
-                    ListaNomesRemovido.Add(contatos[i]);
-                }
-            }
+            return contatos;
+        }
+
+        public List<Contato> ListarContatosOrdenadoPorNome()
+        {
+            var ListaOrdenada = contatos.OrderBy(contato => contato.Nome).ToList();
+            return ListaOrdenada;
         }
     }
 }

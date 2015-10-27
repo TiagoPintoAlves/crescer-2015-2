@@ -18,6 +18,51 @@ namespace ConsoleApp.Testes
         }
 
         [TestMethod]
-        public 
+        public void AgendaRemoveDoisContatosPorNumero()
+        {
+          var agenda = new Agenda();
+          var contato1 = new Contato() { Nome = "Júlio César", Numero = 977454545 };
+          var contato2 = new Contato() { Nome = "Ben Hur", Numero = 666 };
+          var contato3 = new Contato() { Nome = "Fabricio", Numero = 666 };
+          agenda.AdicionarContato(contato1);
+          agenda.AdicionarContato(contato2);
+          agenda.AdicionarContato(contato3);
+
+          agenda.RemoverContatosPorNumero(666);
+
+          Assert.AreEqual(agenda.QuantidadeContatos, 1);
+        }
+
+        [TestMethod]
+        public void AgendaRemoveDoisContatosPorNome()
+        {
+          var agenda = new Agenda();
+          var contato1 = new Contato() { Nome = "Júlio César", Numero = 977454545 };
+          var contato2 = new Contato() { Nome = "Fabricio", Numero = 666 };
+          var contato3 = new Contato() { Nome = "Fabricio", Numero = 1515515 };
+          agenda.AdicionarContato(contato1);
+          agenda.AdicionarContato(contato2);
+          agenda.AdicionarContato(contato3);
+
+          agenda.RemoverContatosPorNome("Fabricio");
+
+          Assert.AreEqual(agenda.QuantidadeContatos, 1);
+        }
+
+        [TestMethod]
+        public void AgendaListarTodosContatos()
+        {
+          var agenda = new Agenda();
+          var contato1 = new Contato() { Nome = "Júlio César", Numero = 977454545 };
+          var contato2 = new Contato() { Nome = "Ben Hur", Numero = 666 };
+          var contato3 = new Contato() { Nome = "Fabricio", Numero = 1515515 };
+          agenda.AdicionarContato(contato1);
+          agenda.AdicionarContato(contato2);
+          agenda.AdicionarContato(contato3);
+
+          agenda.ListarContatos();
+
+          Assert.AreEqual(agenda.QuantidadeContatos, 3);
+        }
     }
 }
