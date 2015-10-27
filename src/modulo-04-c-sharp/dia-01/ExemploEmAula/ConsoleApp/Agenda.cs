@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp
 {
@@ -45,7 +46,7 @@ namespace ConsoleApp
             }
         }
 
-        public void RemoverContatoPorNumero(int numeroContato)
+        public void RemoverContatosPorNumero(int numeroContato)
         {
             var listaNumerosRemovidos = new List<Contato>();
 

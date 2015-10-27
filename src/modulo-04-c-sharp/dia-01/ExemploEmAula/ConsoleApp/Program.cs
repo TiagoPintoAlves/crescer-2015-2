@@ -28,8 +28,8 @@ namespace ConsoleApp
                     break;
               case 2:
                       Console.WriteLine("Digite o numero do contato:");
-                      var numero = Convert.ToInt32(Console.ReadLine());
-                      agenda.RemoverContatoPorNumero(numero);
+                      var numeroRemover = Convert.ToInt32(Console.ReadLine());
+                      agenda.RemoverContatosPorNumero(numeroRemover);
                       Console.WriteLine("Contato Removido");
                     break;
               case 3:
@@ -47,7 +47,7 @@ namespace ConsoleApp
                       agenda.ListarContatosOrdenadoPorNome();
                     break;
               case 6:
-                      Console.clear();
+                      Console.Clear();
                     break;
             }
           } while(Escolha != 6);
