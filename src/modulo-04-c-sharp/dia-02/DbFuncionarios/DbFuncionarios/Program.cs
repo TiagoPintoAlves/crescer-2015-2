@@ -19,7 +19,7 @@ namespace DbFuncionarios
             //    Console.WriteLine(item.TituloCargo);
             //    Console.WriteLine();
             //}
-            
+
             Console.Read();
         }
 
@@ -71,7 +71,7 @@ namespace DbFuncionarios
             IEnumerable<Funcionario> query = from funcionario in funcionarios
                                              where funcionario.Id == id
                                              select funcionario;
-            
+
             //query = funcionarios.Where(f => f.Id == id).FirstOrDefault();
 
             return query.FirstOrDefault();
@@ -99,6 +99,51 @@ namespace DbFuncionarios
         {
             Console.WriteLine("Zorra Total");
         }
+
+
+        // Lista Exercícios Linq e Lambda:
+
+        static IList<Funcionario> OrdenadosPorCargo()
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          return funcionarios.OrderBy(funcionario => funcionario.Cargo.Titulo).ToList();
+        }
+
+        static IList<Funcionario> BuscarPorNome(string nome)
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          var query = from funcionario in funcionarios
+                      where funcionario.Nome.Contains(nome);
+                      select funcionario;
+
+          return query.ToList();
+        }
+
+        static IList<dynamic> BuscaRapida(string nome)
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          var query = from funcionario in funcionarios
+                      where funcionario.Nome == nome
+                      select new
+                      {
+                          NomeFuncionario = funcionario.Nome;
+                          TituloCargo = funcionario.Cargo.tituloCargo;
+                      }
+
+          return query.ToList();
+        }
+
+        public IList<Funcionario> BuscarPorTurno(TurnoTrabalho[] turno)
+        {
+
+        }
+
 
     }
 }
