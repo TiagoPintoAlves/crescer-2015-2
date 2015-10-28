@@ -117,7 +117,7 @@ namespace DbFuncionarios
           List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
           var query = from funcionario in funcionarios
-                      where funcionario.Nome.Contains(nome);
+                      where funcionario.Nome.Contains(nome)
                       select funcionario;
 
           return query.OrderBy(funcionario => funcionario.Nome).ToList();
@@ -128,13 +128,13 @@ namespace DbFuncionarios
           var baseDeDados = new BaseDeDados();
           List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-          IEnumerable<dynamic> query = from funcionario in funcionarios
-                              where funcionario.Nome == nome
-                              select new
-                              {
-                                  NomeFuncionario = funcionario.Nome,
-                                  TituloCargo = funcionario.Cargo.Titulo
-                              }
+            IEnumerable<dynamic> query = from funcionario in funcionarios
+                                         where funcionario.Nome == nome
+                                         select new
+                                         {
+                                             NomeFuncionario = funcionario.Nome,
+                                             TituloCargo = funcionario.Cargo.Titulo
+                                         };
 
           return query.ToList();
         }
@@ -144,9 +144,9 @@ namespace DbFuncionarios
           var baseDeDados = new BaseDeDados();
           List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-          IEnumerable<List> query = from funcionario in funcionarios
-                                    where turnos.Contains(funcionario.TurnoTrabalho)
-                                    select funcionario
+            IEnumerable<Funcionario> query = from funcionario in funcionarios
+                                      where turnos.Contains(funcionario.TurnoTrabalho)
+                                      select funcionario;
           return query.ToList();
         }
 
