@@ -120,7 +120,7 @@ namespace DbFuncionarios
                       where funcionario.Nome.Contains(nome);
                       select funcionario;
 
-          return query.ToList();
+          return query.OrderBy(funcionario => funcionario.Nome).ToList();
         }
 
         static IList<dynamic> BuscaRapida(string nome)
@@ -128,20 +128,26 @@ namespace DbFuncionarios
           var baseDeDados = new BaseDeDados();
           List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-          var query = from funcionario in funcionarios
-                      where funcionario.Nome == nome
-                      select new
-                      {
-                          NomeFuncionario = funcionario.Nome;
-                          TituloCargo = funcionario.Cargo.tituloCargo;
-                      }
+          IEnumerable<dynamic> query = from funcionario in funcionarios
+                              where funcionario.Nome == nome
+                              select new
+                              {
+                                  NomeFuncionario = funcionario.Nome,
+                                  TituloCargo = funcionario.Cargo.Titulo
+                              }
 
           return query.ToList();
         }
 
-        public IList<Funcionario> BuscarPorTurno(TurnoTrabalho[] turno)
+        public IList<Funcionario> BuscarPorTurno(TurnoTrabalho[] turnos)
         {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
+          IEnumerable<List> query = from funcionario in funcionarios
+                                    where turnos.Contains(funcionario.TurnoTrabalho)
+                                    select funcionario
+          return query.ToList();
         }
 
 
