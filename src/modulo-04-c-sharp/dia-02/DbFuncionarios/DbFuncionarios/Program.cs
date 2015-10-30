@@ -25,7 +25,7 @@ namespace DbFuncionarios
 
         static void Criarasdasd(int? id)
         {
-            if (id.HasValue)
+            if(id.HasValue)
             {
                 Console.WriteLine("Tem valor");
             }
@@ -105,28 +105,28 @@ namespace DbFuncionarios
 
         static IList<Funcionario> OrdenadosPorCargo()
         {
-            var baseDeDados = new BaseDeDados();
-            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-            return funcionarios.OrderBy(funcionario => funcionario.Cargo.Titulo).ToList();
+          return funcionarios.OrderBy(funcionario => funcionario.Cargo.Titulo).ToList();
         }
 
         static IList<Funcionario> BuscarPorNome(string nome)
         {
-            var baseDeDados = new BaseDeDados();
-            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-            var query = from funcionario in funcionarios
-                        where funcionario.Nome.Contains(nome)
-                        select funcionario;
+          var query = from funcionario in funcionarios
+                      where funcionario.Nome.Contains(nome)
+                      select funcionario;
 
-            return query.OrderBy(funcionario => funcionario.Nome).ToList();
+          return query.OrderBy(funcionario => funcionario.Nome).ToList();
         }
 
         static IList<dynamic> BuscaRapida(string nome)
         {
-            var baseDeDados = new BaseDeDados();
-            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
             IEnumerable<dynamic> query = from funcionario in funcionarios
                                          where funcionario.Nome == nome
@@ -136,33 +136,75 @@ namespace DbFuncionarios
                                              TituloCargo = funcionario.Cargo.Titulo
                                          };
 
-            return query.ToList();
+          return query.ToList();
         }
 
         public IList<Funcionario> BuscarPorTurno(TurnoTrabalho[] turnos)
         {
-            var baseDeDados = new BaseDeDados();
-            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
             IEnumerable<Funcionario> query = from funcionario in funcionarios
-                                             where turnos.Contains(funcionario.TurnoTrabalho)
-                                             select funcionario;
-            return query.ToList();
+                                      where turnos.Contains(funcionario.TurnoTrabalho)
+                                      select funcionario;
+          return query.ToList();
         }
 
-        public IList<dynamic> QtdFuncionariosPorTurno()
+        public IList<dynamic> QtdFuncionarioPorTurno()
         {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          IEnumerable<Funcionario> query = from funcionario in funcionarios
+                                           group funcionario by funcionario.TurnoTrabalho into turnos
+                                           select new
+                                           {
+                                             Turnos = turnos.Key,
+                                             Quantidade = turnos.Count()
+                                           }
+
+          return query.ToList();
+        }
+
+        public IList<Funcionario> BuscarPorCargo(Cargo cargo)
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          var query = funcionarios.Any(funcionario => funcionario.Cargo.Titulo == cargo.Titulo).ToList();
+          return query;
+        }
+
+        public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          var query = from funcionario in funcionarios
+                      where funcionario.DataNascimento.AddYear(5).Year >= DateTime.Now.AddYear(idade).Year && funcionario.DataNascimento.AddYear(-5).Year <= DateTime.Now.AddYear(-idade).Year
+                      select funcionario;
+
+          return query.ToList();
+
+          public double SalarioMedio(TurnoTrabalho? turno)
+          {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+            if(turno == null){
+
+            }
+          }
+
+          public IList<Funcionario> AniversariantesDoMes()
+          {
             var baseDeDados = new BaseDeDados();
             List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-            IEnumerable<dynamic> query = from funcionario in funcionarios
-                                         where funcionario.TurnoTrabalho == TurnoTrabalho.Manha
-                                         select new
-                                         {
-                                             Turnofuncionario = funcionario.TurnoTrabalho;
-                                             QuantidadeFuncionario = funcionarios.TurnoTrabalho
-                                         };
-            return query.ToList();
+            var Aniver = funcionarios.Where(funcionario => (funcionario.DataNascimento.Month) == (DateTime.Now.Month));
+            return Aniver.ToList();
+          }
+
+
         }
     }
 }
