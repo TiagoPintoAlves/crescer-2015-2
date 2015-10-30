@@ -155,13 +155,13 @@ namespace DbFuncionarios
           var baseDeDados = new BaseDeDados();
           List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-          IEnumerable<Funcionario> query = from funcionario in funcionarios
-                                           group funcionario by funcionario.TurnoTrabalho into turnos
-                                           select new
-                                           {
-                                             Turnos = turnos.Key,
-                                             Quantidade = turnos.Count()
-                                           }
+            IEnumerable<dynamic> query = from funcionario in funcionarios
+                        group funcionario by funcionario.TurnoTrabalho into turnos
+                        select new
+                        {
+                            Turnos = turnos.Key,
+                            Quantidade = turnos.Count()
+                        };
 
           return query.ToList();
         }
@@ -171,29 +171,21 @@ namespace DbFuncionarios
           var baseDeDados = new BaseDeDados();
           List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-          var query = funcionarios.Any(funcionario => funcionario.Cargo.Titulo == cargo.Titulo).ToList();
-          return query;
+          var query = funcionarios.Where(funcionario => funcionario.Cargo.Titulo == cargo.Titulo);
+          return query.ToList();
         }
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
-          var baseDeDados = new BaseDeDados();
-          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
-
-          var query = from funcionario in funcionarios
-                      where funcionario.DataNascimento.AddYear(5).Year >= DateTime.Now.AddYear(idade).Year && funcionario.DataNascimento.AddYear(-5).Year <= DateTime.Now.AddYear(-idade).Year
-                      select funcionario;
-
-          return query.ToList();
-
-          public double SalarioMedio(TurnoTrabalho? turno)
-          {
             var baseDeDados = new BaseDeDados();
             List<Funcionario> funcionarios = baseDeDados.Funcionarios;
-            if(turno == null){
 
-            }
-          }
+            var query = from funcionario in funcionarios
+                        where funcionario.DataNascimento.AddYears(5).Year >= DateTime.Now.AddYears(idade).Year && funcionario.DataNascimento.AddYears(-5).Year <= DateTime.Now.AddYears(-idade).Year
+                        select funcionario;
+
+            return query.ToList();
+        }
 
           public IList<Funcionario> AniversariantesDoMes()
           {
@@ -203,9 +195,6 @@ namespace DbFuncionarios
             var Aniver = funcionarios.Where(funcionario => (funcionario.DataNascimento.Month) == (DateTime.Now.Month));
             return Aniver.ToList();
           }
-
-
-        }
     }
 }
 
