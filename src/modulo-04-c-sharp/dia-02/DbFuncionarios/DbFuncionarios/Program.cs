@@ -200,8 +200,11 @@ namespace DbFuncionarios
             var baseDeDados = new BaseDeDados();
             List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
-            return var Aniver = funcionarios.where(funcionario => (funcionario.DataNascimento.Mounth) - (Date))
+            var Aniver = funcionarios.Where(funcionario => (funcionario.DataNascimento.Month) == (DateTime.Now.Month));
+            return Aniver.ToList();
           }
+
+
         }
     }
 }
