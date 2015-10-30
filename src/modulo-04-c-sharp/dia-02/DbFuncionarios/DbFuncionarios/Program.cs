@@ -150,7 +150,59 @@ namespace DbFuncionarios
           return query.ToList();
         }
 
+        public IList<dynamic> QtdFuncionarioPorTurno()
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
 
+          IEnumerable<Funcionario> query = from funcionario in funcionarios
+                                           group funcionario by funcionario.TurnoTrabalho into turnos
+                                           select new
+                                           {
+                                             Turnos = turnos.Key,
+                                             Quantidade = turnos.Count()
+                                           }
+
+          return query.ToList();
+        }
+
+        public IList<Funcionario> BuscarPorCargo(Cargo cargo)
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          var query = funcionarios.Any(funcionario => funcionario.Cargo.Titulo == cargo.Titulo).ToList();
+          return query;
+        }
+
+        public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
+        {
+          var baseDeDados = new BaseDeDados();
+          List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+          var query = from funcionario in funcionarios
+                      where funcionario.DataNascimento.AddYear(5).Year >= DateTime.Now.AddYear(idade).Year && funcionario.DataNascimento.AddYear(-5).Year <= DateTime.Now.AddYear(-idade).Year
+                      select funcionario;
+
+          return query.ToList();
+
+          public double SalarioMedio(TurnoTrabalho? turno)
+          {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+            if(turno == null){
+
+            }
+          }
+
+          public IList<Funcionario> AniversariantesDoMes()
+          {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            return var Aniver = funcionarios.where(funcionario => (funcionario.DataNascimento.Mounth) - (Date))
+          }
+        }
     }
 }
 
