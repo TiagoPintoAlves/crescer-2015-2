@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFuncionarios", "DbFuncionarios\DbFuncionarios.csproj", "{3044FE50-29C0-4EAA-B6D1-9EF7448244B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFuncionariosTests", "DbFuncionariosTests\DbFuncionariosTests.csproj", "{EF2A9972-C5FB-4D03-B57F-5E27E0F94F5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3044FE50-29C0-4EAA-B6D1-9EF7448244B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3044FE50-29C0-4EAA-B6D1-9EF7448244B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3044FE50-29C0-4EAA-B6D1-9EF7448244B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2A9972-C5FB-4D03-B57F-5E27E0F94F5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2A9972-C5FB-4D03-B57F-5E27E0F94F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2A9972-C5FB-4D03-B57F-5E27E0F94F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2A9972-C5FB-4D03-B57F-5E27E0F94F5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

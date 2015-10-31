@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace DbFuncionarios
 {
@@ -81,5 +82,99 @@ namespace DbFuncionarios
             margareteRicardo.TurnoTrabalho = TurnoTrabalho.Manha;
             Funcionarios.Add(margareteRicardo);
         }
+
+        // Lista Exercícios Linq e Lambda:
+
+        public IList<Funcionario> OrdenadosPorCargo()
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            return funcionarios.OrderBy(funcionario => funcionario.Cargo.Titulo).ToList();
+        }
+
+        public IList<Funcionario> BuscarPorNome(string nome)
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            var query = from funcionario in funcionarios
+                        where funcionario.Nome.Contains(nome)
+                        select funcionario;
+
+            return query.OrderBy(funcionario => funcionario.Nome).ToList();
+        }
+
+        public IList<dynamic> BuscaRapida()
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            IEnumerable<dynamic> query = from funcionario in funcionarios
+                                         select new
+                                         {
+                                             NomeFuncionario = funcionario.Nome,
+                                             TituloCargo = funcionario.Cargo.Titulo
+                                         };
+
+            return query.ToList();
+        }
+
+        public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            IEnumerable<Funcionario> query = from funcionario in funcionarios
+                                             where turnos.Contains(funcionario.TurnoTrabalho)
+                                             select funcionario;
+            return query.ToList();
+        }
+
+        public IList<dynamic> QtdFuncionarioPorTurno()
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            IEnumerable<dynamic> query = from funcionario in funcionarios
+                                         group funcionario by funcionario.TurnoTrabalho into turnos
+                                         select new
+                                         {
+                                             Turnos = turnos.Key,
+                                             Quantidade = turnos.Count()
+                                         };
+
+            return query.ToList();
+        }
+
+        public IList<Funcionario> BuscarPorCargo(Cargo cargo)
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            var query = funcionarios.Where(funcionario => funcionario.Cargo.Titulo == cargo.Titulo);
+            return query.ToList();
+        }
+
+        public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            var query = funcionarios.Where(funcionario => ((funcionario.DataNascimento.AddYears(5).Year) >= (DateTime.Now.AddYears(-idade).Year)) && ((funcionario.DataNascimento.AddYears(-5).Year) <= (DateTime.Now.AddYears(-idade)).Year)).ToList();
+
+
+            return query.ToList();
+        }
+
+        public IList<Funcionario> AniversariantesDoMes()
+        {
+            var baseDeDados = new BaseDeDados();
+            List<Funcionario> funcionarios = baseDeDados.Funcionarios;
+
+            var Aniver = funcionarios.Where(funcionario => (funcionario.DataNascimento.Month) == (DateTime.Now.Month));
+            return Aniver.ToList();
+        }
+
     }
 }
