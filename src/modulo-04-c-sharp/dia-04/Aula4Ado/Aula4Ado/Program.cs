@@ -20,18 +20,9 @@ namespace Aula4Ado
             using (TransactionScope transacao = new TransactionScope())
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                IDbCommand comando = connection.CreateCommand();
-                comando.CommandText = 
-                    "UPDATE Cargo SET Nome = @paramNome WHERE IDCargo = @paramIdCargo";
-
-                comando.AddParameter("paramNome", "Prefeito");
-                comando.AddParameter("paramIdCargo", "0 OR 1=1 --");
 
                 connection.Open();
 
-                int linhasAfetadas = comando.ExecuteNonQuery();
-                
-                transacao.Complete();
 
                 connection.Close();
             }
