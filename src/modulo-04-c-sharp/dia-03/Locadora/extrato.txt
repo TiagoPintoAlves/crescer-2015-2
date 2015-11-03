@@ -1,0 +1,16 @@
+                             LOCADORA NUNES GAMES                               
+28/10/2015                                                              14:27:35
+                              Relatório de jogos                                
+                                                                                
+================================================================================
+ID       Categoria        Nome                          Preço         Disponivel
+1        RPG              Chrono Trigger                R$ 60                SIM
+2        CORRIDA          Top Gear                      R$ 20                SIM
+3        AVENTURA         Super Metroid                 R$ 30                NÃO
+--------------------------------------------------------------------------------
+Quantidade total de jogos: 3
+Quantidade de jogos disponíveis: 2
+Valor médio por jogo: R$ 36,67
+Jogo mais caro: Chrono Trigger
+Jogo mais barato: Top Gear                                                      
+================================================================================
