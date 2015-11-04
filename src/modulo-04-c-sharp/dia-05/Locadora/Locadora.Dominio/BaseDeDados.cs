@@ -13,6 +13,11 @@ namespace Locadora.Dominio
     {
         const string CaminhoXML = @"C:\Users\vicente\Documents\Github-fork-crescer\src\modulo-04-c-sharp\dia-05\Locadora\game_store.xml";
 
+        public BaseDeDados()
+        {
+
+        }
+
         public void CadastrarJogo(Jogo jogo)
         {
             XElement jogoXML = XElement.Load(CaminhoXML);
@@ -124,7 +129,6 @@ namespace Locadora.Dominio
             string caminhoTXT = @"C:\Users\vicente\Documents\crescer-2015-2\src\modulo-04-c-sharp\dia-03\Locadora\extrato.txt";
             string nomeLocadora = "LOCADORA NUNES GAMES";
             string nomeRelatorio = "Relatorio de Jogos";
-            string cabecalhoLista = "ID".PadRight(10) + "Categoria".PadRight(10) + "Nome".PadRight(45) + "Preco".PadRight(10);
             using (StreamWriter writer = new StreamWriter(caminhoTXT))
             {
                 writer.WriteLine(nomeLocadora.PadLeft(40));
@@ -132,7 +136,7 @@ namespace Locadora.Dominio
                 writer.WriteLine(nomeRelatorio.PadLeft(40));
                 writer.WriteLine("");
                 writer.WriteLine("==========================================================================");
-                writer.WriteLine(cabecalhoLista);
+                writer.WriteLine("ID".PadRight(10) + "Categoria".PadRight(10) + "Nome".PadRight(45) + "Preco".PadRight(10));
                 writer.WriteLine(lista);
                 writer.WriteLine("--------------------------------------------------------------------------");
                 writer.WriteLine("Quantidade total de jogos: " + totalDeJogos);
