@@ -10,6 +10,10 @@ namespace Locadora.UI
     {
         static void Main(string[] args)
         {
+            //const int CADASTRAR = 1;
+            //const int EDITAR = 2;
+            //const int PESQUISAR = 3;
+            //const int EXPORTAR_RELATORIO = 4;
         }
     }
 }

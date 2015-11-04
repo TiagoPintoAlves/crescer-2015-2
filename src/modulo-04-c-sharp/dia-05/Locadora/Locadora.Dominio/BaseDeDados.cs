@@ -9,10 +9,9 @@ using System.Xml.Serialization;
 
 namespace Locadora.Dominio
 {
-    class BaseDeDados
+    public class BaseDeDados
     {
-        const string CaminhoXML = @"C:\Users\vicente\Documents\crescer-2015-2\src\modulo-04-c-sharp\dia-03\Locadora\game_store.xml";
-
+        const string CaminhoXML = @"C:\Users\vicente\Documents\Github-fork-crescer\src\modulo-04-c-sharp\dia-05\Locadora\game_store.xml";
 
         public void CadastrarJogo(Jogo jogo)
         {
@@ -29,12 +28,17 @@ namespace Locadora.Dominio
             jogoXML.Save(CaminhoXML);
         }
 
-        public IEnumerable<XElement> PesquisarPorNome(string nome)
+        public List<Jogo> PesquisarPorNome(string nome)
         {
             XElement XMLjogos = XElement.Load(CaminhoXML);
 
-            var resultado = XMLjogos.Elements("jogo").Where(jogo => jogo.Element("nome").Value.Contains(nome));
-            return resultado.ToList();
+            IEnumerable<XElement> resultado = XMLjogos.Elements("jogo").Where(jogo => jogo.Element("nome").Value.Contains(nome)).ToList();
+            List<Jogo> jogos = new List<Jogo>();
+            foreach (var jogo in resultado)
+            {
+                jogos.Add(XMLToJogo(jogo));
+            }
+            return jogos;
         }
 
         public int TotalJogos()
@@ -48,7 +52,7 @@ namespace Locadora.Dominio
         {
             var jogo = new Jogo(elemXML.Element("nome").Value,
                     double.Parse(elemXML.Element("preco").Value, System.Globalization.CultureInfo.InvariantCulture),
-                    (elemXML.Element("categoria").Value).ToString());
+                    (Categoria) Enum.Parse(typeof(Categoria), elemXML.Element("categoria").Value));
             return jogo;
         }
 
@@ -76,6 +80,20 @@ namespace Locadora.Dominio
             jogoXML.Save(CaminhoXML);
         }
 
+        public XElement ToXElement(Jogo j)
+        {
+            XElement jogo = new XElement("Jogo");
+            jogo.SetAttributeValue("id", j.Id);
+            XElement nome = new XElement("Nome", j.Nome);
+            XElement preco = new XElement("Preco", j.Preco);
+            XElement categoria = new XElement("Categoria", j.Categoria.ToString());
+            XElement disponibilidade = new XElement("Disponibilidade", j.Disponibilidade);
+            jogo.Add(nome);
+            jogo.Add(preco);
+            jogo.Add(categoria);
+            jogo.Add(disponibilidade);
+            return jogo;
+        }
 
         public void gerarRelatorio()
         {
