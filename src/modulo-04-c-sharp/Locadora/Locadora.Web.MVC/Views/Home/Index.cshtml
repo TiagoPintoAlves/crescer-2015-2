@@ -1,8 +1,21 @@
 ﻿@{
-    ViewBag.Title = "Página Inicial";
+    ViewBag.Title = "Home";
 }
 
-<h2>Locadora CWI Crescer</h2>
-
-<a href="/Relatorio/JogosDisponiveis">Jogos Disponíveis</a>
-
+<!DOCTYPE html>
+<html>
+<body style="background-color: black">
+    <div class="container">
+        <header>
+            <div style="text-align: center">
+                <h2 style="color:blue">GameSharks <a style="color: green">B</a><a style="color: yellow">R</a></h2>
+                <p style="color: white">Uma breve descrição.</p>
+            </div>
+        </header>
+        <div style="text-align: center">
+            <img src="~/Content/imagem/gameshark.png" width="450" height="450">
+        </div>
+        <button style="text-align:center" href="~/Views/Relatorio/JogosDisponiveis.cshtml">Relatorio de Jogos</button>
+    </div>
+</body>
+</html>

@@ -1,4 +1,5 @@
-﻿using Locadora.Web.MVC.Models;
+﻿using Locadora.Dominio;
+using Locadora.Web.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,16 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class RelatorioController : Controller
     {
+        public RelatorioModel model = new RelatorioModel();
+
         public ActionResult JogosDisponiveis()
         {
-            var model = new List<JogoModel>()
+            List<Jogo> jogos = new List<Jogo>();
+
+            foreach (var jogo in model.Jogos)
             {
-                new JogoModel() { Id = 1, Nome = "Teste", Preco = 9.9m, Categoria="RPG" },
-                new JogoModel() { Id = 1, Nome = "dasd", Preco = 5m, Categoria="Aventura" },
-                new JogoModel() { Id = 1, Nome = "dasda", Preco = 10m, Categoria="RPG" }
-            };
+                //model.Add(jogo.Nome, jogo.Preco, jogo.Categoria.ToString());
+            }
 
             return View(model);
         }
