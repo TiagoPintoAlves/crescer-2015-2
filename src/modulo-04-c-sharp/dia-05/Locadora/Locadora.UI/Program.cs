@@ -23,7 +23,7 @@ namespace Locadora.UI
             do{
                 Console.Clear();
                 Console.WriteLine("Digite uma opção");
-                Console.WriteLine("1- Cadastrar Jogo \n 2- Editar Nome \n 3- Editar Preco \n 4- Editar Categoria \n 5- Pesquisar por nome \n 6- Imprimir Relatorio");
+                Console.WriteLine(" 1- Cadastrar Jogo \n 2- Editar Nome \n 3- Editar Preco \n 4- Editar Categoria \n 5- Pesquisar por nome \n 6- Imprimir Relatorio");
                 int menu = int.Parse(Console.ReadLine());
 
                 switch (menu)
