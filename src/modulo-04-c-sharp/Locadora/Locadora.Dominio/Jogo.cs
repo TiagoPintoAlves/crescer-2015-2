@@ -12,6 +12,14 @@ namespace Locadora.Dominio
 
         public Categoria Categoria { get; set; }
 
+        public string Descricao { get; set; }
+
+        public string Selo { get; set; }
+
+        public string Imagem { get; set; }
+
+        public string Video { get; set; }
+
         public int? IdClienteLocacao { get; private set; }
         
         public Jogo()
