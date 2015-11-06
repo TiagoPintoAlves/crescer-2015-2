@@ -12,11 +12,12 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class RelatorioController : Controller
     {
+        private IJogoRepositorio JogosRepositorio = new Repositorio.ADO.JogoRepositorio();
+
         public ActionResult JogosDisponiveis()
         {
             RelatorioModel model = new RelatorioModel();
 
-            IJogoRepositorio JogosRepositorio = new Repositorio.ADO.JogoRepositorio();
             List<Jogo> BaseDeJogos = JogosRepositorio.BuscarTodos().ToList();
 
             decimal somatorio = 0;

@@ -1,5 +1,4 @@
 ﻿@model RelatorioModel
-
 @{
     ViewBag.Title = "Jogos Disponiveis";
 }
@@ -7,13 +6,13 @@
 <h2>Jogos Disponiveis</h2>
 
 <table class="table">
-    <tr>
-        <thread>
+    <thread>
+        <tr>
             <td>Nome</td>
             <td>Categoria</td>
             <td>Preço</td>
-        </thread>
-    </tr>
+        </tr>
+    </thread>
 
     <tbody>
         @foreach (var jogo in Model.Jogos)
@@ -22,12 +21,14 @@
                 <td>@jogo.Nome</td>
                 <td>@jogo.Categoria</td>
                 <td>@jogo.Preco</td>
+                <td>@Html.ActionLink("Detalhes", "DetalheJogo/"+jogo.Id, "Jogo")</td>
             </tr>
         }
     </tbody>
+
     <tfoot>
         <tr>
-            <td>Quantidade Total de Jogos: @Model.QuantidadeTotal</td>
+            <td>Quantidade Total: @Model.QuantidadeTotal</td>
         </tr>
         <tr>
             <td>Média de Preço por Jogo: @Model.ValorMedioJogos</td>

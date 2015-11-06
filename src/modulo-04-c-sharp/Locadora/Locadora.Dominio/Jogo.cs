@@ -10,15 +10,15 @@ namespace Locadora.Dominio
 
         public decimal Preco { get; set; }
 
-        public Categoria Categoria { get; set; }
-
         public string Descricao { get; set; }
 
-        public string Selo { get; set; }
+        public Selo Selo { get; set; }
 
         public string Imagem { get; set; }
 
         public string Video { get; set; }
+
+        public Categoria Categoria { get; set; }
 
         public int? IdClienteLocacao { get; private set; }
         
