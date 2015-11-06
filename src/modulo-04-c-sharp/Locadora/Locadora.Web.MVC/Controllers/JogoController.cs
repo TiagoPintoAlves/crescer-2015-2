@@ -10,21 +10,37 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class JogoController : Controller
     {
-        private IJogoRepositorio JogosRepositorio = new Repositorio.ADO.JogoRepositorio();
+        private IJogoRepositorio JogoRepositorio = new Repositorio.ADO.JogoRepositorio();
  
         public ActionResult DetalheJogo(int id)
         {
-            var jogo = JogosRepositorio.BuscarPorId(id);
+            var jogo = JogoRepositorio.BuscarPorId(id);
 
-            var model = new JogoFullPropModel(jogo.Nome, 
-                                              jogo.Preco, 
-                                              jogo.Categoria.ToString(),
-                                              jogo.Descricao,
-                                              jogo.Selo.ToString(),
-                                              jogo.Imagem, jogo.Video) 
-                                              { id = jogo.Id };
-
+            JogoPropriedadeModel model = new JogoPropriedadeModel(jogo.Nome, 
+                                                                  jogo.Preco, 
+                                                                  jogo.Categoria.ToString(),
+                                                                  jogo.Descricao,
+                                                                  jogo.Selo.ToString(),
+                                                                  jogo.Imagem, 
+                                                                  jogo.Video) 
+                                                                  { id = jogo.Id };
             return View(model);
         }
+
+        public ActionResult Manter(int? id)
+        {
+            if (id.HasValue)
+            {
+                var model = JogoRepositorio.Criar();
+
+                return View(model);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿@model RelatorioModel
+
 @{
     ViewBag.Title = "Jogos Disponiveis";
 }
@@ -20,8 +21,9 @@
             <tr>
                 <td>@jogo.Nome</td>
                 <td>@jogo.Categoria</td>
-                <td>@jogo.Preco</td>
-                <td>@Html.ActionLink("Detalhes", "DetalheJogo/"+jogo.Id, "Jogo")</td>
+                <td>@jogo.Preco.ToString("c")</td>
+                @*<td>@Html.ActionLink("Detalhes", "DetalheJogo/"+jogo.Id, "Jogo")</td>*@
+                <td>@Html.ActionLink("Detalhes", "DetalheJogo/"+ new { id = jogo.Id }, "Jogo")</td>
             </tr>
         }
     </tbody>
