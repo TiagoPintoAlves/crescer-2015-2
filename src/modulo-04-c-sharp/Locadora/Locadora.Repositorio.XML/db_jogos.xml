@@ -1,32 +1,52 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?> 
 <jogos>
   <jogo id="1">
     <nome>Chrono Trigger</nome>
     <preco>60</preco>
+    <descricao>No Message</descricao>
+    <selo>Bronze</selo>
+    <imagem></imagem>
+    <video></video>
     <categoria>RPG</categoria>
     <id_cliente_locacao></id_cliente_locacao>
   </jogo>
   <jogo id="2">
     <nome>Top Gear</nome>
     <preco>20</preco>
+    <descricao>No Message</descricao>
+    <selo>Bronze</selo>
+    <imagem></imagem>
+    <video></video>
     <categoria>CORRIDA</categoria>
     <id_cliente_locacao></id_cliente_locacao>
   </jogo>
   <jogo id="3">
     <nome>Megaman X</nome>
     <preco>40</preco>
+    <descricao>No Message</descricao>
+    <selo>Bronze</selo>
+    <imagem></imagem>
+    <video></video>
     <categoria>AVENTURA</categoria>
     <id_cliente_locacao></id_cliente_locacao>
   </jogo>
   <jogo id="4">
     <nome>Super Metroid</nome>
     <preco>35</preco>
+    <descricao>No Message</descricao>
+    <selo>Bronze</selo>
+    <imagem></imagem>
+    <video></video>
     <categoria>AVENTURA</categoria>
     <id_cliente_locacao></id_cliente_locacao>
   </jogo>
   <jogo id="5">
     <nome>Donkey Kong Country</nome>
     <preco>25</preco>
+    <descricao>No Message</descricao>
+    <selo>Bronze</selo>
+    <imagem></imagem>
+    <video></video>
     <categoria>AVENTURA</categoria>
     <id_cliente_locacao></id_cliente_locacao>
   </jogo>
