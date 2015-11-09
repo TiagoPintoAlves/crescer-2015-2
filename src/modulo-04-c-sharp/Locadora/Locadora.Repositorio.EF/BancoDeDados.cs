@@ -38,12 +38,13 @@ namespace Locadora.Repositorio.EF
             Property(p => p.Nome).IsRequired();
             Property(p => p.Preco).IsRequired();
             Property(p => p.Descricao).IsRequired();
+            Property(p => p.Selo).IsRequired().HasColumnName("IdSelo");
             Property(p => p.Imagem).IsOptional();
             Property(p => p.Video).IsOptional();
+            Property(p => p.Categoria).IsRequired().HasColumnName("IdCategoria");
 
-            HasOptional(p => p.Cliente).WithRequired().Map(m => m.MapKey("IdClienteLocacao"));
-            //HasRequired(p =>p.Categoria).WithOptional().Map(m => m.MapKey("IdCategoria"));
-            //HasRequired(p => p.Selo).WithOptional().Map(m => m.MapKey("IdSelo"));
+            HasOptional(p => p.ClienteLocacao).WithRequired().Map(m => m.MapKey("IdClienteLocacao"));
+
         }
     }
 

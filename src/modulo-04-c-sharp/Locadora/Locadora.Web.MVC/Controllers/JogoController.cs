@@ -67,16 +67,9 @@ namespace Locadora.Web.MVC.Controllers
 
         private ManterModel JogoParaManterModel(Jogo jogo)
         {
-            return new ManterModel()
+            return new ManterModel(jogo)
             {
-                Id = jogo.Id,
-                Nome = jogo.Nome,
-                Categoria = jogo.Categoria,
-                Preco = jogo.Preco,
-                Descricao = jogo.Descricao,
-                Selo = jogo.Selo,
-                Imagem = jogo.Imagem,
-                Video = jogo.Video
+                Id = jogo.Id
             };
         }
 

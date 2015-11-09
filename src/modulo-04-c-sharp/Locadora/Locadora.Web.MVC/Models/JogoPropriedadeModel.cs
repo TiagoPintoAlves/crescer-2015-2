@@ -21,13 +21,13 @@ namespace Locadora.Web.MVC.Models
 
         public JogoPropriedadeModel(Jogo jogo)
         {
-            Nome = jogo.Nome;
-            Preco = jogo.Preco;
-            Descricao = jogo.Descricao;
-            Categoria = jogo.Categoria;
-            Selo = jogo.Selo;
-            Imagem = (string.IsNullOrEmpty(jogo.Imagem) ? "~/Content/imagem/img_not_found.gif" : jogo.Imagem);
-            Video = jogo.Video;
+            this.Nome = jogo.Nome;
+            this.Preco = jogo.Preco;
+            this.Descricao = jogo.Descricao;
+            this.Categoria = jogo.Categoria;
+            this.Selo = jogo.Selo;
+            this.Imagem = (string.IsNullOrEmpty(jogo.Imagem) ? "~/Content/imagem/img_not_found.gif" : jogo.Imagem);
+            this.Video = jogo.Video;
         }
     }
 }
