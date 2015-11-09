@@ -39,7 +39,7 @@ namespace Locadora.Repositorio.ADO
                 comando.AddParam("paramImagem", entidade.Imagem);
                 comando.AddParam("paramVideo", entidade.Video);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
-                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramIdClienteLocacao", entidade.Cliente.Id);
                 comando.AddParam("paramId", entidade.Id);
 
                 conexao.Open();
@@ -109,7 +109,7 @@ namespace Locadora.Repositorio.ADO
                 comando.AddParam("paramImagem", entidade.Imagem);
                 comando.AddParam("paramVideo", entidade.Video);
                 comando.AddParam("paramCategoria", (int)entidade.Categoria);
-                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramIdClienteLocacao", entidade.Cliente.Id);
 
                 conexao.Open();
                 return comando.ExecuteNonQuery();

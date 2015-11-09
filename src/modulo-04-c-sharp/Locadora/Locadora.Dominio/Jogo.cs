@@ -6,6 +6,8 @@ namespace Locadora.Dominio
 {
     public class Jogo : EntidadeBase
     {
+        private int? idClienteLocacao;
+
         public string Nome { get; set; }
 
         public decimal Preco { get; set; }
@@ -20,22 +22,33 @@ namespace Locadora.Dominio
 
         public Categoria Categoria { get; set; }
 
-        public int? IdClienteLocacao { get; private set; }
+        public Cliente Cliente { get; private set; }
         
         public Jogo()
         {
 
         }
 
-        public Jogo(int id, int? idClienteLocacao = null)
+        public Jogo(int id, Cliente cliente)
         {
             this.Id = id;
-            this.IdClienteLocacao = idClienteLocacao;
+            this.Cliente = cliente;
+        }
+
+        public Jogo(int id, int? idClienteLocacao)
+        {
+            Id = id;
+            this.idClienteLocacao = idClienteLocacao;
+        }
+
+        public Jogo(int id)
+        {
+            Id = id;
         }
 
         public void LocarPara(Cliente cliente)
         {
-            this.IdClienteLocacao = cliente.Id;
+            this.Cliente = cliente;
         }
 
         public override string ToString()
@@ -64,7 +77,7 @@ namespace Locadora.Dominio
                     && this.Nome == jogoComp.Nome
                     && this.Preco == jogoComp.Preco
                     && this.Categoria == jogoComp.Categoria
-                    && this.IdClienteLocacao == jogoComp.IdClienteLocacao;
+                    && this.Cliente.Id == jogoComp.Cliente.Id;
             }
 
             return false;
