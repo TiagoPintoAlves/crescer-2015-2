@@ -14,32 +14,39 @@ namespace Locadora.Web.MVC.Controllers
     {
         private IJogoRepositorio JogosRepositorio = new Repositorio.ADO.JogoRepositorio();
 
-        public ActionResult JogosDisponiveis()
+        public ActionResult JogosDisponiveis(string nome)
         {
             RelatorioModel model = new RelatorioModel();
 
-            List<Jogo> BaseDeJogos = JogosRepositorio.BuscarTodos().ToList();
-
-            decimal somatorio = 0;
-
-            foreach (var jogo in BaseDeJogos)
+            try
             {
-                JogoModel jogoModels = new JogoModel();
-                jogoModels.Nome = jogo.Nome;
-                jogoModels.Preco = jogo.Preco;
-                jogoModels.Categoria = jogo.Categoria.ToString();
+                bool verificarNome = string.IsNullOrEmpty(nome);
+                var resultado = (verificarNome)? JogosRepositorio.BuscarTodos() : JogosRepositorio.BuscarPorNome(nome);
 
-                somatorio += jogo.Preco;
-                model.Jogos.Add(jogoModels);
+                decimal somatorio = 0;
+
+                foreach (var jogo in resultado)
+                {
+                    JogoModel jogoModels = new JogoModel(jogo.Nome, jogo.Preco, jogo.Categoria.ToString()) { Id = jogo.Id };
+
+                    somatorio += jogo.Preco;
+                    model.Jogos.Add(jogoModels);
+                }
+
+                model.QuantidadeTotal = model.Jogos.Count;
+                model.ValorMedioJogos = somatorio / model.QuantidadeTotal;
+
+                model.JogoMaisCaro = model.Jogos.FirstOrDefault(jogo => jogo.Preco == model.Jogos.Max(j => j.Preco)).Nome;
+                model.JogoMaisBarato = model.Jogos.FirstOrDefault(jogo => jogo.Preco == model.Jogos.Min(j => j.Preco)).Nome;
+
+                return View(model);
             }
-
-            model.QuantidadeTotal = model.Jogos.Count;
-            model.ValorMedioJogos = somatorio / model.QuantidadeTotal;
-
-            model.JogoMaisCaro = model.Jogos.FirstOrDefault(jogo => jogo.Preco == model.Jogos.Max(j => j.Preco)).Nome;
-            model.JogoMaisBarato = model.Jogos.FirstOrDefault(jogo => jogo.Preco == model.Jogos.Min(j => j.Preco)).Nome;
-
-            return View(model);
+            catch
+            {
+                TempData["Mensagem"] = "Nenhum jogo Encontrado";
+                return View();
+            }
+            
         }
     }
 }

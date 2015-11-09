@@ -2,8 +2,7 @@
     ViewBag.Title = "Home";
 }
 
-<!DOCTYPE html>
-<html>
+
 <body style="background-color: black">
     <div class="container">
         <header>
@@ -12,9 +11,16 @@
                 <p style="color: white">Uma breve descrição.</p>
             </div>
         </header>
+
+        <form action="@Url.Action("JogosDisponiveis", "Relatorio")" method="get">
+            <label style="color: white" for="nome">Pesquisa por nome: </label>
+            <input type="text" name="nome" value="" />
+
+            <input type="submit" value="Pesquisar" />
+        </form>
+
         <div style="text-align: center">
             <img src="~/Content/imagem/gameshark.png" width="450" height="450">
         </div>
     </div>
 </body>
-</html>

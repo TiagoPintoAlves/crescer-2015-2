@@ -29,9 +29,20 @@
         </div>
     </div>
 
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - GameSharks</p>
+        </footer>
+    </div>
 
-    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @RenderSection("Scripts", false)
 </body>
 </html>

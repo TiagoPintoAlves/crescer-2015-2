@@ -10,36 +10,24 @@ namespace Locadora.Web.MVC.Models
 {
     public class JogoPropriedadeModel
     {
-        public int? id;
-
-        [Required]
+        public int Id { get; set; }
         public string Nome { get; set; }
-
-        [Required]
         public decimal Preco { get; set; }
-
-        [Required]
-        public string Categoria { get; set; }
-
-        [Required]
-        [DisplayName("Descrição")]
+        public Categoria Categoria { get; set; }
         public string Descricao { get; set; }
-
-        [Required]
-        public string Selo { get; set; }
-
+        public Selo Selo { get; set; }
         public string Imagem { get; set; }
         public string Video { get; set; }
 
-        public JogoPropriedadeModel(string nome, decimal preco, string categoria, string descricao, string selo, string imagem, string video)
+        public JogoPropriedadeModel(Jogo jogo)
         {
-            this.Nome = nome;
-            this.Preco = preco;
-            this.Categoria = categoria;
-            this.Descricao = descricao;
-            this.Selo = selo;
-            this.Imagem = (imagem == null)? "/Content/imagem/img_not_found.gif" : imagem;
-            this.Video = video;
+            Nome = jogo.Nome;
+            Preco = jogo.Preco;
+            Descricao = jogo.Descricao;
+            Categoria = jogo.Categoria;
+            Selo = jogo.Selo;
+            Imagem = (string.IsNullOrEmpty(jogo.Imagem) ? "~/Content/imagem/img_not_found.gif" : jogo.Imagem);
+            Video = jogo.Video;
         }
     }
 }
