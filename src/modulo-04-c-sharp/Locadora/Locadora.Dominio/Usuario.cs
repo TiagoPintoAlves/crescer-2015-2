@@ -8,13 +8,17 @@ namespace Locadora.Dominio
 {
     public class Usuario : EntidadeBase
     {
-        public String Nome { get; set; }
-
-        public String Email { get; set; }
-
-        public String Senha { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public string Senha { get; set; }
 
         public ICollection<Permissao> Permissoes { get; set; }
 
+        public Usuario(string nome, string email, string senha)
+        {
+            this.Nome = nome;
+            this.Email = email;
+            this.Senha = senha;
+        }
     }
 }
