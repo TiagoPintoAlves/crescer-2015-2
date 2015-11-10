@@ -25,8 +25,8 @@ namespace Locadora.Repositorio.EF
         {
             using(var db = new BancoDeDados())
             {
-                var query = db.Jogo.Select(Jogo => Jogo).ToList();
-                return query;
+                var query = db.Jogo.Select(Jogo => Jogo);
+                return query.ToList();
             }
         }
 

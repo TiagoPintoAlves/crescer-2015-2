@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Locadora.Web.MVC.Models
 {
-    public class ManterModel : JogoPropriedadeModel
+    public class ManterModel
     {
         public int? Id { get; set; }
 
@@ -39,10 +39,5 @@ namespace Locadora.Web.MVC.Models
 
         [StringLength(600, ErrorMessage = "O limite de caracteres é 600.")]
         public string Video { get; set; }
-
-        public ManterModel(Jogo jogo) : base(jogo)
-        {
-            
-        }
     }
 }

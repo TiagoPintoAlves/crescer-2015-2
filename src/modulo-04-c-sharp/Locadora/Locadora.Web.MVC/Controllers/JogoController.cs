@@ -6,12 +6,14 @@ using System.Web.Mvc;
 using Locadora.Dominio.Repositorio;
 using Locadora.Web.MVC.Models;
 using Locadora.Dominio;
+using Locadora.Web.MVC.Segurança;
 
 namespace Locadora.Web.MVC.Controllers
 {
+    [Autorizador]
     public class JogoController : Controller
     {
-        private IJogoRepositorio JogoRepositorio = new Repositorio.ADO.JogoRepositorio();
+        private IJogoRepositorio JogoRepositorio = new Repositorio.EF.JogoRepositorio();
  
         public ActionResult DetalheJogo(int id)
         {
@@ -67,9 +69,16 @@ namespace Locadora.Web.MVC.Controllers
 
         private ManterModel JogoParaManterModel(Jogo jogo)
         {
-            return new ManterModel(jogo)
+            return new ManterModel()
             {
-                Id = jogo.Id
+                Id = jogo.Id,
+                Nome = jogo.Nome,
+                Preco = jogo.Preco,
+                Descricao = jogo.Descricao,
+                Selo = jogo.Selo,
+                Imagem = jogo.Imagem,
+                Video = jogo.Video,
+                Categoria = jogo.Categoria,
             };
         }
 
