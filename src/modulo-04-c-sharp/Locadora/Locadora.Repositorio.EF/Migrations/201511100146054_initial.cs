@@ -15,7 +15,7 @@ namespace Locadora.Repositorio.EF.Migrations
                         Nome = c.String(nullable: false, maxLength: 300),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Jogo",
                 c => new
@@ -34,7 +34,9 @@ namespace Locadora.Repositorio.EF.Migrations
                 .ForeignKey("dbo.Cliente", t => t.IdClienteLocacao)
                 .ForeignKey("dbo.Categoria", t => t.IdCategoria)
                 .ForeignKey("dbo.Selo", t => t.IdSelo)
-                .Index(t => t.IdClienteLocacao);
+                .Index(t => t.IdClienteLocacao)
+                .Index(t => t.IdCategoria)
+                .Index(t => t.IdSelo);
 
             CreateTable(
                 "dbo.Categoria",
@@ -62,6 +64,8 @@ namespace Locadora.Repositorio.EF.Migrations
             DropIndex("dbo.Jogo", new[] { "IdClienteLocacao" });
             DropTable("dbo.Jogo");
             DropTable("dbo.Cliente");
+            DropTable("dbo.Categoria");
+            DropTable("dbo.Selo");
         }
     }
 }
