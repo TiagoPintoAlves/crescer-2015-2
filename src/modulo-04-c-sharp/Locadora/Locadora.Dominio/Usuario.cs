@@ -14,11 +14,6 @@ namespace Locadora.Dominio
 
         public ICollection<Permissao> Permissoes { get; set; }
 
-        public Usuario(string nome, string email, string senha)
-        {
-            this.Nome = nome;
-            this.Email = email;
-            this.Senha = senha;
-        }
+        
     }
 }

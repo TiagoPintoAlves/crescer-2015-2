@@ -64,7 +64,7 @@ namespace Locadora.Repositorio.EF.Migrations
 
         private void CriarCategoria()
         {
-            Sql("INSERT INTO Categoria (Id, Descricao) Values (1, 'RPG')");
+            Sql("INSERT INTO Categoria VALUES(1, 'RPG')");
             Sql("INSERT INTO Categoria VALUES(2, 'Corrida')");
             Sql("INSERT INTO Categoria VALUES(3, 'Aventura')");
             Sql("INSERT INTO Categoria VALUES(4, 'Luta')");

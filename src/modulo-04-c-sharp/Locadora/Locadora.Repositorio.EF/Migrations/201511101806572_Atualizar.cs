@@ -7,8 +7,6 @@ namespace Locadora.Repositorio.EF.Migrations
     {
         public override void Up()
         {
-            
-            DropTable("dbo.Usuario");
 
             CreateTable(
                 "dbo.Permissao",
@@ -18,7 +16,7 @@ namespace Locadora.Repositorio.EF.Migrations
                         Nome = c.String(nullable: false, maxLength: 200),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Usuario",
                 c => new
@@ -29,7 +27,7 @@ namespace Locadora.Repositorio.EF.Migrations
                         Senha = c.String(nullable: false, maxLength: 200),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Usuario_Permissao",
                 c => new
