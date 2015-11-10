@@ -146,7 +146,7 @@ namespace Locadora.Repositorio.ADO
             var cliente = new Cliente(Convert.ToInt32(reader["IdClienteLocacao"]));
             var jogo = new Jogo(
                 id: Convert.ToInt32(reader["Id"]),
-                cliente: cliente
+                clienteLocacao: cliente
                 );
 
             jogo.Nome = reader["Nome"].ToString();

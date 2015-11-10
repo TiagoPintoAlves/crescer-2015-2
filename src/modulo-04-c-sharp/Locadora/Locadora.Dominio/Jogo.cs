@@ -27,10 +27,10 @@ namespace Locadora.Dominio
 
         }
 
-        public Jogo(int id, Cliente cliente = null)
+        public Jogo(int id, Cliente clienteLocacao = null)
         {
             this.Id = id;
-            this.ClienteLocacao = cliente;
+            this.ClienteLocacao = clienteLocacao;
         }
 
         public void LocarPara(Cliente cliente)
@@ -64,7 +64,7 @@ namespace Locadora.Dominio
                     && this.Nome == jogoComp.Nome
                     && this.Preco == jogoComp.Preco
                     && this.Categoria == jogoComp.Categoria
-                    && this.ClienteLocacao.Id == jogoComp.ClienteLocacao.Id;
+                    && this.ClienteLocacao == jogoComp.ClienteLocacao;
             }
 
             return false;
