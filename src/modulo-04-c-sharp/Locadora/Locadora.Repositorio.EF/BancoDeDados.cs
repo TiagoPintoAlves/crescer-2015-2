@@ -33,17 +33,17 @@ namespace Locadora.Repositorio.EF
         public JogoMap()
         {
             ToTable("Jogo");
-            HasKey(p => p.Id);
+            HasKey(j => j.Id);
 
-            Property(p => p.Nome).IsRequired();
-            Property(p => p.Preco).IsRequired();
-            Property(p => p.Descricao).IsRequired();
-            Property(p => p.Selo).IsRequired().HasColumnName("IdSelo");
-            Property(p => p.Imagem).IsOptional();
-            Property(p => p.Video).IsOptional();
-            Property(p => p.Categoria).IsRequired().HasColumnName("IdCategoria");
+            Property(j => j.Nome).IsRequired().HasMaxLength(250);
+            Property(j => j.Preco).IsRequired().HasPrecision(19,2);
+            Property(j => j.Descricao).IsRequired().HasMaxLength(100);
+            Property(j => j.Selo).IsRequired().HasColumnName("IdSelo");
+            Property(j => j.Imagem).IsOptional();
+            Property(j => j.Video).IsOptional();
+            Property(j => j.Categoria).IsRequired().HasColumnName("IdCategoria");
 
-            HasOptional(p => p.ClienteLocacao).WithRequired().Map(m => m.MapKey("IdClienteLocacao"));
+            HasRequired(p => p.ClienteLocacao).WithOptional().Map(m => m.MapKey("IdClienteLocacao"));
 
         }
     }
@@ -54,8 +54,8 @@ namespace Locadora.Repositorio.EF
         {
             ToTable("Cliente");
 
-            HasKey(p => p.Id);
-            Property(p => p.Nome).IsRequired();
+            HasKey(c => c.Id);
+            Property(c => c.Nome).IsRequired().HasMaxLength(300);
         }
     }
 }
