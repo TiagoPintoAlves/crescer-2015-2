@@ -10,11 +10,11 @@ using Locadora.Web.MVC.Segurança;
 
 namespace Locadora.Web.MVC.Controllers
 {
-    [Autorizador]
     public class JogoController : Controller
     {
         private IJogoRepositorio JogoRepositorio = new Repositorio.EF.JogoRepositorio();
- 
+
+        [Autorizador(Roles = "ADMIN")]
         public ActionResult DetalheJogo(int id)
         {
             var jogo = JogoRepositorio.BuscarPorId(id);
@@ -29,15 +29,11 @@ namespace Locadora.Web.MVC.Controllers
             if (id.HasValue)
             {
                 var jogo = JogoRepositorio.BuscarPorId((int)id);
-                var model = new JogoPropriedadeModel(jogo);
+                var model = JogoParaManterModel(jogo);
 
                 return View(model);
             }
-            else
-            {
-                return View();
-            }
-
+            return View();
         }
 
         [ValidateAntiForgeryToken]
@@ -63,7 +59,7 @@ namespace Locadora.Web.MVC.Controllers
             else
             {
                 TempData["Mensagem"] = "O Jogo não é valido";
-                return View("Manter", model);
+                return View("Manter", model.Id);
             }
         }
 

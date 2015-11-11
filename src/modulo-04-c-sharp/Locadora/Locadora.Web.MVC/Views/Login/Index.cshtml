@@ -1,9 +1,9 @@
 ﻿@model LoginModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sign In";
 }
 
-<h2>Index</h2>
+<h2>Login</h2>
 
 @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form" }))
 {
@@ -17,4 +17,9 @@
     </div>
 
     <input type="submit" name="enviar" value="Login" />
+
+    <p>
+        <br />
+        @Html.ValidationMessage("INVALID")
+    </p>
 }

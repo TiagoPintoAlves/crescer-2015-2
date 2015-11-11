@@ -10,7 +10,7 @@ namespace Locadora.Web.MVC.Controllers
     [Autorizador]
     public class HomeController : Controller
     {
-        [Autorizador Roles = [MASTER]]
+
         public ActionResult Index()
         {
             return View();

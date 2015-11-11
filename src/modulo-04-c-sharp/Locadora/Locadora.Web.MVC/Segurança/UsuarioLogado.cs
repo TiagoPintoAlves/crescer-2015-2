@@ -8,13 +8,13 @@ namespace Locadora.Web.MVC.Segurança
 {
     public class UsuarioLogado
     {
-        public Usuario Usuario { get; private set; }
+        public string Email { get; private set; }
 
-        public String[] Permissoes { get; private set; }
+        public string[] Permissoes { get; private set; }
 
-        public UsuarioLogado(String email, string[] permissoes)
+        public UsuarioLogado(string email, string[] permissoes)
         {
-            this.Usuario.Email = email;
+            this.Email = email;
             this.Permissoes = permissoes;
         }
     }

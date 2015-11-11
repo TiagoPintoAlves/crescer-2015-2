@@ -1,4 +1,7 @@
-﻿using Locadora.Web.MVC.Segurança;
+﻿using Locadora.Dominio;
+using Locadora.Dominio.Repositorio;
+using Locadora.Dominio.Servicos;
+using Locadora.Web.MVC.Segurança;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,25 +18,30 @@ namespace Locadora.Web.MVC.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Login(UsuarioLogado login, string senha)
         {
 
-            if (login.Usuario.Email == "test@test.com" && senha == "test")
+            ServicoAutenticacao servicoAutenticacao = new ServicoAutenticacao();
+
+            Usuario user = servicoAutenticacao.BuscarPorAutenticacao(login.Email, senha);
+
+            if (user != null)
             {
-                var usuarioLogadoModel = new UsuarioLogado("test@test.com", new string[] { "MASTER" });
+                var permissoes = user.Permissoes;
 
-                FormsAuthentication.SetAuthCookie(login.Usuario.Email, true);
+                var usuarioLogado = new UsuarioLogado(user.Email, new string[] { "ADMIN" });
+                
+                FormsAuthentication.SetAuthCookie(login.Email, true);
 
-                Session["USUARIO_LOGADO"] = usuarioLogadoModel;
+                Session["USUARIO_LOGADO"] = usuarioLogado;
 
                 return RedirectToAction("Index", "Home");
             }
-            else{
-
-                ModelState.AddModelError("INVALID", "Erro");
-                return View("Index", "Login");
-            }
             
+            ModelState.AddModelError("INVALID", "Usuário ou senha inválidos.");
+            return View("Index", "Login");
+
         }
     }
 }

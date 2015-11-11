@@ -5,6 +5,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Locadora.Web.MVC.Segurança
 {
@@ -12,16 +13,28 @@ namespace Locadora.Web.MVC.Segurança
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            UsuarioLogado usuarioLogado = filterContext.HttpContext.Session["USUARIO_LOGADO"] as UsuarioLogado;
             if (AuthorizeCore(filterContext.HttpContext))
             {
-                GenericIdentity myIdent = new GenericIdentity(usuarioLogado.Usuario.Email);
-                GenericPrincipal principal = new GenericPrincipal(myIdent, new string[] { "ADMIN" });
+                UsuarioLogado usuarioLogado = filterContext.HttpContext.Session["USUARIO_LOGADO"] as UsuarioLogado;
 
-                Thread.CurrentPrincipal = principal;
-                HttpContext.Current.User = principal;
+                if(usuarioLogado == null)
+                {
+                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary{
+                                                                    { "action", "Index"},
+                                                                    { "controller", "Login"}
+                                                                    });
+                }
+                else
+                {
+                    var identidade = new GenericIdentity(usuarioLogado.Email);
+                    var principal = new GenericPrincipal(identidade, usuarioLogado.Permissoes);
 
-                base.OnAuthorization(filterContext);
+                    Thread.CurrentPrincipal = principal;
+                    HttpContext.Current.User = principal;
+
+                    base.OnAuthorization(filterContext);
+                }
+            
             }
             
         }

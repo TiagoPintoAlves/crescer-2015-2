@@ -9,7 +9,6 @@ namespace Locadora.Web.MVC.Models
     public class RelatorioModel
     {
         public List<JogoModel> Jogos { get; set; }
-
         public int QuantidadeTotal { get; set; }
         public decimal ValorMedioJogos  { get; set; }
         public string JogoMaisCaro { get; set; }
