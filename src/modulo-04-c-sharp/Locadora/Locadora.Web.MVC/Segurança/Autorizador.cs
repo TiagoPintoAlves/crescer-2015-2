@@ -13,30 +13,29 @@ namespace Locadora.Web.MVC.Segurança
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (AuthorizeCore(filterContext.HttpContext))
+
+
+            UsuarioLogado usuarioLogado = filterContext.HttpContext.Session["USUARIO_LOGADO"] as UsuarioLogado;
+
+            if (usuarioLogado != null && AuthorizeCore(filterContext.HttpContext))
             {
-                UsuarioLogado usuarioLogado = filterContext.HttpContext.Session["USUARIO_LOGADO"] as UsuarioLogado;
+                var identidade = new GenericIdentity(usuarioLogado.Email);
+                var principal = new GenericPrincipal(identidade, usuarioLogado.Permissoes);
 
-                if(usuarioLogado == null)
-                {
-                    filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary{
-                                                                    { "action", "Index"},
-                                                                    { "controller", "Login"}
-                                                                    });
-                }
-                else
-                {
-                    var identidade = new GenericIdentity(usuarioLogado.Email);
-                    var principal = new GenericPrincipal(identidade, usuarioLogado.Permissoes);
+                Thread.CurrentPrincipal = principal;
+                HttpContext.Current.User = principal;
 
-                    Thread.CurrentPrincipal = principal;
-                    HttpContext.Current.User = principal;
-
-                    base.OnAuthorization(filterContext);
-                }
-            
+                base.OnAuthorization(filterContext);
             }
-            
+            else
+            {
+                filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary{
+                                                                   { "action", "Index"},
+                                                                   { "controller", "Login"}
+                                                                   });
+
+            }
+
         }
     }
 }

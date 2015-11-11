@@ -41,22 +41,14 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a colspan="3">Quantidade Total de Jogos: @Model.QuantidadeTotal</a>
-        </li>
-        <li>
-            <a colspan="3">Média de Preço por Jogo: @Model.ValorMedioJogos</a>
-        </li>
-        <li>
-            <a colspan="3">Jogo Mais Caro: @Model.JogoMaisCaro</a>
-        </li>
-        <li>
-            <a colspan="3">Jogo Mais Barato: @Model.JogoMaisBarato</a>
-        </li>
-    </ul>
+    <div>
+            <a class="text-center" colspan ="3">Quantidade Total de Jogos: @Model.QuantidadeTotal</a>
+            <a class="text-center" colspan="3">Média de Preço por Jogo: @Model.ValorMedioJogos</a>    
+            <a class="text-center" colspan="3">Jogo Mais Caro: @Model.JogoMaisCaro</a>
+            <a class="text-center" colspan="3">Jogo Mais Barato: @Model.JogoMaisBarato</a>
+    </div>
 }
 else
 {
-    <h2 style="text-align:center">@TempData["Mensagem"]</h2>
+    <h2 class="text-center">@TempData["Mensagem"]</h2>
 }

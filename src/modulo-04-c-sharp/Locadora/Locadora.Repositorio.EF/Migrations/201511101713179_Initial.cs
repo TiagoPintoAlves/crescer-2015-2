@@ -7,7 +7,6 @@ namespace Locadora.Repositorio.EF.Migrations
     {
         public override void Up()
         {
-
             CreateTable(
                 "dbo.Cliente",
                 c => new
@@ -29,7 +28,7 @@ namespace Locadora.Repositorio.EF.Migrations
                     Imagem = c.String(),
                     Video = c.String(),
                     IdCategoria = c.Int(nullable: false),
-                    IdClienteLocacao = c.Int(nullable: false),
+                    IdClienteLocacao = c.Int(),
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cliente", t => t.IdClienteLocacao)
@@ -57,9 +56,6 @@ namespace Locadora.Repositorio.EF.Migrations
                 })
                 .PrimaryKey(t => t.Id);
 
-            CriarCategoria();
-
-            CriarSelo();
         }
 
         private void CriarCategoria()
@@ -81,7 +77,9 @@ namespace Locadora.Repositorio.EF.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Jogo", "IdClienteLocacao", "dbo.Cliente");
-            DropIndex("dbo.Jogo", new[] { "IdClienteLocacao" });
+            DropForeignKey("dbo.Jogo", "IdSelo", "dbo.Selo");
+            DropForeignKey("dbo.Jogo", "IdCategoria", "dbo.Categoria");
+            DropIndex("dbo.Jogo", new[] { "IdClienteLocacao", "IdCategoria", "IdSelo" });
             DropTable("dbo.Jogo");
             DropTable("dbo.Cliente");
             DropTable("dbo.Categoria");
