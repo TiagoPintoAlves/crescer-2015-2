@@ -14,7 +14,6 @@ namespace Locadora.Web.MVC.Segurança
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
 
-
             UsuarioLogado usuarioLogado = filterContext.HttpContext.Session["USUARIO_LOGADO"] as UsuarioLogado;
 
             if (usuarioLogado != null && AuthorizeCore(filterContext.HttpContext))
@@ -30,9 +29,9 @@ namespace Locadora.Web.MVC.Segurança
             else
             {
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary{
-                                                                   { "action", "Index"},
-                                                                   { "controller", "Login"}
-                                                                   });
+                                                                 { "action", "Index"},
+                                                                 { "controller", "Login"}
+                                                                 });
 
             }
 

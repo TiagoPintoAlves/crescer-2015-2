@@ -13,7 +13,6 @@ namespace Locadora.Repositorio.EF.Migrations
         
         public override void Down()
         {
-            AddColumn("dbo.Jogo", "Preco", c => c.Decimal(nullable: false, precision: 19, scale: 2));
             DropColumn("dbo.Jogo", "DataEntrega");
             DropColumn("dbo.Jogo", "DataLocacao");
         }

@@ -1,6 +1,7 @@
 ﻿using Locadora.Dominio;
 using Locadora.Dominio.Repositorio;
 using Locadora.Dominio.Servicos;
+using Locadora.Web.MVC.Models;
 using Locadora.Web.MVC.Segurança;
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,20 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class LoginController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(UsuarioLogado login, string senha)
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginModel loginModel)
         {
 
             ServicoAutenticacao servicoAutenticacao = new ServicoAutenticacao();
 
-            Usuario user = servicoAutenticacao.BuscarPorAutenticacao(login.Email, senha);
+            Usuario user = servicoAutenticacao.BuscarPorAutenticacao(loginModel.Email, loginModel.Senha);
 
             if (user != null)
             {
@@ -32,7 +35,7 @@ namespace Locadora.Web.MVC.Controllers
 
                 var usuarioLogado = new UsuarioLogado(user.Email, new string[] { "ADMIN" });
                 
-                FormsAuthentication.SetAuthCookie(login.Email, true);
+                FormsAuthentication.SetAuthCookie(loginModel.Email, true);
 
                 Session["USUARIO_LOGADO"] = usuarioLogado;
 
@@ -40,7 +43,7 @@ namespace Locadora.Web.MVC.Controllers
             }
             
             ModelState.AddModelError("INVALID", "Usuário ou senha inválidos.");
-            return View("Index", "Login");
+            return View("Index", loginModel);
 
         }
     }
