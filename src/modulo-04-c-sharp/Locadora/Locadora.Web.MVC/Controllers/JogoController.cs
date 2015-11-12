@@ -69,7 +69,6 @@ namespace Locadora.Web.MVC.Controllers
             {
                 Id = jogo.Id,
                 Nome = jogo.Nome,
-                Preco = jogo.Preco,
                 Descricao = jogo.Descricao,
                 Selo = jogo.Selo,
                 Imagem = jogo.Imagem,
@@ -84,7 +83,6 @@ namespace Locadora.Web.MVC.Controllers
 
             jogo.Nome = model.Nome;
             jogo.Categoria = model.Categoria;
-            jogo.Preco = model.Preco;
             jogo.Descricao = model.Descricao;
             jogo.Selo = model.Selo;
             jogo.Imagem = model.Imagem;

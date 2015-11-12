@@ -42,7 +42,7 @@ namespace Locadora.Repositorio.EF.Migrations
                 .Index(t => t.IdPermissao);
           
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.Usuario_Permissao", "IdPermissao", "dbo.Permissao");

@@ -40,12 +40,13 @@ namespace Locadora.Repositorio.EF
             HasKey(j => j.Id);
 
             Property(j => j.Nome).IsRequired().HasMaxLength(250);
-            Property(j => j.Preco).IsRequired().HasPrecision(19,2);
             Property(j => j.Descricao).IsRequired().HasMaxLength(100);
             Property(j => j.Selo).IsRequired().HasColumnName("IdSelo");
             Property(j => j.Imagem).IsOptional().HasMaxLength(200);
             Property(j => j.Video).IsOptional().HasMaxLength(200);
             Property(j => j.Categoria).IsRequired().HasColumnName("IdCategoria");
+            Property(j => j.DataLocacao).IsRequired();
+            Property(j => j.DataEntrega).IsOptional();
 
             HasOptional(p => p.ClienteLocacao).WithOptionalDependent().Map(m => m.MapKey("IdClienteLocacao"));
 

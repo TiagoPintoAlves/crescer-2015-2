@@ -10,14 +10,14 @@ namespace Locadora.Web.MVC.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public decimal Preco { get; set; }
         public string Categoria { get; set; }
+        public string Selo { get; set; }
 
-        public JogoModel(string nome, decimal preco, string categoria)
+        public JogoModel(string nome, string categoria, string selo)
         {
             Nome = nome;
-            Preco = preco;
             Categoria = categoria;
+            Selo = selo;
         }
     }
 }

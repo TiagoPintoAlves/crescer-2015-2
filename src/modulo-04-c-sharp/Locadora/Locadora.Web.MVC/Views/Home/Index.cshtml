@@ -23,4 +23,15 @@
             <img src="~/Content/imagem/gameshark.png" width="450" height="450">
         </div>
     </div>
+
+    @section Scripts {
+        <script>
+        $("document").ready(function() {
+            $("#nome").autocomplete({
+              source: '@Url.Action("JogosAutocomplete", "Relatorio")',
+              select: function() { $("#btnPesquisar").click(); }
+            });
+        });
+        </script>
+    }
 </body>

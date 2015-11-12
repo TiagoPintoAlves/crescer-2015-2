@@ -28,14 +28,6 @@ else
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Preco, new { @class = "col-sm-2 control-label" })
-        
-            @Html.TextBoxFor(m => m.Preco, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Preco)
-        
-    </div>
-
-    <div class="form-group">
         @Html.LabelFor(m => m.Descricao, new { @class = "col-sm-2 control-label" })
         
             @Html.TextAreaFor(m => m.Descricao, new { @class = "form-control" })

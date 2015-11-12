@@ -20,11 +20,6 @@ namespace Locadora.Web.MVC.Models
         [EnumDataType(typeof(Categoria), ErrorMessage = "Selecione uma categoria.")]
         public Categoria Categoria { get; set; }
 
-        [DisplayName("Preço")]
-        [Required(ErrorMessage = "Campo preço é obrigatório.")]
-        [RegularExpression(@"^[0-9]{0,19}([,][0-9]{0,2})?$", ErrorMessage = "O preço está em um formato inválido.")]
-        public decimal Preco { get; set; }
-
         [DisplayName("Descrição")]
         [Required(ErrorMessage = "Campo descrição é obrigatório.")]
         [StringLength(400, ErrorMessage = "O limite de caracteres é 400.")]

@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoDeDados.cs" />
+    <Compile Include="Migrations\201511121820052_Adicionar_campos.cs" />
+    <Compile Include="Migrations\201511121820052_Adicionar_campos.Designer.cs">
+      <DependentUpon>201511121820052_Adicionar_campos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositorios\ClienteRepositorio.cs" />
     <Compile Include="Repositorios\JogoRepositorio.cs" />
     <Compile Include="Migrations\201511101713179_Initial.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511101819286_1.resx">
       <DependentUpon>201511101819286_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511121820052_Adicionar_campos.resx">
+      <DependentUpon>201511121820052_Adicionar_campos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

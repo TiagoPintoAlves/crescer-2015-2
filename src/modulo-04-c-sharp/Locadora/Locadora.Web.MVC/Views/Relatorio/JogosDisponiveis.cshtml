@@ -17,7 +17,6 @@
             <tr>
                 <td>Nome</td>
                 <td>Categoria</td>
-                <td>Preço</td>
                 <td></td>
                 <td></td>
             </tr>
@@ -29,7 +28,6 @@
                 <tr>
                     <td>@jogo.Nome</td>
                     <td>@jogo.Categoria</td>
-                    <td>@jogo.Preco.ToString("c")</td>
                     <td>
                         <a href="~/Jogo/DetalheJogo/@jogo.Id">Detalhes</a>
                     </td>
@@ -43,9 +41,6 @@
 
     <div>
             <a class="text-center" colspan ="3">Quantidade Total de Jogos: @Model.QuantidadeTotal</a>
-            <a class="text-center" colspan="3">Média de Preço por Jogo: @Model.ValorMedioJogos</a>    
-            <a class="text-center" colspan="3">Jogo Mais Caro: @Model.JogoMaisCaro</a>
-            <a class="text-center" colspan="3">Jogo Mais Barato: @Model.JogoMaisBarato</a>
     </div>
 }
 else
