@@ -1,4 +1,4 @@
-﻿using Locadora.Web.MVC.Segurança;
+﻿using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -181,13 +181,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FabricaDeModulos.cs" />
     <Compile Include="Models\JogoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ManterModel.cs" />
     <Compile Include="Models\RelatorioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Segurança\Autorizador.cs" />
-    <Compile Include="Segurança\UsuarioLogado.cs" />
+    <Compile Include="Seguranca\Autorizador.cs" />
+    <Compile Include="Seguranca\ControleDeSessao.cs" />
+    <Compile Include="Seguranca\UsuarioLogado.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -226,6 +228,10 @@
     <ProjectReference Include="..\Locadora.Repositorio.EF\Locadora.Repositorio.EF.csproj">
       <Project>{3d3d836f-3190-4e7d-8409-c138cba35601}</Project>
       <Name>Locadora.Repositorio.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Locadora.Servicos\Locadora.Servicos.csproj">
+      <Project>{ab2d364d-ed02-4a53-b136-bb342a8d0f89}</Project>
+      <Name>Locadora.Servicos</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

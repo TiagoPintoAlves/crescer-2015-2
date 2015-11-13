@@ -3,23 +3,30 @@
     ViewBag.Title = "Sign In";
 }
 
-<h2>Login</h2>
+<h2 class="text-center">Login</h2>
 
 @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form" }))
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true);
+
     <div class="form-group">
-        @Html.LabelFor(m => m.Email)
+        @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 control-label" })
         @Html.TextBoxFor(m => m.Email, new { @class = "from-control", placeholder = "Digite seu Email" })
         @Html.ValidationMessageFor(m => m.Email)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Senha)
+        @Html.LabelFor(m => m.Senha, new { @class = "col-sm-2 control-label" })
         @Html.PasswordFor(m => m.Senha, new { @class = "from-control", placeholder = "Digite sua Senha" })
         @Html.ValidationMessageFor(m => m.Senha)
     </div>
-
-    <input type="submit" name="enviar" value="Login" />
-
+    
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+    
     <p>
         <br />
         @Html.ValidationMessage("INVALID")

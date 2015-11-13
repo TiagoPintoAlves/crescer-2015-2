@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Locadora.Dominio.Repositorio;
 using Locadora.Web.MVC.Models;
 using Locadora.Dominio;
-using Locadora.Web.MVC.Segurança;
+using Locadora.Web.MVC.Seguranca;
 
 namespace Locadora.Web.MVC.Controllers
 {
