@@ -1,0 +1,17 @@
+﻿@model Locadora.Web.MVC.Models.ClienteIndexModel
+@{
+    ViewBag.Title = "Listagem de Clientes";
+}
+
+<h1>
+    @TempData["Mensagem"]
+</h1>
+
+<h2>Listagem de Clientes</h2>
+
+@if (Model.PodeCadastrar)
+{
+    <a href="~/Cliente/Manter">Cadastrar novo cliente</a>
+}
+
+
