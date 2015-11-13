@@ -18,11 +18,9 @@ namespace Locadora.Dominio
 
         public Categoria Categoria { get; set; }
 
-        public DateTime DataLocacao { get; set; }
-
         public DateTime DataEntrega { get; set; }
 
-        public decimal Valor { get; set; }
+        public int? IdCliente { get; set; }
 
         public Cliente ClienteLocacao { get; private set; }
         
