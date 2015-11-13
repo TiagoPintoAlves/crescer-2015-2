@@ -25,7 +25,7 @@ namespace Locadora.Dominio.Test
         public void UsuarioNaoPodeLogar()
         {
             ServicoAutenticacao servicoAutenticacao = CriarServicoAutenticacao();
-            Usuario usuarioNaoAutenticado = servicoAutenticacao.BuscarPorAutenticacao("ben-hur@cwi.com.br", "1234");
+            Usuario usuarioNaoAutenticado = servicoAutenticacao.BuscarPorAutenticacao("test@test.com", "test");
 
             Assert.IsNull(usuarioNaoAutenticado);
         }

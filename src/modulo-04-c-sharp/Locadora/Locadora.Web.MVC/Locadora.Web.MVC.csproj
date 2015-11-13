@@ -115,6 +115,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\imagem\gameshark.png" />
     <Content Include="Content\imagem\img_not_found.gif" />
+    <Content Include="Content\Images\bronze-medal.png" />
+    <Content Include="Content\Images\gold-medal.png" />
+    <Content Include="Content\Images\silver-medal.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -182,7 +185,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FabricaDeModulos.cs" />
+    <Compile Include="Models\JogoPropriedadeModel.cs" />
     <Compile Include="Models\JogoModel.cs" />
+    <Compile Include="Models\LocacaoModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ManterModel.cs" />
     <Compile Include="Models\RelatorioModel.cs" />
@@ -212,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Locacao\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Locadora.Dominio\Locadora.Dominio.csproj">

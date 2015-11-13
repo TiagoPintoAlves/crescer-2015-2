@@ -7,10 +7,8 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
-    [Autorizador]
     public class HomeController : Controller
     {
-
         public ActionResult Index()
         {
             return View();

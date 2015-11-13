@@ -14,7 +14,6 @@ namespace Locadora.Web.MVC.Controllers
     {
         private IJogoRepositorio JogoRepositorio = new Repositorio.EF.JogoRepositorio();
 
-        [Autorizador(Roles = "ADMIN")]
         public ActionResult DetalheJogo(int id)
         {
             var jogo = JogoRepositorio.BuscarPorId(id);

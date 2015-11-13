@@ -16,10 +16,10 @@ namespace Locadora.Repositorio.EF
 
         }
 
-        public DbSet<Jogo> Jogo { get; private set; }
-        public DbSet<Cliente> Cliente { get; private set; }
-        public DbSet<Usuario> Usuario { get; private set; }
-        public DbSet<Permissao> Permissao { get; private set; }
+        public DbSet<Jogo> Jogo { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Permissao> Permissao { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

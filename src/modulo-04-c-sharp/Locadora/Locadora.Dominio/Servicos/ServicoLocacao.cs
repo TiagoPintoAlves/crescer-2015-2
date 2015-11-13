@@ -26,5 +26,25 @@ namespace Locadora.Dominio.Servicos
             }
             return dataAtual;
         }
+
+        public double ValorJogo(Selo selo)
+        {
+            double preco = 0;
+            switch (selo)
+            {
+                case Selo.OURO:
+                    preco = 15.00;
+                    break;
+
+                case Selo.PRATA:
+                    preco = 10.00;
+                    break;
+
+                case Selo.BRONZE:
+                    preco = 5.00;
+                    break;
+            }
+            return preco;
+        }
     }
 }

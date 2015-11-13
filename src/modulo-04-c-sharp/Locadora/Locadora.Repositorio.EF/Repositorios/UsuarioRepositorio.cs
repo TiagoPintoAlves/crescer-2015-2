@@ -14,7 +14,7 @@ namespace Locadora.Repositorio.EF.Repositorios
         {
             using (var db = new BancoDeDados())
             {
-                return db.Usuario.Include("Permissoes").FirstOrDefault(u => u.Email == email);
+                return db.Usuario.Include("Permissao").FirstOrDefault(u => u.Email.Equals(email));
             }
         }
     }
