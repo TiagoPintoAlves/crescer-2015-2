@@ -19,30 +19,33 @@ namespace Locadora.Dominio.Servicos
                 case Selo.PRATA:
                     dataAtual = dataAtual.AddDays(2);
                     break;
-
                 case Selo.BRONZE:
                     dataAtual = dataAtual.AddDays(3);
                     break;
+                default:
+                    return dataAtual;
             }
             return dataAtual;
         }
 
-        public double ValorJogo(Selo selo)
+        public decimal ValorJogo(Selo selo)
         {
-            double preco = 0;
+            decimal preco = 0;
             switch (selo)
             {
                 case Selo.OURO:
-                    preco = 15.00;
+                    preco = 15m;
                     break;
 
                 case Selo.PRATA:
-                    preco = 10.00;
+                    preco = 10m;
                     break;
 
                 case Selo.BRONZE:
-                    preco = 5.00;
+                    preco = 5m;
                     break;
+                default:
+                    return preco;
             }
             return preco;
         }

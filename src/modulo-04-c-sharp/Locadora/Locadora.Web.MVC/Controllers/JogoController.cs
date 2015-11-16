@@ -10,6 +10,7 @@ using Locadora.Web.MVC.Seguranca;
 
 namespace Locadora.Web.MVC.Controllers
 {
+    [Autorizador]
     public class JogoController : Controller
     {
         private IJogoRepositorio JogoRepositorio = new Repositorio.EF.JogoRepositorio();
@@ -22,7 +23,7 @@ namespace Locadora.Web.MVC.Controllers
             return View(model);
         }
 
-        [HttpGet]
+        [Autorizador(Roles = Permissao.ADMIN)]
         public ActionResult Manter(int? id)
         {
             if (id.HasValue)
@@ -35,6 +36,7 @@ namespace Locadora.Web.MVC.Controllers
             return View();
         }
 
+        [Autorizador(Roles = Permissao.ADMIN)]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult Salvar(ManterModel model)

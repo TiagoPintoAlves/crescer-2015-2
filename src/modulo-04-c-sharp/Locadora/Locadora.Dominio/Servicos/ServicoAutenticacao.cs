@@ -33,6 +33,6 @@ namespace Locadora.Dominio.Servicos
             }
 
             return usuario;
-            }
+        }
     }
 }

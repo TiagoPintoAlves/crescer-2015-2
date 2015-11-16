@@ -5,20 +5,22 @@
 }
 @if (TempData["Mensagem"] == null)
 {
-    
-    <h2>Jogos Disponiveis</h2>
-    
-    <div style="text-align: center; padding-top:initial">
-        <a href="~/Jogo/Manter/">Cadastrar Novo Jogo</a>
+    <div class="page-header text-center">
+        <h2>Jogos Disponiveis</h2>
     </div>
-    
+
+    <div style="text-align:center; padding:2%;">
+        <a class="btn btn-primary" href="~/Jogo/Manter/">Cadastrar Novo Jogo</a>
+    </div>
+
     <table class="table table-striped table-bordered table-hover" align="center" border="0">
         <thread>
             <tr>
-                <td>Nome</td>
-                <td>Categoria</td>
-                <td></td>
-                <td></td>
+                <td class="text-center" style="width: 40%">Nome</td>
+                <td class="text-center" style="width: 30%">Categoria</td>
+                <td class="text-center" style="width: 20%">Selo</td>
+                <td class="text-center" style="width: 10%"></td>
+                <td class="text-center" style="width: 10%"></td>
             </tr>
         </thread>
 
@@ -26,24 +28,26 @@
             @foreach (var jogo in @Model.Jogos)
             {
                 <tr>
-                    <td>@jogo.Nome</td>
-                    <td>@jogo.Categoria</td>
-                    <td>
-                        <a href="~/Jogo/DetalheJogo/@jogo.Id">Detalhes</a>
-                    </td>
-                    <td>
-                        <a href="~/Jogo/Manter/@jogo.Id">Editar</a>
-                    </td>
+                    <td class="text-center">@jogo.Nome</td>
+                    <td class="text-center">@jogo.Categoria</td>
+                    <td class="text-center">@Html.Partial("~/Views/Shared/_SeloJogo.cshtml", @jogo.Selo)</td>
+                    <td class="text-center"><a class="btn btn-primary" href="~/Jogo/DetalheJogo/@jogo.Id">Detalhes</a></td>
+                    <td class="text-center"><a class="btn btn-primary" href="~/Jogo/Manter/@jogo.Id">Editar</a></td>
                 </tr>
             }
         </tbody>
     </table>
 
-    <div>
-            <a class="text-center" colspan ="3">Quantidade Total de Jogos: @Model.QuantidadeTotal</a>
+    <div class="text-center">
+        <table class="table table-striped table-bordered table-hover" align="center" border="0">
+            <tr>
+                <td><span class="text-center">Quantidade Total de Jogos: @Model.QuantidadeTotal</span></td>
+            </tr>
+        </table>
     </div>
-}
-else
-{
+
+    }
+    else
+    {
     <h2 class="text-center">@TempData["Mensagem"]</h2>
-}
+    }

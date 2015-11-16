@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,29 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoDeDados.cs" />
-    <Compile Include="Migrations\201511121820052_Adicionar_campos.cs" />
-    <Compile Include="Migrations\201511121820052_Adicionar_campos.Designer.cs">
-      <DependentUpon>201511121820052_Adicionar_campos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511131606453_nova_atualizacao.cs" />
-    <Compile Include="Migrations\201511131606453_nova_atualizacao.Designer.cs">
-      <DependentUpon>201511131606453_nova_atualizacao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Repositorios\ClienteRepositorio.cs" />
-    <Compile Include="Repositorios\JogoRepositorio.cs" />
-    <Compile Include="Migrations\201511101713179_Initial.cs" />
-    <Compile Include="Migrations\201511101713179_Initial.Designer.cs">
-      <DependentUpon>201511101713179_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511101806572_Atualizar.cs" />
-    <Compile Include="Migrations\201511101806572_Atualizar.Designer.cs">
-      <DependentUpon>201511101806572_Atualizar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511101819286_1.cs" />
-    <Compile Include="Migrations\201511101819286_1.Designer.cs">
-      <DependentUpon>201511101819286_1.cs</DependentUpon>
+    <Compile Include="Migrations\201511142317340_Initial.cs" />
+    <Compile Include="Migrations\201511142317340_Initial.Designer.cs">
+      <DependentUpon>201511142317340_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositorios\ClienteRepositorio.cs" />
+    <Compile Include="Repositorios\JogoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\UsuarioRepositorio.cs" />
   </ItemGroup>
@@ -87,21 +72,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511101713179_Initial.resx">
-      <DependentUpon>201511101713179_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201511142317340_Initial.resx">
+      <DependentUpon>201511142317340_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511101806572_Atualizar.resx">
-      <DependentUpon>201511101806572_Atualizar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511101819286_1.resx">
-      <DependentUpon>201511101819286_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511121820052_Adicionar_campos.resx">
-      <DependentUpon>201511121820052_Adicionar_campos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511131606453_nova_atualizacao.resx">
-      <DependentUpon>201511131606453_nova_atualizacao.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\PopularTabelas.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

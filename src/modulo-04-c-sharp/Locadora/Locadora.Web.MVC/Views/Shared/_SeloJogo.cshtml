@@ -1,22 +1,20 @@
-﻿@model Locadora.Dominio.Selo
+﻿@model string
 
 @{ 
     string imgSelo = "";
 
-    switch (Model)
-    {
-        case Locadora.Dominio.Selo.Bronze:
-            imgSelo = "~/Content/Images/bronze-medal.png";
-            break;
-        case Locadora.Dominio.Selo.Prata:
-            imgSelo = "~/Content/Images/silver-medal.png";
-            break;
-        case Locadora.Dominio.Selo.Ouro:
-            imgSelo = "~/Content/Images/gold-medal.png";
-            break;
-        default:
-            break;
-    }
-}
+    if(Model == "BRONZE"){
+        imgSelo = "~/Content/Images/bronze-medal.png";
 
-<img src="@Url.Content(imgSelo)" class="imagem-selo-jogo" alt="Selo do Jogo" />
+    }
+    else if(Model == "PRATA")
+    {
+        imgSelo = "~/Content/Images/silver-medal.png";
+    }
+    else
+    {
+        imgSelo = "~/Content/Images/gold-medal.png";
+    }
+    
+}
+<img src="@Url.Content(imgSelo)" alt="Selo do Jogo" />

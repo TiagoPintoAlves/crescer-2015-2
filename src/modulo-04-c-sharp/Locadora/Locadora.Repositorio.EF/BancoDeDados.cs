@@ -45,9 +45,10 @@ namespace Locadora.Repositorio.EF
             Property(j => j.Imagem).IsOptional();
             Property(j => j.Video).IsOptional();
             Property(j => j.Categoria).IsRequired().HasColumnName("IdCategoria");
-            Property(j => j.DataEntrega).IsOptional();
+            Property(j => j.DataLocacao).IsOptional();
             //HasOptional(p => p.ClienteLocacao).WithOptionalDependent().Map(m => m.MapKey("IdClienteLocacao"));
-            HasOptional(p => p.ClienteLocacao).WithMany().HasForeignKey(p => p.IdCliente);
+            HasOptional(j => j.Cliente).WithMany().HasForeignKey(c => c.IdCliente);
+
         }
     }
 

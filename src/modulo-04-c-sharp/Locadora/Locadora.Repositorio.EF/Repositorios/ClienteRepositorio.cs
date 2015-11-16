@@ -18,5 +18,12 @@ namespace Locadora.Repositorio.EF
             }
         }
 
+        public IList<Cliente> BuscarTodos()
+        {
+            using (var db = new BancoDeDados())
+            {
+                return db.Cliente.ToList();
+            }
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace Locadora.Web.MVC.Models
             this.Descricao = jogo.Descricao;
             this.Categoria = jogo.Categoria;
             this.Selo = jogo.Selo;
-            this.Imagem = (string.IsNullOrEmpty(jogo.Imagem) ? "~/Content/imagem/img_not_found.gif" : jogo.Imagem);
+            this.Imagem = (string.IsNullOrEmpty(jogo.Imagem) ? "~/Content/Images/img_not_found.gif" : jogo.Imagem);
             this.Video = jogo.Video;
         }
 

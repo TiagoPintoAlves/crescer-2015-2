@@ -113,10 +113,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\imagem\gameshark.png" />
-    <Content Include="Content\imagem\img_not_found.gif" />
+    <Content Include="Content\Images\background.jpg" />
     <Content Include="Content\Images\bronze-medal.png" />
+    <Content Include="Content\Images\gameshark.png" />
     <Content Include="Content\Images\gold-medal.png" />
+    <Content Include="Content\Images\img_not_found.gif" />
     <Content Include="Content\Images\silver-medal.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />

@@ -18,11 +18,11 @@ namespace Locadora.Dominio
 
         public Categoria Categoria { get; set; }
 
-        public DateTime DataEntrega { get; set; }
+        public DateTime? DataLocacao { get; set; }
 
         public int? IdCliente { get; set; }
 
-        public Cliente ClienteLocacao { get; private set; }
+        public Cliente Cliente { get; private set; }
         
         public Jogo()
         {
@@ -32,12 +32,13 @@ namespace Locadora.Dominio
         public Jogo(int id, Cliente clienteLocacao = null)
         {
             this.Id = id;
-            this.ClienteLocacao = clienteLocacao;
+            this.Cliente = clienteLocacao;
         }
 
         public void LocarPara(Cliente cliente)
         {
-            this.ClienteLocacao = cliente;
+            this.Cliente = cliente;
+            this.DataLocacao = DateTime.Now;
         }
 
         public override string ToString()
@@ -64,7 +65,7 @@ namespace Locadora.Dominio
                 return this.Id == jogoComp.Id
                     && this.Nome == jogoComp.Nome
                     && this.Categoria == jogoComp.Categoria
-                    && this.ClienteLocacao == jogoComp.ClienteLocacao;
+                    && this.Cliente == jogoComp.Cliente;
             }
 
             return false;
