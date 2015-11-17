@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="LinkedListTest" project="ProjetoCrescer" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="primeiroExercicio.Test.LinkedListTest" time="0.0">
-    <testcase name="adicionarPrimeiroNaLista" classname="primeiroExercicio.Test.LinkedListTest" time="0.0"/>
-    <testcase name="removeUltimoDaListaPorIndice" classname="primeiroExercicio.Test.LinkedListTest" time="0.0"/>
-    <testcase name="mostrarTodosNaLista" classname="primeiroExercicio.Test.LinkedListTest" time="0.0"/>
-    <testcase name="removePrimeiroDaLista" classname="primeiroExercicio.Test.LinkedListTest" time="0.0"/>
-  </testsuite>
-</testrun>
