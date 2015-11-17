@@ -1,4 +1,4 @@
-package primeiroExercicioException;
+package linkedlist.exception;
 
 
 public class EmptyListException extends Exception {

@@ -1,17 +1,17 @@
-package primeiroExercicio.Test;
+package linkedlist.test;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import primeiroExercicio.LinkedList;
+import linkedlist.exercicio.LinkedList;
 
 
 public class LinkedListTest {
 
     @Test
     public void adicionarPrimeiroNaLista() {
-        LinkedList linkedList = new LinkedList();
+        LinkedList<String> linkedList = new LinkedList<>();
         linkedList.addFirst("primeiro");
         linkedList.addFirst("segundo");
         linkedList.addFirst("terceiro");
@@ -22,7 +22,7 @@ public class LinkedListTest {
 
     @Test
     public void mostrarTodosNaLista() {
-        LinkedList linkedList = new LinkedList();
+        LinkedList<String> linkedList = new LinkedList<>();
         linkedList.addFirst("primeiro");
         linkedList.addFirst("segundo");
         linkedList.addFirst("terceiro");
@@ -31,7 +31,7 @@ public class LinkedListTest {
 
     @Test
     public void removePrimeiroDaLista() {
-        LinkedList linkedList = new LinkedList();
+        LinkedList<String> linkedList = new LinkedList<>();
         linkedList.addFirst("primeiro");
         linkedList.addFirst("segundo");
         linkedList.addFirst("terceiro");
@@ -43,7 +43,7 @@ public class LinkedListTest {
 
     @Test
     public void removeUltimoDaListaPorIndice() {
-        LinkedList linkedList = new LinkedList();
+        LinkedList<String> linkedList = new LinkedList<>();
         linkedList.addFirst("primeiro");
         linkedList.addFirst("segundo");
         linkedList.addFirst("terceiro");
@@ -54,5 +54,14 @@ public class LinkedListTest {
         assertEquals(linkedList.getLast(), "primeiro");
         assertEquals(linkedList.list().size(), 3);
     }
-
+    
+    @Test
+    public void adicionarEmListaDeNumeros() {
+        LinkedList<Integer> linkedList = new LinkedList<>();
+        linkedList.addFirst(1);
+        linkedList.addFirst(2);
+        linkedList.addFirst(3);
+        
+        assertEquals(linkedList.list().size(), 3);
+    }
 }

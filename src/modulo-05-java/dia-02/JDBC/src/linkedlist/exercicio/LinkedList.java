@@ -1,4 +1,4 @@
-package primeiroExercicio;
+package linkedlist.exercicio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ public class LinkedList<T> implements ListAction<T> {
     protected Node<T> last, first;
 
     public void addFirst(T value) {
-        Node<T> node = new Node(value, first);
+        Node<T> node = new Node<T>(value, first);
         if (first == null) {
             last = node;
         }
@@ -21,7 +21,7 @@ public class LinkedList<T> implements ListAction<T> {
     }
     
 	public void addLast(T value) {
-			Node<T> node = new Node(value);
+			Node<T> node = new Node<T>(value);
 			if(first == null){
 				first = node;
 			}

@@ -1,8 +1,8 @@
-package primeiroExercicio;
+package linkedlist.exercicio;
 
 import java.util.List;
 
-import primeiroExercicioException.EmptyListException;
+import linkedlist.exception.EmptyListException;
 
 public interface ListAction<T> {
 

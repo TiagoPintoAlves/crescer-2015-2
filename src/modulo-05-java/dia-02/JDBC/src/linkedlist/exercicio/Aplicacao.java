@@ -1,4 +1,4 @@
-package primeiroExercicio;
+package linkedlist.exercicio;
 
 import java.io.BufferedWriter;
 import java.io.File;
