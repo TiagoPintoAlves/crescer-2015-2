@@ -1,0 +1,44 @@
+package primeiroExercicio;
+
+import java.util.List;
+
+import primeiroExercicioException.EmptyListException;
+
+public class DoublyLinkedList<T> implements ListAction {
+
+    protected Node last, first;
+
+    
+    protected class Node<T> {
+
+        private T value;
+
+        private Node next, previous;
+
+        public Node(T value, Node next, Node previous) {
+            this.value = value;
+            this.next = next;
+            this.previous = previous;
+        }
+
+        public Node(T value) {
+            this.value = value;
+        }
+
+        public void setNext(Node next) {
+            this.next = next;
+        }
+
+        public Node getNext() {
+            return this.next;
+        }
+
+        public T getValue() {
+            return this.value;
+        }
+
+        public void setValue(T value) {
+            this.value = value;
+        }
+    }
+}
