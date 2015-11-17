@@ -1,0 +1,16 @@
+package primeiroExercicio;
+
+import java.util.Scanner;
+public class Aplicacao {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+    	
+        System.out.println("Escolha uma opção:");
+        StringBuilder str = new StringBuilder();
+        str.append("1- Inserir na lista;");
+        str.append("2- Remover da lista;");
+        str.append("3- Listagem completa");
+        
+        System.out.println(str);
+    }
+}

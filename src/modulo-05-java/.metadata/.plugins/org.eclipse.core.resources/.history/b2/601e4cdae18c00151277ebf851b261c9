@@ -5,7 +5,7 @@ public class Aplicacao extends Exception {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        LinkedList linkedList;
+        LinkedList<T> linkedList = new LinkedList();
         int opcao = 0;
         int escolha;
         boolean continuar = true;
@@ -34,7 +34,6 @@ public class Aplicacao extends Exception {
             case 4:
             	break;
             	default:
-            		System.out.println("Erro. Selecione uma das opções.");
             }
             
             System.out.println("Deseja continuar ? 1-Sim ou 2-Não");
