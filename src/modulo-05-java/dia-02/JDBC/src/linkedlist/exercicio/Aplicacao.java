@@ -12,7 +12,7 @@ public class Aplicacao extends Exception {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         //File file = new File("C:\\Users\\tiago.alves\\Downloads");
-        File file = new File("C:\\Users\\vicente\\Downloads");
+        File file = new File("C:\\Users\\vicente\\Downloads\\linkedList.txt");
         int opcao = 0;
         int escolhaContinuar;
         boolean continuar;
@@ -76,16 +76,22 @@ public class Aplicacao extends Exception {
                 	System.out.println(lista.list());
                     break;
                 case 5:
+                	BufferedWriter buff = null;
                     try {
                         file.setReadable(false);
                         file.createNewFile();
-                        FileWriter fw = new FileWriter(file);
-                        BufferedWriter buff = new BufferedWriter(fw);
+                        buff = new BufferedWriter(new FileWriter(file, true));
 
                         buff.write(lista.list().toString());
-
                     } catch (IOException e) {
                         System.err.println(e);
+                        e.printStackTrace();
+                    } finally{
+                    	try{
+                    		buff.close();
+                    	}catch(IOException e){
+                    		e.printStackTrace();
+                    	}
                     }
                     break;
                 default:
