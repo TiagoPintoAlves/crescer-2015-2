@@ -71,7 +71,7 @@ public class LinkedList<T> implements ListAction<T> {
 
     
     public void add(int index, T value){
-        Node<T> node = new Node(value);
+        Node<T> node = new Node<T>(value);
         getNode(index - 1).next = node;
         
     }

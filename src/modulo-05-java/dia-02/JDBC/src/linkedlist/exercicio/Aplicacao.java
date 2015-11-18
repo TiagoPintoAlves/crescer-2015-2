@@ -56,7 +56,7 @@ public class Aplicacao extends Exception {
 
                     break;
                 default:
-                    System.out.println("Erro. Selecione uma das opcoes.");
+                    System.out.println("Erro. Selecione uma das opcoes listadas.");
             }
 
             System.out.println("Deseja continuar ? 1-Sim ou 2-Nao");

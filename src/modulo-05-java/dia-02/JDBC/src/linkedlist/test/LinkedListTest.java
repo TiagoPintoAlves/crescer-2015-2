@@ -2,6 +2,7 @@ package linkedlist.test;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import linkedlist.exercicio.LinkedList;
@@ -63,5 +64,7 @@ public class LinkedListTest {
         linkedList.addFirst(3);
         
         assertEquals(linkedList.list().size(), 3);
+        assertEquals(linkedList.getLast(),(Integer)1);
+        Assert.assertTrue(linkedList.getFirst() == 3);
     }
 }
