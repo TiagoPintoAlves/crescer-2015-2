@@ -14,13 +14,11 @@ public class Aplicacao extends Exception {
         //File file = new File("C:\\Users\\tiago.alves\\Downloads");
         File file = new File("C:\\Users\\vicente\\Downloads\\linkedList.txt");
         int opcao = 0;
-        int escolhaContinuar;
         boolean continuar;
-        int escolhaLista;
         
     	System.out.println("Escolha um tipo de lista:");
     	System.out.println("1- Lista simples\n2- Lista dupla\n");
-    	escolhaLista = scanner.nextInt();
+    	int escolhaLista = scanner.nextInt();
     	ListAction lista = (escolhaLista == 1)? new LinkedList() : new DoublyLinkedList();
         
         do{
@@ -99,7 +97,7 @@ public class Aplicacao extends Exception {
             }
             
             System.out.println("Deseja continuar ? 1-Sim ou 2-Nao");
-            escolhaContinuar = scanner.nextInt();
+            int escolhaContinuar = scanner.nextInt();
             continuar = (escolhaContinuar == 1)? true : false;
         }while(continuar == true);
     }

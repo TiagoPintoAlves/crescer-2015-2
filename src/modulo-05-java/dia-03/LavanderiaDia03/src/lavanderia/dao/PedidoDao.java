@@ -81,7 +81,7 @@ public class PedidoDao implements BaseDeDados<Pedido> {
 		try (Connection conexao = new ConnectionFactory().getConnection()) {
             StringBuilder sql = new StringBuilder();
             sql.append("select idPedido, idcliente, dspedido ");
-            sql.append(" from cliente where idpedido = ?");
+            sql.append(" from pedido where idpedido = ?");
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
             statement.setLong(1, idServico);
             ResultSet resultSet = statement.executeQuery();
@@ -140,5 +140,29 @@ public class PedidoDao implements BaseDeDados<Pedido> {
             throw e;
         }
 	}
+	
+	public List<Pedido> findByCliente(Long idCliente) throws Exception {
+		try (Connection conexao = new ConnectionFactory().getConnection()) {
+			
+            StringBuilder sql = new StringBuilder();
+            sql.append("select idPedido, idcliente, dspedido ");
+            sql.append(" from pedido where idcliente = ?");
+            PreparedStatement statement = conexao.prepareStatement(sql.toString());
+            statement.setLong(1, idCliente);
+            
+			ResultSet resultSet = statement.executeQuery();
+			List<Pedido> lista = new ArrayList<>();
+			while (resultSet.next()) {
+				Pedido pedido = new Pedido();
+				pedido.setIdPedido(resultSet.getLong("idCliente"));
+				pedido.setIdCliente(resultSet.getLong("IdCliente"));
+				pedido.setDsPedido(resultSet.getString("dsPedido"));
+				lista.add(pedido);
+			}
 
+			return lista;
+		} catch (SQLException e) {
+            throw e;
+        }
+	}
 }
