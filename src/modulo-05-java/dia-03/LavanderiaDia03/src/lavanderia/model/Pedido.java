@@ -8,10 +8,6 @@ public class Pedido {
 
     private String dsPedido;
 
-    public Pedido(Cliente cliente) {
-        this.idCliente = cliente.getIdCliente();
-    }
-
     public Long getIdPedido() {
         return idPedido;
     }

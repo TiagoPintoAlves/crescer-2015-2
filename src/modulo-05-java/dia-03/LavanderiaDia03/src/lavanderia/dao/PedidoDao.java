@@ -8,22 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connection.jdbc.ConnectionFactory;
+import lavanderia.model.BaseDeDados;
 import lavanderia.model.Cliente;
 import lavanderia.model.Pedido;
+import lavanderia.model.Servico;
 
-public class PedidoDao {
+public class PedidoDao implements BaseDeDados<Pedido> {
 
-    public void insert(Pedido pedido, Cliente cliente) throws SQLException {
-        ClienteDao clienteDao = new ClienteDao();
+    public void insert(Pedido pedido) throws SQLException {
         try (Connection conexao = new ConnectionFactory().getConnection()) {
             String sql = "insert into Pedido(idPedido, idCliente, dsPedido) values (pedido_seq.nextval, ?, ?)";
             PreparedStatement statement = conexao.prepareStatement(sql);
-
-            if (clienteDao.find(cliente) != null) {
-                statement.setLong(1, pedido.getIdCliente());
-                statement.setString(2, pedido.getDsPedido());
-                statement.execute();
-            }
+            statement.setLong(1, pedido.getIdCliente());
+            statement.setString(2, pedido.getDsPedido());
+            statement.execute();
+            
         } catch (SQLException e) {
             throw e;
         }
@@ -57,16 +56,15 @@ public class PedidoDao {
         }
     }
 
-    public List<Pedido> listaPorCliente(Cliente cliente) throws SQLException {
+    public List<Pedido> listAll() throws SQLException {
         List<Pedido> lista = new ArrayList<>();
         try (Connection conexao = new ConnectionFactory().getConnection()) {
             StringBuilder sql = new StringBuilder();
             sql.append("select idPedido, idCliente, dsPedido from Pedido");
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
             ResultSet resultSet = statement.executeQuery();
-
             while (resultSet.next()) {
-                Pedido pedido = new Pedido(cliente);
+                Pedido pedido = new Pedido();
                 pedido.setIdPedido(resultSet.getLong(1));
                 pedido.setIdCliente(resultSet.getLong(2));
                 pedido.setDsPedido(resultSet.getString(3));
@@ -77,5 +75,70 @@ public class PedidoDao {
         }
         return lista;
     }
+
+	@Override
+	public Pedido load(Long idServico) throws SQLException {
+		try (Connection conexao = new ConnectionFactory().getConnection()) {
+            StringBuilder sql = new StringBuilder();
+            sql.append("select idPedido, idcliente, dspedido ");
+            sql.append(" from cliente where idpedido = ?");
+            PreparedStatement statement = conexao.prepareStatement(sql.toString());
+            statement.setLong(1, idServico);
+            ResultSet resultSet = statement.executeQuery();
+            Pedido pedido = new Pedido();
+            if (resultSet.next()) {
+            	pedido.setIdPedido(resultSet.getLong(1));
+            	pedido.setIdCliente(resultSet.getLong(2));
+            	pedido.setDsPedido(resultSet.getString(3));
+            } else {
+                throw new RuntimeException("Registro não encontrado!");
+            }
+            return pedido;
+        } catch (SQLException e) {
+            throw e;
+        }
+	}
+
+	@Override
+	public List<Pedido> find(Pedido filter) throws Exception {
+		try (Connection conexao = new ConnectionFactory().getConnection()) {
+            StringBuilder sql = new StringBuilder();
+            sql.append("select idPedido, idCliente, dsPedido from Pedido where 1=1");
+            List<Object> parameters = new ArrayList<Object>();
+            List<Pedido> lista = new ArrayList<>();
+
+            if (filter.getIdPedido() != null) {
+                sql.append(" and idPedido = ?");
+                parameters.add(filter.getIdPedido());
+            }
+            
+            if (filter.getIdCliente() != null) {
+                sql.append(" and idCliente = ?");
+                parameters.add(filter.getIdCliente());
+            }
+
+            if (filter.getDsPedido() != null) {
+                sql.append(" and dsPedido = ?");
+                parameters.add(filter.getDsPedido());
+            }
+
+            PreparedStatement statement = conexao.prepareStatement(sql.toString());
+            for (int i = 0; i < parameters.size(); i++) {
+                statement.setObject(i + 1, parameters.get(i));
+            }
+            
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Pedido pedido = new Pedido();
+                pedido.setIdPedido(resultSet.getLong(1));
+                pedido.setIdCliente(resultSet.getLong(2));
+                pedido.setDsPedido(resultSet.getString(3));
+                lista.add(pedido);
+            }
+            return lista;
+        } catch (SQLException e) {
+            throw e;
+        }
+	}
 
 }

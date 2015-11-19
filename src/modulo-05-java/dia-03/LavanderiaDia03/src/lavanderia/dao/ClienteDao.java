@@ -8,35 +8,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connection.jdbc.ConnectionFactory;
+import lavanderia.model.BaseDeDados;
 import lavanderia.model.Cliente;
 
-public class ClienteDao {
+public class ClienteDao implements BaseDeDados<Cliente>{
 
     public List<Cliente> find(Cliente filter) throws SQLException {
         try (Connection conexao = new ConnectionFactory().getConnection()) {
             StringBuilder sql = new StringBuilder();
             sql.append("select idcliente, nmCliente, nrCpf from cliente where 1=1");
-            List<Object> parameters = new ArrayList<>();
+            List<Object> parameters = new ArrayList<Object>();
             List<Cliente> lista = new ArrayList<>();
 
             if (filter.getNrCpf() != null) {
-                sql.append(" and nrCpf ");
+                sql.append(" and nrCpf = ?");
                 parameters.add(filter.getNrCpf());
             }
 
             if (filter.getNmCliente() != null) {
-                sql.append(" and nmCliente ");
+                sql.append(" and nmCliente = ?");
                 parameters.add(filter.getNmCliente());
             }
 
             if ((Long) filter.getIdCliente() != null) {
-                sql.append(" and idCliente ");
+                sql.append(" and idCliente = ?");
                 parameters.add(filter.getIdCliente());
             }
 
             PreparedStatement statement = conexao.prepareStatement(sql.toString());
             for (int i = 0; i < parameters.size(); i++) {
-                statement.setObject(i + 1, parameters.indexOf(i));
+                statement.setObject(i + 1, parameters.get(i));
             }
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -105,14 +106,6 @@ public class ClienteDao {
 
     public void insert(Cliente cliente) throws SQLException {
         try (Connection conexao = new ConnectionFactory().getConnection()) {
-
-            /*
-             * Statement statement = conexao.createStatement();
-             * statement.execute("inser into cliente(idCliente, nmCliente, nrCpf) values (" + cliente.getIdCliente() + ", '" + cliente.getNmCliente() + "', '" +
-             * cliente
-             * .getNrCpf() + "' ");
-             * statement.close();
-             */
 
             PreparedStatement ps = conexao.prepareStatement("insert into cliente(idCliente, nmCliente, nrCpf) values (cliente_seq.nextval, ?, ?)");
             ps.setString(1, cliente.getNmCliente());

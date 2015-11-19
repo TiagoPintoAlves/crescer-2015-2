@@ -1,7 +1,9 @@
-package lavanderia.dao;
+package lavanderia.aplicacao;
 
 import java.sql.SQLException;
 
+import lavanderia.dao.ClienteDao;
+import lavanderia.dao.ServicoDao;
 import lavanderia.model.Cliente;
 
 public class Aplicacao {
