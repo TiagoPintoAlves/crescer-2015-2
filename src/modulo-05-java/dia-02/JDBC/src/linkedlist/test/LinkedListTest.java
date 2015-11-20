@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import linkedlist.exercicio.LinkedList;
 
-
 public class LinkedListTest {
 
     @Test
@@ -39,7 +38,7 @@ public class LinkedListTest {
 
         linkedList.removeFirst();
 
-        assertEquals(linkedList.getFirst(), "terceiro");
+        assertEquals(linkedList.getFirst(), "segundo");
     }
 
     @Test
@@ -49,22 +48,20 @@ public class LinkedListTest {
         linkedList.addFirst("segundo");
         linkedList.addFirst("terceiro");
 
-        linkedList.remove(2);
-        
-        assertEquals(linkedList.getFirst(), "terceiro");
-        assertEquals(linkedList.getLast(), "primeiro");
-        assertEquals(linkedList.list().size(), 3);
+        linkedList.remove(0);
+
+        assertEquals(linkedList.getFirst(), "segundo");
     }
-    
+
     @Test
     public void adicionarEmListaDeNumeros() {
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.addFirst(1);
         linkedList.addFirst(2);
         linkedList.addFirst(3);
-        
+
         assertEquals(linkedList.list().size(), 3);
-        assertEquals(linkedList.getLast(),(Integer)1);
+        assertEquals(linkedList.getLast(), (Integer) 1);
         Assert.assertTrue(linkedList.getFirst() == 3);
     }
 }
