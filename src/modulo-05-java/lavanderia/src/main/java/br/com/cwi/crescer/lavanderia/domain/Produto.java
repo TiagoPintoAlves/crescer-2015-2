@@ -1,6 +1,7 @@
 package br.com.cwi.crescer.lavanderia.domain;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,17 +28,22 @@ public class Produto {
     @Column(name = "IDProduto")
     private Long idProduto;
 
-    @Column(name = "IDServico")
+    @ManyToOne
+    @JoinColumn(name = "IDServico")
     @Basic(optional = false)
-    private Long idServico;
+    private Servico servico;
 
-    @Column(name = "IDMaterial")
+    @ManyToOne
+    @JoinColumn(name = "IDMaterial")
     @Basic(optional = false)
-    private Long idMaterial;
+    private Material material;
 
     @Column(name = "Valor")
     @Basic(optional = false)
     private BigDecimal Valor;
+    
+    @OneToMany(mappedBy="produto")
+    private List<Item> itens;
 
     public Long getIdProduto() {
         return idProduto;
@@ -44,21 +53,21 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
-    public Long getIdServico() {
-        return idServico;
-    }
+    public Servico getServico() {
+		return servico;
+	}
+    
+    public void setServico(Servico servico) {
+		this.servico = servico;
+	}
 
-    public void setIdServico(Long idServico) {
-        this.idServico = idServico;
-    }
-
-    public Long getIdMaterial() {
-        return idMaterial;
-    }
-
-    public void setIdMaterial(Long idMaterial) {
-        this.idMaterial = idMaterial;
-    }
+    public Material getMaterial() {
+		return material;
+	}
+    
+    public void setMaterial(Material material) {
+		this.material = material;
+	}
 
     public BigDecimal getValor() {
         return Valor;
@@ -68,4 +77,11 @@ public class Produto {
         Valor = valor;
     }
 
+    public List<Item> getItens() {
+		return itens;
+	}
+    
+    public void setItens(List<Item> itens) {
+		this.itens = itens;
+	}
 }

@@ -24,4 +24,11 @@ public class PedidoDAOTest extends AbstractInfrastructureTest {
         Assert.assertNotNull(pedido.getCliente());
         Assert.assertNotNull(pedido.getCliente().getNome());
     }
+    
+    @Test
+    public void deveBuscarPedidoPorIdEVerificarItens() throws Exception {
+        Pedido pedido = pedidoDAO.findById(1L);
+        Assert.assertNotNull(pedido);
+        Assert.assertNotNull(pedido.getItens());
+    }
 }

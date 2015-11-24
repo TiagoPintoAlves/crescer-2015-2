@@ -14,8 +14,15 @@ public class ClienteDAOTest extends AbstractInfrastructureTest {
     @Test
     public void buscaClientePorId() throws Exception {
         Cliente cliente = clienteDAO.findById(1L);
+        
         Assert.assertNotNull(cliente);
         Assert.assertNotNull(cliente.getCidade());
+    }
+    
+    @Test
+    public void buscaClienteComPedidos() throws Exception {
+        Cliente cliente = clienteDAO.findById(1L);
+        
         Assert.assertNotNull(cliente.getPedidos());
     }
 }

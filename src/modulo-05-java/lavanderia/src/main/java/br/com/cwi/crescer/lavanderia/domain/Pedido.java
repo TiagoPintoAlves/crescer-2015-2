@@ -1,6 +1,8 @@
 package br.com.cwi.crescer.lavanderia.domain;
 
+import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -29,6 +32,9 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
     @Column(name = "IDPedido")
     private Long idPedido;
+    
+    @OneToMany(mappedBy="pedido")
+    private List<Item> itens;
 
     @ManyToOne
     @JoinColumn(name = "IDCliente")
@@ -46,14 +52,14 @@ public class Pedido {
 
     @Column(name = "Valor")
     @Basic(optional = false)
-    private double valor;
+    private BigDecimal valor;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "Situacao")
-    private SituacaoCliente situacao;
+    private SituacaoPedido situacao;
 
-    public static enum SituacaoCliente {
-        ATIVO, INATIVO;
+    public static enum SituacaoPedido {
+    	PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO;
     }
 
     public Long getIdPedido() {
@@ -88,21 +94,28 @@ public class Pedido {
         this.dataEntrega = dataEntrega;
     }
 
-    public double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
-    public SituacaoCliente getSituacao() {
+    public SituacaoPedido getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(SituacaoCliente situacao) {
+    public void setSituacao(SituacaoPedido situacao) {
         this.situacao = situacao;
     }
 
-
+    public List<Item> getItens() {
+		return itens;
+	}
+    
+    public void setItens(List<Item> itens) {
+		this.itens = itens;
+	}
+    
 }

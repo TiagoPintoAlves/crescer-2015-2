@@ -1,5 +1,7 @@
 package br.com.cwi.crescer.lavanderia.service;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +18,9 @@ public class PedidoService {
 		this.PedidoDAO = pedidoDAO;
 	}
 	
-	public double buscarValor(Long id) {
+	public BigDecimal buscarValor(Long id) {
 		
-		double valor = PedidoDAO.findById(id).getValor();
+		BigDecimal valor = PedidoDAO.findById(id).getValor();
 		
 		return valor;
 	}
