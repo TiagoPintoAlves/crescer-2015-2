@@ -6,25 +6,29 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.cwi.crescer.lavanderia.dao.CidadeDAO;
 import br.com.cwi.crescer.lavanderia.dao.ClienteDAO;
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
+import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
 import br.com.cwi.crescer.lavanderia.dto.ClienteResumoDTO;
+import br.com.cwi.crescer.lavanderia.mapper.ClienteMapper;
 
 @Service
 public class ClienteService {
 
 
     private ClienteDAO clienteDAO;
+    private CidadeDAO cidadeDAO;
 
     @Autowired
-    public ClienteService(ClienteDAO clienteDAO) {
+    public ClienteService(ClienteDAO clienteDAO, CidadeDAO cidadeDAO) {
         this.clienteDAO = clienteDAO;
+        this.cidadeDAO = cidadeDAO;
     }
-
-    public String buscarNome(Long id) {
-        String nome = clienteDAO.findById(id).getNome();
-        return nome.toUpperCase();
+    
+    public ClienteDTO buscarClientePorId(Long id) {
+        return ClienteMapper.toDTO(clienteDAO.findById(id));
     }
 
     public List<ClienteResumoDTO> listarClientesAtivos() {
@@ -37,5 +41,16 @@ public class ClienteService {
         }
 
         return dtos;
+    }
+    
+    public void atualizar(ClienteDTO dto) {
+
+        Cliente entity = clienteDAO.findById(dto.getId());
+
+        ClienteMapper.merge(dto, entity);
+
+        entity.setCidade(cidadeDAO.findById(dto.getIdCidade()));
+
+        clienteDAO.save(entity);
     }
 }
