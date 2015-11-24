@@ -50,7 +50,7 @@ public class Cliente {
     private Cidade cidade;
 
     @Column(name = "CEP")
-    private int cep;
+    private Long cep;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "Situacao")
@@ -119,11 +119,11 @@ public class Cliente {
         this.cidade = cidade;
     }
 
-    public int getCep() {
+    public Long getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(Long cep) {
         this.cep = cep;
     }
 
