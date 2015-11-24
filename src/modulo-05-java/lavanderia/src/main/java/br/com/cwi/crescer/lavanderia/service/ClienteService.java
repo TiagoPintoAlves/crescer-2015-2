@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.cwi.crescer.lavanderia.dao.CidadeDAO;
 import br.com.cwi.crescer.lavanderia.dao.ClienteDAO;
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
@@ -19,7 +18,7 @@ public class ClienteService {
     private ClienteDAO clienteDAO;
 
     @Autowired
-    public ClienteService(ClienteDAO clienteDAO, CidadeDAO cidadeDAO) {
+    public ClienteService(ClienteDAO clienteDAO) {
         this.clienteDAO = clienteDAO;
     }
 
