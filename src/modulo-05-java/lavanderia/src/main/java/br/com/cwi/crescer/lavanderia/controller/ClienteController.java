@@ -53,7 +53,7 @@ public class ClienteController {
 
     @RequestMapping(path = "/remover/{id}", method = RequestMethod.GET)
     public ModelAndView viewRemove(@PathVariable("id") Long id) {
-        return new ModelAndView("cliente/remove", "cliente", clienteService.buscarClientePorId(id));
+        return new ModelAndView("cliente/remover", "cliente", clienteService.buscarClientePorId(id));
     }
 
     @RequestMapping(path = "/remover", method = RequestMethod.POST)

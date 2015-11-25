@@ -8,30 +8,28 @@
 </head>
 <body>
 
-	<h2>Visualizar</h2>
+	<h2>Visualizar Cliente</h2>
 
 	<div class="container" layout:fragment="content">
 		<form role="form" th:object="${cliente}">
-
-			<label class="control-label">ID: </label> 
-			<input th:field="*{id}" type="text" disabled="true" /> 
+			<label class="control-label col-sm-2">ID: </label> 
+			<input class="form-control" th:field="*{id}" type="text" disabled="true" /> 
 			
-			<label class="control-label">Nome:</label> 
-			<input th:field="*{nome}" type="text" disabled="true" /> 
+			<label class="control-label col-sm-2">Nome:</label> 
+			<input class="form-control" th:field="*{nome}" type="text" disabled="true" /> 
 			
-			<label class="control-label">CPF: </label> 
-			<input th:field="*{cpf}" type="text" disabled="true" /> 
+			<label class="control-label col-sm-2">CPF: </label> 
+			<input class="form-control" th:field="*{cpf}" type="text" disabled="true" /> 
 			
-			<label class="control-label">Email:</label> 
-			<input th:field="*{email}" type="text" disabled="true" /> 
+			<label class="control-label col-sm-2">Email:</label> 
+			<input class="form-control" th:field="*{email}" type="text" disabled="true" /> 
 			
-			<label class="control-label">Cidade: </label> 
-			<select
+			<label class="control-label col-sm-2">Cidade: </label> 
+			<select class="form-control"
 				th:field="*{idCidade}" disabled="true">
 				<option th:each="c : ${cidades}" th:text="${c.nome}"
 					th:value="${c.idCidade}"></option>
 			</select>
-
 		</form>
 	</div>
 
