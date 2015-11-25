@@ -16,7 +16,7 @@ import br.com.cwi.crescer.lavanderia.service.CidadeService;
 import br.com.cwi.crescer.lavanderia.service.ClienteService;
 
 @Controller
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteController {
 
     private ClienteService clienteService;
