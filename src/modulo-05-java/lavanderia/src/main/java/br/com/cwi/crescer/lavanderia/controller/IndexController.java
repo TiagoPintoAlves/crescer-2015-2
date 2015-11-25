@@ -12,7 +12,7 @@ public class IndexController {
         String mensagem = "Lavanderia Crescer";
         
         model.addAttribute("mensagem", mensagem);
-        return "/home/Index";
+        return "Index";
     }
 
 

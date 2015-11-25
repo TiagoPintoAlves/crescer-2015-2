@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Lavanderia</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/">Home</a></li>
+					<li><a href="/cliente/lista">Clientes</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h2>Visualizar</h2>
+
+	<form th:object="${cliente}">
+
+		<p>
+			<label class="control-label">ID: </label> <input th:field="*{id}"
+				type="text" disabled="true" />
+		</p>
+
+		<p>
+			<label class="control-label">Nome: </label> <input th:field="*{nome}"
+				type="text" disabled="true" />
+		</p>
+
+		<p>
+			<label class="control-label">CPF: </label> <input th:field="*{cpf}"
+				type="text" disabled="true" />
+		</p>
+
+		<p>
+			<label class="control-label">Email: </label> <input
+				th:field="*{email}" type="text" disabled="true" />
+		</p>
+
+		<p>
+			<label class="control-label">Cidade: </label> <select
+				th:field="*{idCidade}" disabled="true">
+				<option th:each="c : ${cidades}" th:text="${c.nome}"
+					th:value="${c.idCidade}"></option>
+			</select>
+		</p>
+
+	</form>
+</body>
+</html>
