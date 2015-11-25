@@ -37,4 +37,9 @@ public class ClienteDAO {
 
         return em.merge(cliente);
     }
+
+    @Transactional
+    public void remove(Long id) {
+        em.remove(em.getReference(Cliente.class, id));
+    }
 }

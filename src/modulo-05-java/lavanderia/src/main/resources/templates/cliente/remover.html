@@ -3,8 +3,8 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="@{/layout}">
 <head>
-<meta charset="UTF-8" />
-<title>Index</title>
+<meta charset="UTF-8">
+<title>Remover</title>
 </head>
 <body>
 
@@ -15,17 +15,17 @@
 			<input th:field="*{id}" type="hidden" />
 			<div class="form-group">
 				<label class="control-label col-sm-2">Nome: </label> <input
-					th:field="*{nome}" type="text" />
+					class="from-control" th:field="*{nome}" type="text" />
 			</div>
 
 			<div class="form-group">
 				<label class="control-label col-sm-2">CPF: </label> <input
-					th:field="*{cpf}" type="text" />
+					class="from-control" th:field="*{cpf}" type="text" />
 			</div>
 
 			<div class="form-group">
 				<label class="control-label col-sm-2">Email: </label> <input
-					th:field="*{email}" type="text" />
+					class="from-control" th:field="*{email}" type="text" />
 			</div>
 
 			<div class="form-group">
@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-default">Salvar</button>
+				<button type="submit" class="btn btn-default">Excluir</button>
 			</div>
 
 		</form>
