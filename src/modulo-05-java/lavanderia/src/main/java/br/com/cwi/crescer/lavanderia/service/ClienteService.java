@@ -26,10 +26,6 @@ public class ClienteService {
         this.clienteDAO = clienteDAO;
         this.cidadeDAO = cidadeDAO;
     }
-    
-    public ClienteDTO buscarClientePorId(Long id) {
-        return ClienteMapper.toDTO(clienteDAO.findById(id));
-    }
 
     public List<ClienteResumoDTO> listarClientesAtivos() {
         List<Cliente> clientes = clienteDAO.findBySituacao(SituacaoCliente.ATIVO);
@@ -41,6 +37,10 @@ public class ClienteService {
         }
 
         return dtos;
+    }
+
+    public ClienteDTO buscarClientePorId(Long id) {
+        return ClienteMapper.toDTO(clienteDAO.findById(id));
     }
     
     public void atualizar(ClienteDTO dto) {

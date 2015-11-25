@@ -112,12 +112,12 @@ public class Cliente {
     }
 
     public Cidade getCidade() {
-        return cidade;
-    }
-
-    public void setIdCicade(Cidade cidade) {
-        this.cidade = cidade;
-    }
+		return cidade;
+	}
+    
+    public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
 
     public Long getCep() {
         return cep;

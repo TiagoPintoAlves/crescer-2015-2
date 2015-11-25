@@ -1,26 +1,25 @@
 package br.com.cwi.crescer.lavanderia.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.cwi.crescer.lavanderia.dao.CidadeDAO;
+import br.com.cwi.crescer.lavanderia.domain.Cidade;
 
 @Service
 public class CidadeService {
 
-	private CidadeDAO cidadoDAO;
+    private CidadeDAO cidadeDAO;
 
-	@Autowired
-	public CidadeService(CidadeDAO cDAO) {
-		super();
-		this.cidadoDAO = cDAO;
-	}
-	
-	public String buscarNome(Long id) {
-		
-		String nome = cidadoDAO.findById(id).getNome();
-		
-		return nome.toUpperCase();
-	}
+    @Autowired
+    public CidadeService(CidadeDAO cidadeDAO) {
+        this.cidadeDAO = cidadeDAO;
+    }
+
+    public List<Cidade> listar() {
+        return cidadeDAO.listAll();
+    }
 	
 }
