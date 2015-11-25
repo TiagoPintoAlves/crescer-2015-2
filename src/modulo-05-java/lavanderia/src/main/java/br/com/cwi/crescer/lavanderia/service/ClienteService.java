@@ -17,7 +17,6 @@ import br.com.cwi.crescer.lavanderia.mapper.ClienteMapper;
 @Service
 public class ClienteService {
 
-
     private ClienteDAO clienteDAO;
     private CidadeDAO cidadeDAO;
 
@@ -28,9 +27,10 @@ public class ClienteService {
     }
 
     public List<ClienteResumoDTO> listarClientesAtivos() {
+
         List<Cliente> clientes = clienteDAO.findBySituacao(SituacaoCliente.ATIVO);
 
-        List<ClienteResumoDTO> dtos = new ArrayList<>();
+        List<ClienteResumoDTO> dtos = new ArrayList<ClienteResumoDTO>();
 
         for (Cliente cliente : clientes) {
             dtos.add(new ClienteResumoDTO(cliente));
@@ -42,7 +42,7 @@ public class ClienteService {
     public ClienteDTO buscarClientePorId(Long id) {
         return ClienteMapper.toDTO(clienteDAO.findById(id));
     }
-    
+
     public void atualizar(ClienteDTO dto) {
 
         Cliente entity = clienteDAO.findById(dto.getId());
@@ -53,4 +53,5 @@ public class ClienteService {
 
         clienteDAO.save(entity);
     }
+    
 }

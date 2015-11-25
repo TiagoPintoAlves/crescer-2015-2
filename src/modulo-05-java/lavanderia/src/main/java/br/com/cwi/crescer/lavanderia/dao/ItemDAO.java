@@ -8,12 +8,11 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.lavanderia.domain.Item;
 
 @Repository
-public class ItemDAO implements BaseDadosDAO<Item>{
+public class ItemDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 	
-	@Override
 	public Item findById(Long id) {
 		return em.find(Item.class, id);
 	}

@@ -9,9 +9,10 @@ public class IndexController {
 
     @RequestMapping("/")
     public String Index(Model model) {
-        String mensagem = "Bem vindo, Lavanderia Crescer";
+        String mensagem = "Lavanderia Crescer";
+        
         model.addAttribute("mensagem", mensagem);
-        return "Index";
+        return "/home/Index";
     }
 
 
