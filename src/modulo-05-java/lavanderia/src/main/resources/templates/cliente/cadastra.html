@@ -64,8 +64,7 @@
 					<label class="control-label col-sm-2">Cidade: </label>
 					<div class="col-sm-10"> 
 						<select class="form-control" th:field="*{idCidade}">
-							<option th:each="c : ${cidades}" th:text="${c.nome}"
-								th:value="${c.idCidade}">[option]</option>
+							<option th:each="c : ${cidades}" th:text="${c.nome}" th:value="${c.idCidade}">[option]</option>
 						</select>
 					</div>
 				</div>
