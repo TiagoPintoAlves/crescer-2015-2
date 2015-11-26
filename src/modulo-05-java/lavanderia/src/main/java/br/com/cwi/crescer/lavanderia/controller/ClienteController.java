@@ -58,8 +58,20 @@ public class ClienteController {
 
     @RequestMapping(path = "/remover", method = RequestMethod.POST)
     public ModelAndView remove(ClienteDTO dto, RedirectAttributes redirectAttributes) {
-        clienteService.delete(dto);
+        clienteService.excluir(dto);
         redirectAttributes.addFlashAttribute("message", "Removido com sucesso");
+        return new ModelAndView("redirect:/clientes");
+    }
+    
+    @RequestMapping(path = "/cadastra/{id}", method = RequestMethod.GET)
+    public ModelAndView viewCadastra(@PathVariable("id") Long id) {
+        return new ModelAndView("cliente/cadastra", "cliente", new ClienteDTO());
+    }
+
+    @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
+    public ModelAndView cadastra(ClienteDTO dto, RedirectAttributes redirectAttributes) {
+        clienteService.incluir(dto);
+        redirectAttributes.addFlashAttribute("message", "Cadastrado com sucesso");
         return new ModelAndView("redirect:/clientes");
     }
 

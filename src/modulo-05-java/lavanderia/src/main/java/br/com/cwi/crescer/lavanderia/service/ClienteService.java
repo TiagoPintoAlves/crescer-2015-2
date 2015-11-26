@@ -27,7 +27,6 @@ public class ClienteService {
     }
 
     public List<ClienteResumoDTO> listarClientesAtivos() {
-
         List<Cliente> clientes = clienteDAO.findBySituacao(SituacaoCliente.ATIVO);
 
         List<ClienteResumoDTO> dtos = new ArrayList<ClienteResumoDTO>();
@@ -53,10 +52,18 @@ public class ClienteService {
 
         clienteDAO.save(entity);
     }
+    
+    public void incluir(ClienteDTO dto){
+    	Cliente entity = ClienteMapper.getNewEntity(dto);
+        entity.setCidade(cidadeDAO.findById(dto.getIdCidade()));
+    	entity.setSituacao(SituacaoCliente.ATIVO);
+    	clienteDAO.save(entity);
+    }
 
-    public void delete(ClienteDTO dto) {
+    public void excluir(ClienteDTO dto) {
         Cliente entity = clienteDAO.findById(dto.getId());
-        clienteDAO.remove(entity.getIdCliente());
+        entity.setSituacao(SituacaoCliente.INATIVO);
+        clienteDAO.save(entity);
     }
 
 }

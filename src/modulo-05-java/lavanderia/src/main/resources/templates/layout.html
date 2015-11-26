@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
 <title>Layout Page</title>
 </head>
-
 <body>
 	<header>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -20,14 +19,19 @@
 						<li class="active"><a href="/">Home</a></li>
 						<li><a th:href="@{/clientes/}">Clientes</a></li>
 					</ul>
+				
+					<ul class="nav navbar-nav navbar-right">
+					        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
-	
-	<div class="container" layout:fragment="content">
-	</div>
-	
+
+	<section class="container">
+		<div layout:fragment="content"></div>
+	</section>
 	
 </body>
 </html>

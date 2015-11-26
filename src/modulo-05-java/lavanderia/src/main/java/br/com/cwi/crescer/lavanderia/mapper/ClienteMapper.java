@@ -10,6 +10,9 @@ public class ClienteMapper {
         entity.setNome(dto.getNome());
         entity.setCpf(dto.getCpf());
         entity.setEmail(dto.getEmail());
+        entity.setEndereco(dto.getEndereco());
+        entity.setBairro(dto.getBairro());
+        entity.setCep(dto.getCep());
         return entity;
     }
 
@@ -19,6 +22,9 @@ public class ClienteMapper {
         dto.setNome(entity.getNome());
         dto.setCpf(entity.getCpf());
         dto.setEmail(entity.getEmail());
+        dto.setEndereco(entity.getEndereco());
+        dto.setBairro(entity.getBairro());
+        dto.setCep(entity.getCep());
         dto.setIdCidade(entity.getCidade().getIdCidade());
         return dto;
     }
@@ -27,6 +33,9 @@ public class ClienteMapper {
         entity.setNome(dto.getNome());
         entity.setCpf(dto.getCpf());
         entity.setEmail(dto.getEmail());
+        entity.setEndereco(dto.getEndereco());
+        entity.setBairro(dto.getBairro());
+        entity.setCep(dto.getCep());
         return entity;
     }
 }
