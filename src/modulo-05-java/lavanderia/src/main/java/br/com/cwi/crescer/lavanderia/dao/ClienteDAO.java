@@ -29,12 +29,10 @@ public class ClienteDAO {
 
     @Transactional
     public Cliente save(Cliente cliente) {
-
         if (cliente.getIdCliente() == null) {
             em.persist(cliente);
             return cliente;
         }
-
         return em.merge(cliente);
     }
 

@@ -60,8 +60,8 @@ public class ClienteService {
     	clienteDAO.save(entity);
     }
 
-    public void excluir(ClienteDTO dto) {
-        Cliente entity = clienteDAO.findById(dto.getId());
+    public void excluir(Long id) {
+        Cliente entity = clienteDAO.findById(id);
         entity.setSituacao(SituacaoCliente.INATIVO);
         clienteDAO.save(entity);
     }

@@ -2,8 +2,11 @@ package br.com.cwi.crescer.lavanderia.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,8 +48,11 @@ public class ClienteController {
     }
 
     @RequestMapping(path = "/editar", method = RequestMethod.POST)
-    public ModelAndView editar(ClienteDTO dto, RedirectAttributes redirectAttributes) {
-        clienteService.atualizar(dto);
+    public ModelAndView editar(@Valid @ModelAttribute("cliente") ClienteDTO dto, RedirectAttributes redirectAttributes, BindingResult result) {
+        if(result.hasErrors()){
+        	return new ModelAndView("cliente/edita");
+        }
+    	clienteService.atualizar(dto);
         redirectAttributes.addFlashAttribute("message", "Editado com sucesso");
         return new ModelAndView("redirect:/clientes");
     }
@@ -58,18 +64,21 @@ public class ClienteController {
 
     @RequestMapping(path = "/remover", method = RequestMethod.POST)
     public ModelAndView remove(ClienteDTO dto, RedirectAttributes redirectAttributes) {
-        clienteService.excluir(dto);
+        clienteService.excluir(dto.getId());
         redirectAttributes.addFlashAttribute("message", "Removido com sucesso");
         return new ModelAndView("redirect:/clientes");
     }
     
-    @RequestMapping(path = "/cadastra/{id}", method = RequestMethod.GET)
-    public ModelAndView viewCadastra(@PathVariable("id") Long id) {
+    @RequestMapping(path = "/cadastra", method = RequestMethod.GET)
+    public ModelAndView viewCadastra() {
         return new ModelAndView("cliente/cadastra", "cliente", new ClienteDTO());
     }
 
     @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
-    public ModelAndView cadastra(ClienteDTO dto, RedirectAttributes redirectAttributes) {
+    public ModelAndView cadastra(@Valid @ModelAttribute("cliente") ClienteDTO dto, RedirectAttributes redirectAttributes, BindingResult result) {
+        if(result.hasErrors()){
+        	return new ModelAndView("cliente/cadastra");
+        }
         clienteService.incluir(dto);
         redirectAttributes.addFlashAttribute("message", "Cadastrado com sucesso");
         return new ModelAndView("redirect:/clientes");
