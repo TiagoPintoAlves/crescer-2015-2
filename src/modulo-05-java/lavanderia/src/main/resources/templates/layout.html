@@ -3,8 +3,8 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.css}" />
-<link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 <title>Layout Page</title>
 </head>
 <body>
@@ -21,20 +21,17 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-								Sign Up</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-								Login</a></li>
+						<li><a href="#">Login</a></li>
+						<form name="form" th:action="@{/logout}" action="/logout" method="POST">
+							<li><a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></li>
+						</form>
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
-
-
 	<section class="container">
 		<div layout:fragment="content"> </div>
 	</section>
-
 </body>
 </html>
