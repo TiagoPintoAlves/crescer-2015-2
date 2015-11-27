@@ -6,10 +6,11 @@
 <body>
 	<div layout:fragment="content">
 		<div class="col-xs-11">
-			<form class="form-horizontal" role="form" th:action="@{/clientes/cadastra}" th:object="${cliente}" method="post">
-				<h2 class="text-center title">Cadastrar Cliente</h2>
+			<form class="form-horizontal" th:action="@{/clientes/cadastra}" th:object="${cliente}" method="post">
 				
 				<input th:field="*{id}" type="hidden" />
+				
+				<h2 class="text-center title">Cadastrar Cliente</h2>
 				
 				<div class="form-group" th:classappend="${#fields.hasErrors('nome')} ? 'has-error'">
 					<label class="control-label col-sm-2">Nome: </label> 
@@ -60,20 +61,21 @@
 					</div>
 				</div>
 	
-				<div class="form-group">
+				<div class="form-group" th:classappend="${#fields.hasErrors('idCidade')} ? 'has-error'">
 					<label class="control-label col-sm-2">Cidade: </label>
 					<div class="col-sm-10"> 
 						<select class="form-control" th:field="*{idCidade}">
 							<option th:each="c : ${cidades}" th:text="${c.nome}" th:value="${c.idCidade}">[option]</option>
 						</select>
+						<span class="help-inline" th:errors="*{idCidade}"></span>
 					</div>
 				</div>
+				
 				<div class="text-center">
 					<button type="submit" class="btn btn-large btn-success">Salvar</button>
 				</div>
 			</form>
 		</div>
-		
 	</div>
 </body>
 </html>

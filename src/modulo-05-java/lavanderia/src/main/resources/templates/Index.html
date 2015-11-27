@@ -6,10 +6,16 @@
 <body>
 
 	<div layout:fragment="content">
-		<div>
+		<div class="text-center">
 			<h2 th:text="${mensagem}">mensagem</h2>
 		</div>
+		<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<p class="text-center lead">Olá <span sec:authentication="name"></span>, você está como Administrador</p>
+		</div>
+		
+		<div sec:authorize="hasRole('ROLE_USER')">
+			<p class="text-center lead">Olá <span sec:authentication="name"></span>, você está como Usuário</p>
+		</div>
 	</div>
-	
 </body>
 </html>

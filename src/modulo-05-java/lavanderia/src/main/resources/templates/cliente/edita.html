@@ -6,7 +6,7 @@
 <body>
 	<div layout:fragment="content">
 		<div class="col-xs-11">
-			<form class="form-horizontal" role="form" th:action="@{/clientes/editar}" th:object="${cliente}" method="post">
+			<form class="form-horizontal" th:action="@{/clientes/editar}" th:object="${cliente}" method="post">
 				<h2 class="text-center title">Editar Cliente</h2>
 				
 				<input th:field="*{id}" type="hidden" />
