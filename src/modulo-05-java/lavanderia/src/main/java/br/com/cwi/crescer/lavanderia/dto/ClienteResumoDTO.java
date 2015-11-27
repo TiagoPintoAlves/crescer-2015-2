@@ -1,6 +1,7 @@
 package br.com.cwi.crescer.lavanderia.dto;
 
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
+import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 
 public class ClienteResumoDTO {
 
@@ -8,11 +9,12 @@ public class ClienteResumoDTO {
     private String nome;
     private String cpf;
     private String email;
+    private SituacaoCliente situcao;
 
     public ClienteResumoDTO() {
     }
 
-    public ClienteResumoDTO(Long id, String nome, String cpf, String email) {
+    public ClienteResumoDTO(Long id, String nome, String cpf, String email, SituacaoCliente situcao) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -24,6 +26,7 @@ public class ClienteResumoDTO {
         this.nome = entity.getNome();
         this.cpf = entity.getCpf();
         this.email = entity.getEmail();
+        this.setSitucao(entity.getSituacao());
     }
 
     public Long getId() {
@@ -56,6 +59,14 @@ public class ClienteResumoDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public SituacaoCliente getSitucao() {
+        return situcao;
+    }
+
+    public void setSitucao(SituacaoCliente situcao) {
+        this.situcao = situcao;
     }
 
 }

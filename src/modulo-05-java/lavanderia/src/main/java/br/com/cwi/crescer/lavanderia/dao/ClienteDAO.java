@@ -27,6 +27,11 @@ public class ClienteDAO {
                 .getResultList();
     }
 
+    public List<Cliente> listAll() {
+        return em.createQuery("FROM Cliente", Cliente.class)
+                .getResultList();
+    }
+
     @Transactional
     public Cliente save(Cliente cliente) {
         if (cliente.getIdCliente() == null) {

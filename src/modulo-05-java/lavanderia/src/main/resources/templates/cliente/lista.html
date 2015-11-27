@@ -11,13 +11,13 @@
 						<strong th:text="${message}">mensage</strong>
 					</div>
 					
-				<h2 class="text-center title">Clientes Ativos</h2>
+				<h2 class="text-center title">Listagem de Clientes</h2>
 				<table class="table table-striped table-bordered table-hover table-condensed">
 					<tr>
 						<th>Id</th>
 						<th>Nome</th>
 						<th>CPF</th>
-						<th>Email</th>
+						<th>Situacao</th>
 						<th>Visualizar</th>
 						<th>Editar</th>
 						<th>Remover</th>
@@ -26,7 +26,7 @@
 						<td th:text="${cliente.id}"><a th:href="${'/clientes/' + cliente.id}"></a></td>
 						<td th:text="${cliente.nome}"></td>
 						<td th:text="${cliente.cpf}"></td>
-						<td th:text="${cliente.email}"></td>
+						<td th:text="${cliente.situcao}"></td>
 						<td><a class="btn btn-info" role="button" th:href="${'/clientes/' + cliente.id}">Visualizar</a></td>
 						<td><a class="btn btn-info" role="button" th:href="${'/clientes/editar/' + cliente.id}">Editar</a></td>
 						<td><a class="btn btn-info" role="button" th:href="${'/clientes/remover/' + cliente.id}">Remover</a></td>

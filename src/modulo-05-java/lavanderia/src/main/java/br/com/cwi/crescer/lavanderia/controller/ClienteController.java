@@ -35,7 +35,7 @@ public class ClienteController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView listar() {
-        return new ModelAndView("cliente/lista", "clientes", clienteService.listarClientesAtivos());
+        return new ModelAndView("cliente/lista", "clientes", clienteService.listarTodosClientes());
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
@@ -50,12 +50,12 @@ public class ClienteController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(path = "/editar", method = RequestMethod.POST)
+    @RequestMapping(path = "/editar ", method = RequestMethod.POST)
     public ModelAndView editar(@Valid @ModelAttribute("cliente") ClienteDTO dto, BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()){
-        	return new ModelAndView("cliente/edita");
+            return new ModelAndView("cliente/edita");
         }
-    	clienteService.atualizar(dto);
+        clienteService.atualizar(dto);
         redirectAttributes.addFlashAttribute("message", "Editado com sucesso");
         return new ModelAndView("redirect:/clientes");
     }
@@ -71,7 +71,7 @@ public class ClienteController {
         redirectAttributes.addFlashAttribute("message", "Removido com sucesso");
         return new ModelAndView("redirect:/clientes");
     }
-    
+
     @RequestMapping(path = "/cadastra", method = RequestMethod.GET)
     public ModelAndView viewCadastra() {
         return new ModelAndView("cliente/cadastra", "cliente", new ClienteDTO());
@@ -80,7 +80,7 @@ public class ClienteController {
     @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
     public ModelAndView cadastra(@Valid @ModelAttribute("cliente") ClienteDTO dto, BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()){
-        	return new ModelAndView("cliente/cadastra");
+            return new ModelAndView("cliente/cadastra");
         }
         clienteService.incluir(dto);
         redirectAttributes.addFlashAttribute("message", "Cadastrado com sucesso");
