@@ -44,10 +44,6 @@ public class Item {
     @Basic(optional = false)
     private BigDecimal valorUnitario;
 
-    @Column(name = "VALORDesconto")
-    @Basic(optional = false)
-    private BigDecimal valorDesconto;
-
     @Column(name = "VALORTotal")
     @Basic(optional = false)
     private BigDecimal valorTotal;
@@ -68,20 +64,20 @@ public class Item {
     }
 
     public Pedido getPedido() {
-		return pedido;
-	}
-    
+        return pedido;
+    }
+
     public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
+        this.pedido = pedido;
+    }
 
     public Produto getProduto() {
-		return produto;
-	}
-    
+        return produto;
+    }
+
     public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
+        this.produto = produto;
+    }
 
     public BigDecimal getPeso() {
         return peso;
@@ -97,14 +93,6 @@ public class Item {
 
     public void setValorUnitario(BigDecimal valorUnitario) {
         this.valorUnitario = valorUnitario;
-    }
-
-    public BigDecimal getValorDesconto() {
-        return valorDesconto;
-    }
-
-    public void setValorDesconto(BigDecimal valorDesconto) {
-        this.valorDesconto = valorDesconto;
     }
 
     public BigDecimal getValorTotal() {

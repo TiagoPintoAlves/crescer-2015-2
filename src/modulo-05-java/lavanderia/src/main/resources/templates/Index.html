@@ -10,11 +10,11 @@
 			<h2 th:text="${mensagem}">mensagem</h2>
 		</div>
 		<div sec:authorize="hasRole('ROLE_ADMIN')">
-			<p class="text-center lead">Olá <span sec:authentication="name"></span>, você está como Administrador</p>
+			<p class="text-center lead">Bem vindo <span sec:authentication="name"></span></p>
 		</div>
 		
 		<div sec:authorize="hasRole('ROLE_USER')">
-			<p class="text-center lead">Olá <span sec:authentication="name"></span>, você está como Usuário</p>
+			<p class="text-center lead">Bem vindo <span sec:authentication="name"></span></p>
 		</div>
 	</div>
 </body>

@@ -9,16 +9,17 @@ public class ClienteResumoDTO {
     private String nome;
     private String cpf;
     private String email;
-    private SituacaoCliente situcao;
+    private SituacaoCliente situacao;
 
     public ClienteResumoDTO() {
     }
 
-    public ClienteResumoDTO(Long id, String nome, String cpf, String email, SituacaoCliente situcao) {
+    public ClienteResumoDTO(Long id, String nome, String cpf, String email, SituacaoCliente situacao) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
+        this.situacao = situacao;
     }
 
     public ClienteResumoDTO(Cliente entity) {
@@ -62,11 +63,11 @@ public class ClienteResumoDTO {
     }
 
     public SituacaoCliente getSitucao() {
-        return situcao;
+        return situacao;
     }
 
     public void setSitucao(SituacaoCliente situcao) {
-        this.situcao = situcao;
+        this.situacao = situcao;
     }
 
 }

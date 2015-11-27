@@ -26,7 +26,7 @@
 						<td th:text="${cliente.id}"><a th:href="${'/clientes/' + cliente.id}"></a></td>
 						<td th:text="${cliente.nome}"></td>
 						<td th:text="${cliente.cpf}"></td>
-						<td th:text="${cliente.situcao}"></td>
+						<td th:value="${cliente.situcao}"></td>
 						<td><a class="btn btn-info" role="button" th:href="${'/clientes/' + cliente.id}">Visualizar</a></td>
 						<td><a class="btn btn-info" role="button" th:href="${'/clientes/editar/' + cliente.id}">Editar</a></td>
 						<td><a class="btn btn-info" role="button" th:href="${'/clientes/remover/' + cliente.id}">Remover</a></td>

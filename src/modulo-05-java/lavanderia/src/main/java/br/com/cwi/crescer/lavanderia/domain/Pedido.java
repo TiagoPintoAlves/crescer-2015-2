@@ -32,7 +32,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
     @Column(name = "IDPedido")
     private Long idPedido;
-    
+
     @OneToMany(mappedBy="pedido")
     private List<Item> itens;
 
@@ -50,16 +50,22 @@ public class Pedido {
     @Temporal(value=TemporalType.DATE)
     private Date dataEntrega;
 
-    @Column(name = "Valor")
+    @Column(name = "ValorBruto")
     @Basic(optional = false)
-    private BigDecimal valor;
+    private BigDecimal valorBruto;
+
+    @Column(name = "ValorDesconto")
+    private BigDecimal valorDesconto;
+
+    @Column(name = "ValorFinal")
+    private BigDecimal valorFinal;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "Situacao")
     private SituacaoPedido situacao;
 
     public static enum SituacaoPedido {
-    	PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO;
+        PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO;
     }
 
     public Long getIdPedido() {
@@ -95,11 +101,11 @@ public class Pedido {
     }
 
     public BigDecimal getValor() {
-        return valor;
+        return valorBruto;
     }
 
     public void setValor(BigDecimal valor) {
-        this.valor = valor;
+        this.valorBruto = valor;
     }
 
     public SituacaoPedido getSituacao() {
@@ -111,11 +117,27 @@ public class Pedido {
     }
 
     public List<Item> getItens() {
-		return itens;
-	}
-    
+        return itens;
+    }
+
     public void setItens(List<Item> itens) {
-		this.itens = itens;
-	}
-    
+        this.itens = itens;
+    }
+
+    public BigDecimal getValorDesconto() {
+        return valorDesconto;
+    }
+
+    public void setValorDesconto(BigDecimal valorDesconto) {
+        this.valorDesconto = valorDesconto;
+    }
+
+    public BigDecimal getValorFinal() {
+        return valorFinal;
+    }
+
+    public void setValorFinal(BigDecimal valorFinal) {
+        this.valorFinal = valorFinal;
+    }
+
 }

@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,10 +42,21 @@ public class Produto {
 
     @Column(name = "Valor")
     @Basic(optional = false)
-    private BigDecimal Valor;
-    
+    private BigDecimal valor;
+
     @OneToMany(mappedBy="produto")
     private List<Item> itens;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "Situacao")
+    private SituacaoProduto situacao;
+
+    @Column(name = "Prazo")
+    private BigDecimal prazo;
+
+    public static enum SituacaoProduto {
+        ATIVO, INATIVO;
+    }
 
     public Long getIdProduto() {
         return idProduto;
@@ -54,34 +67,42 @@ public class Produto {
     }
 
     public Servico getServico() {
-		return servico;
-	}
-    
+        return servico;
+    }
+
     public void setServico(Servico servico) {
-		this.servico = servico;
-	}
+        this.servico = servico;
+    }
 
     public Material getMaterial() {
-		return material;
-	}
-    
+        return material;
+    }
+
     public void setMaterial(Material material) {
-		this.material = material;
-	}
+        this.material = material;
+    }
 
     public BigDecimal getValor() {
-        return Valor;
+        return valor;
     }
 
     public void setValor(BigDecimal valor) {
-        Valor = valor;
+        this.valor = valor;
     }
 
     public List<Item> getItens() {
-		return itens;
-	}
-    
+        return itens;
+    }
+
     public void setItens(List<Item> itens) {
-		this.itens = itens;
-	}
+        this.itens = itens;
+    }
+
+    public SituacaoProduto getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(SituacaoProduto situacao) {
+        this.situacao = situacao;
+    }
 }
