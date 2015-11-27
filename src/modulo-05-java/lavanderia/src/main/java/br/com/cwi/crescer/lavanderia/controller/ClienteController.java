@@ -60,11 +60,13 @@ public class ClienteController {
         return new ModelAndView("redirect:/clientes");
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/remover/{id}", method = RequestMethod.GET)
     public ModelAndView viewRemove(@PathVariable("id") Long id) {
         return new ModelAndView("cliente/remover", "cliente", clienteService.buscarClientePorId(id));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/remover", method = RequestMethod.POST)
     public ModelAndView remove(ClienteDTO dto, RedirectAttributes redirectAttributes) {
         clienteService.excluir(dto.getId());
@@ -72,11 +74,13 @@ public class ClienteController {
         return new ModelAndView("redirect:/clientes");
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/cadastra", method = RequestMethod.GET)
     public ModelAndView viewCadastra() {
         return new ModelAndView("cliente/cadastra", "cliente", new ClienteDTO());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
     public ModelAndView cadastra(@Valid @ModelAttribute("cliente") ClienteDTO dto, BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()){
