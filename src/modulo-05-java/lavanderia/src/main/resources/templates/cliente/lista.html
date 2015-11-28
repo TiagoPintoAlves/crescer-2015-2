@@ -6,28 +6,27 @@
 <body>
 	<div layout:fragment="content">
 			<div class="title" th:if="${not #lists.isEmpty(clientes)}">
-					<div th:if="${message}" class="alert alert-success fade in">
-						<a th:href="@{/clientes}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong th:text="${message}">mensage</strong>
-					</div>
+			
+				<div th:if="${message}" class="alert alert-success fade in">
+					<a th:href="@{/clientes}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong th:text="${message}">mensage</strong>
+				</div>
 					
 				<h2 class="text-center title">Listagem de Clientes</h2>
 				<table class="table table-striped table-bordered table-hover table-condensed">
-					<thread>
-						<tr>
-							<td>Nome</td>
-							<td>CPF</td>
-							<td>Situacao</td>
-							<td>Visualizar</td>
-							<td>Editar</td>
-							<td>Remover</td>
-						</tr>
-					</thread>
+					<tr>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>Situacao</th>
+						<th>Visualizar</th>
+						<th>Editar</th>
+						<th>Remover</th>
+					</tr>
 					<tbody>
 						<tr th:each="cliente : ${clientes}">
 							<td th:text="${cliente.nome}"></td>
 							<td th:text="${cliente.cpf}"></td>
-							<td th:value="${cliente.situcao}"></td>
+							<td th:text="${cliente.situacao}"></td>
 							<td><a class="btn btn-info" role="button" th:href="${'/clientes/' + cliente.id}">Visualizar</a></td>
 							<td><a class="btn btn-info" role="button" th:href="${'/clientes/editar/' + cliente.id}">Editar</a></td>
 							<td><a class="btn btn-info" role="button" th:href="${'/clientes/remover/' + cliente.id}">Remover</a></td>

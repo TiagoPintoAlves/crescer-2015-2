@@ -3,7 +3,6 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 <title>Layout Page</title>
@@ -23,30 +22,24 @@
 					
 					<ul class="nav navbar-nav navbar-right">
 						<li sec:authorize="isAuthenticated()">
-							<li>
-								<a sec:authorize="isAnonymous()" th:href="@{/login}">Login</a>
-							</li>
-							
 								<form name="form" th:action="@{/logout}" action="/logout" method="POST">
 									<!-- <button type="submit" class="btn btn-default navbar-btn">Logout</button> -->
 									<input type="submit" value="Logout" class="btn btn-default navbar-btn" />
 								</form>
-							
 						</li>
+							<a sec:authorize="isAnonymous()" class="btn btn-default navbar-btn" th:href="@{/login}">Login</a>
 					</ul>
-					
 				</div>
 			</div>
 		</nav>
 		
 	</header>
 	
-	<section class="container body-content">
+	<section class="container">
 		<div class="col-xs-11">
 			<div layout:fragment="content"> </div>
 			
 		</div>
-		
 	</section>
 	
 	<footer class="container">
