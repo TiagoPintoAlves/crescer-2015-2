@@ -49,6 +49,18 @@ public class ClienteService {
 
         return dtos;
     }
+    
+    public List<ClienteResumoDTO> listarPorNome(String nome) {
+        List<Cliente> clientes = clienteDAO.listByName(nome);
+
+        List<ClienteResumoDTO> dtos = new ArrayList<ClienteResumoDTO>();
+
+        for (Cliente cliente : clientes) {
+            dtos.add(new ClienteResumoDTO(cliente));
+        }
+
+        return dtos;
+    }
 
     public ClienteDTO buscarClientePorId(Long id) {
         return ClienteMapper.toDTO(clienteDAO.findById(id));

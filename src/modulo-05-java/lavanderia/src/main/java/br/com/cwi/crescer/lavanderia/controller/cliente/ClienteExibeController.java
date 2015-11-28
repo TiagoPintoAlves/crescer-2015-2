@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.cwi.crescer.lavanderia.service.ClienteService;
@@ -23,6 +24,11 @@ public class ClienteExibeController extends ClienteController{
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView listar() {
         return new ModelAndView("cliente/lista", "clientes", clienteService.listarTodosClientes());
+    }
+    
+    @RequestMapping(path = "/buscar", method = RequestMethod.GET)
+    public ModelAndView listarPorNome(@RequestParam("nome") String nome) {
+        return new ModelAndView("cliente/lista", "clientes", clienteService.listarPorNome(nome));
     }
 	
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)

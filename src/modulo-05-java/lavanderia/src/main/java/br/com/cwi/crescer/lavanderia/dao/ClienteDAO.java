@@ -26,6 +26,12 @@ public class ClienteDAO {
                 .setParameter("situacao", situacao)
                 .getResultList();
     }
+    
+    public List<Cliente> listByName(String nome) {
+        return em.createQuery("FROM Cliente c WHERE c.nome LIKE :nome", Cliente.class)
+                .setParameter("nome", nome + "%")
+                .getResultList();
+    }
 
     public List<Cliente> listAll() {
         return em.createQuery("FROM Cliente", Cliente.class)
