@@ -3,6 +3,7 @@ package br.com.cwi.crescer.lavanderia.controller.cliente;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,11 +25,13 @@ public class ClienteCadastraController extends ClienteController{
 		super(clienteService, cidadeService);
 	}
 
+	@PreAuthorize(value="hasRole('ADMIN')")
     @RequestMapping(path = "/cadastra", method = RequestMethod.GET)
     public ModelAndView viewCadastra() {
         return new ModelAndView("cliente/cadastra", "cliente", new ClienteDTO());
     }
 
+	@PreAuthorize(value="hasRole('ADMIN')")
     @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
     public ModelAndView cadastra(@Valid @ModelAttribute("cliente") ClienteDTO dto, BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()){

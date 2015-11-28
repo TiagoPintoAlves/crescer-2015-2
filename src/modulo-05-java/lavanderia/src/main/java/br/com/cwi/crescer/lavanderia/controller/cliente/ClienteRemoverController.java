@@ -1,6 +1,7 @@
 package br.com.cwi.crescer.lavanderia.controller.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +23,13 @@ public class ClienteRemoverController extends ClienteController{
 		super(clienteService, cidadeService);
 	}
 
+	@PreAuthorize(value="hasRole('ADMIN')")
     @RequestMapping(path = "/remover/{id}", method = RequestMethod.GET)
     public ModelAndView viewRemove(@PathVariable("id") Long id) {
         return new ModelAndView("cliente/remover", "cliente", clienteService.buscarClientePorId(id));
     }
 
+	@PreAuthorize(value="hasRole('ADMIN')")
     @RequestMapping(path = "/remover", method = RequestMethod.POST)
     public ModelAndView remove(ClienteDTO dto, RedirectAttributes redirectAttributes) {
         clienteService.excluir(dto.getId());

@@ -11,56 +11,56 @@
 				
 				<input th:field="*{id}" type="hidden" />
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">ID: </label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{id}" type="text" disabled="true" /> 
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">Nome:</label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{nome}" type="text" disabled="true" /> 
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">CPF: </label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{cpf}" type="text" disabled="true" /> 
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">Email:</label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{email}" type="text" disabled="true" /> 
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">Endereco: </label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{endereco}" type="text" disabled="true" /> 
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">Bairro: </label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{bairro}" type="text" disabled="true" /> 
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">CEP: </label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{cep}" type="text" disabled="true" /> 
 					</div>
 				</div>
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">Situacao: </label> 
 					<div class="col-sm-10">
 						<input class="form-control" th:field="*{situacao}" type="text" disabled="true" /> 
@@ -68,7 +68,7 @@
 				</div>
 				
 				
-				<div class="form-group">
+				<div class="form-group col-xs-7">
 					<label class="control-label col-sm-2">Cidade: </label> 
 					<div class="col-sm-10">
 						<select class="form-control" th:field="*{idCidade}" disabled="true">
@@ -77,7 +77,7 @@
 					</div>
 				</div>
 				
-				<div class="text-center">
+				<div class="text-center col-xs-12">
 				<p class="lead">Deseja remover este cliente?</p>
 						<a class="btn btn-large btn-danger" role="button" th:href="@{/clientes}">Cancelar</a>
 						<button type="submit" class="btn btn-large btn-success">Remover</button>

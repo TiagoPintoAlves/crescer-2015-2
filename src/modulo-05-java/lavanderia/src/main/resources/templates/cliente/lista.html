@@ -5,6 +5,9 @@
 </head>
 <body>
 	<div layout:fragment="content">
+	
+			<h2 class="text-center">Listagem de Clientes</h2>
+			
 			<div class="title" th:if="${not #lists.isEmpty(clientes)}">
 			
 				<div th:if="${message}" class="alert alert-success fade in">
@@ -12,7 +15,7 @@
 					<strong th:text="${message}">mensage</strong>
 				</div>
 					
-				<h2 class="text-center title">Listagem de Clientes</h2>
+	
 				 
 				<form th:action="@{/clientes/buscar}" method="get">
 					<div class="form-group col-xs-7">
@@ -48,7 +51,7 @@
 				</table>
 			</div>
 			<div th:unless="${not #lists.isEmpty(clientes)}">
-				<h2 class="text-center">Nenhum Cliente Encontrado.</h2>
+				<h2 class="text-center title">Nenhum Cliente Encontrado.</h2>
 			</div>
 			
 			<div class="text-center">

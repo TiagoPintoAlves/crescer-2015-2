@@ -19,8 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Produto")
-@SequenceGenerator(name = Produto.SEQUENCE_NAME,
-sequenceName = Produto.SEQUENCE_NAME)
+@SequenceGenerator(name = Produto.SEQUENCE_NAME, sequenceName = Produto.SEQUENCE_NAME)
 public class Produto {
 
     public static final String SEQUENCE_NAME = "SEQ_Produto";
@@ -47,12 +46,13 @@ public class Produto {
     @OneToMany(mappedBy="produto")
     private List<Item> itens;
 
+    @Column(name = "Prazo")
+    @Basic(optional = false)
+    private BigDecimal prazo;
+    
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "Situacao")
     private SituacaoProduto situacao;
-
-    @Column(name = "Prazo")
-    private BigDecimal prazo;
 
     public static enum SituacaoProduto {
         ATIVO, INATIVO;
