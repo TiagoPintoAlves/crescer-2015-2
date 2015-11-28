@@ -25,7 +25,7 @@ public class ClienteController {
     }
 
     @ModelAttribute("cidades")
-    public List<Cidade> comboCidades() {
+    protected List<Cidade> comboCidades() {
         return cidadeService.listar();
     }
 }

@@ -20,6 +20,11 @@ public class ClienteExibeController extends ClienteController{
 		super(clienteService, cidadeService);
 	}
 	
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView listar() {
+        return new ModelAndView("cliente/lista", "clientes", clienteService.listarTodosClientes());
+    }
+	
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ModelAndView viewExibe(@PathVariable("id") Long id) {
         return new ModelAndView("cliente/exibe", "cliente", clienteService.buscarClientePorId(id));
