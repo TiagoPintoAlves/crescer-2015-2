@@ -6,8 +6,6 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.br.CPF;
 
-import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
-
 public class ClienteDTO {
 
     private Long id;
@@ -34,7 +32,7 @@ public class ClienteDTO {
 
     private Long idCidade;
 
-    private SituacaoCliente situacao;
+    private int situacao;
 
     @Range(max=99999999)
     private Long cep;
@@ -103,11 +101,11 @@ public class ClienteDTO {
         this.cep = cep;
     }
 
-    public SituacaoCliente getSituacao() {
+    public int getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(SituacaoCliente situacao) {
+    public void setSituacao(int situacao) {
         this.situacao = situacao;
     }
 
