@@ -50,14 +50,14 @@ public class Pedido {
     @Temporal(value=TemporalType.DATE)
     private Date dataEntrega;
 
-    @Column(name = "ValorBruto")
+    @Column(name = "VALORBruto")
     @Basic(optional = false)
     private BigDecimal valorBruto;
 
-    @Column(name = "ValorDesconto")
+    @Column(name = "VALORDesconto")
     private BigDecimal valorDesconto;
 
-    @Column(name = "ValorFinal")
+    @Column(name = "VALORFinal")
     private BigDecimal valorFinal;
 
     @Enumerated(EnumType.ORDINAL)

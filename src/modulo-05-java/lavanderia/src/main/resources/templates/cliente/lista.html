@@ -45,9 +45,12 @@
 							<td><a class="btn btn-info" role="button" th:href="${'/clientes/remover/' + cliente.id}">Remover</a></td>
 						</tr>
 					</tbody>
-					
 				</table>
 			</div>
+			<div th:unless="${not #lists.isEmpty(clientes)}">
+				<h2 class="text-center">Nenhum Cliente Encontrado.</h2>
+			</div>
+			
 			<div class="text-center">
 				<a class="btn btn-large btn-success" role="button" th:href="@{/clientes/cadastra/}">Cadastrar Novo</a>
 			</div>
