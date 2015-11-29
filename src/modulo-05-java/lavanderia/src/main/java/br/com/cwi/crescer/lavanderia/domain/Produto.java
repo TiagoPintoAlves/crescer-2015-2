@@ -48,7 +48,7 @@ public class Produto {
 
     @Column(name = "Prazo")
     @Basic(optional = false)
-    private BigDecimal prazo;
+    private Long prazo;
     
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "Situacao")
@@ -105,4 +105,12 @@ public class Produto {
     public void setSituacao(SituacaoProduto situacao) {
         this.situacao = situacao;
     }
+
+	public Long getPrazo() {
+		return prazo;
+	}
+
+	public void setPrazo(Long prazo) {
+		this.prazo = prazo;
+	}
 }

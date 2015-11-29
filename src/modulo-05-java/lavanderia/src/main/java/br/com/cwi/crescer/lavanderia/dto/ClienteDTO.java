@@ -6,8 +6,6 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.br.CPF;
 
-import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
-
 public class ClienteDTO {
 
     private Long id;
