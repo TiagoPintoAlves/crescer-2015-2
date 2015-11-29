@@ -2,22 +2,26 @@ package br.com.cwi.crescer.lavanderia.dto;
 
 import java.math.BigDecimal;
 
-import org.hibernate.validator.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 public class ProdutoCadastraDTO {
 
 	private Long idProduto;
 
-	@NotBlank
+	@NotNull
     private Long idServico;
 
-    @NotBlank
+    @NotNull
     private Long idMaterial;
 
-    @NotBlank
+    @NotNull
+    @Range(max=999)
     private BigDecimal valor;
 
-    @NotBlank
+    @NotNull
+    @Range(max=999)
     private Long prazo;
     
     private Integer situacao;

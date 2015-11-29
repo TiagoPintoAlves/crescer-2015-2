@@ -1,5 +1,7 @@
 package br.com.cwi.crescer.lavanderia.dto;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
@@ -32,6 +34,7 @@ public class ClienteDTO {
 
     private Long idCidade;
 
+    @NotNull
     @Range(max=99999999)
     private Long cep;
     

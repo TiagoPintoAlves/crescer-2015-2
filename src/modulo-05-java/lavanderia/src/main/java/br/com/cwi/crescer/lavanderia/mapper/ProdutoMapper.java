@@ -35,7 +35,7 @@ public class ProdutoMapper {
 	        dto.setMaterial(entity.getMaterial());
 	        dto.setServico(entity.getServico());
 	        dto.setValor(entity.getValor());
-	        dto.setPrazo(dto.getPrazo());
+	        dto.setPrazo(entity.getPrazo());
 	        dto.setSituacao(entity.getSituacao().ordinal());
 	        return dto;
 	 }

@@ -19,8 +19,8 @@ import br.com.cwi.crescer.lavanderia.mapper.ProdutoMapper;
 public class ProdutoService {
 
 	private ProdutoDAO produtoDAO;
-	private MaterialDAO materialService;
-	private ServicoDAO servicoService;
+	private MaterialDAO materialDAO;
+	private ServicoDAO servicoDAO;
 	
 	@Autowired
     public ProdutoService(ProdutoDAO produtoDAO) {
@@ -29,8 +29,8 @@ public class ProdutoService {
 	
 	public void incluir(ProdutoCadastraDTO dto){
         Produto entity = ProdutoMapper.getNewEntity(dto);
-        entity.setMaterial(materialService.findById(dto.getIdMaterial()));
-        entity.setServico(servicoService.findById(dto.getIdServico()));
+        entity.setMaterial(materialDAO.findById(dto.getIdMaterial()));
+        entity.setServico(servicoDAO.findById(dto.getIdServico()));
         
         entity.setSituacao(SituacaoProduto.ATIVO);
         produtoDAO.save(entity);
