@@ -22,10 +22,9 @@ public class ProdutoMapper {
 	 public static Produto getNewEntity(ProdutoCadastraDTO cadastraDTO) {
 		 	Produto entity = new Produto();
 	        entity.setIdProduto(cadastraDTO.getIdProduto());
-	        entity.setMaterial(criaMaterial(cadastraDTO));
-	        entity.setServico(criaServico(cadastraDTO));
 	        entity.setValor(cadastraDTO.getValor());
 	        entity.setPrazo(cadastraDTO.getPrazo());
+	        entity.setSituacao(toEnum(cadastraDTO.getSituacao()));
 	        return entity;
 	 }
 
@@ -43,16 +42,16 @@ public class ProdutoMapper {
 	 public static Produto merge(ProdutoDTO dto, Produto entity) {
 	        entity.setValor(dto.getValor());
 	        entity.setPrazo(dto.getPrazo());
-	        entity.setSituacao(toEnum(dto));
+	        entity.setSituacao(toEnum(dto.getSituacao()));
 	        return entity;
 	    }
-	    
-	 public static SituacaoProduto toEnum(ProdutoDTO dto){
-	    	SituacaoProduto situacaoDTO = SituacaoProduto.INATIVO;
-	        if(dto.getSituacao() == 0){
-	        	return situacaoDTO = SituacaoProduto.ATIVO;
+	 
+	 public static SituacaoProduto toEnum(Integer situacaoDTO){
+		 	SituacaoProduto situacao = SituacaoProduto.ATIVO;
+	        if(situacaoDTO == 1){
+	        	return situacao = SituacaoProduto.INATIVO;
 	        }
-	        return  situacaoDTO;
+	        return situacao;
 	 }
 	 
 	 public static Servico criaServico(ProdutoCadastraDTO cadastraDTO){

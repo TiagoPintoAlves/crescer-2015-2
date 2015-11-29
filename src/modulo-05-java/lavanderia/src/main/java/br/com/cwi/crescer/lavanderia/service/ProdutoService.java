@@ -10,7 +10,6 @@ import br.com.cwi.crescer.lavanderia.dao.MaterialDAO;
 import br.com.cwi.crescer.lavanderia.dao.ProdutoDAO;
 import br.com.cwi.crescer.lavanderia.dao.ServicoDAO;
 import br.com.cwi.crescer.lavanderia.domain.Produto;
-import br.com.cwi.crescer.lavanderia.domain.Produto.SituacaoProduto;
 import br.com.cwi.crescer.lavanderia.dto.ProdutoCadastraDTO;
 import br.com.cwi.crescer.lavanderia.dto.ProdutoDTO;
 import br.com.cwi.crescer.lavanderia.mapper.ProdutoMapper;
@@ -31,8 +30,6 @@ public class ProdutoService {
         Produto entity = ProdutoMapper.getNewEntity(dto);
         entity.setMaterial(materialDAO.findById(dto.getIdMaterial()));
         entity.setServico(servicoDAO.findById(dto.getIdServico()));
-        
-        entity.setSituacao(SituacaoProduto.ATIVO);
         produtoDAO.save(entity);
     }
 	

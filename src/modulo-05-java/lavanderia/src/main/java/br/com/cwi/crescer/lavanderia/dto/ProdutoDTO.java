@@ -3,6 +3,7 @@ package br.com.cwi.crescer.lavanderia.dto;
 import java.math.BigDecimal;
 
 import br.com.cwi.crescer.lavanderia.domain.Servico;
+import br.com.cwi.crescer.lavanderia.domain.Produto.SituacaoProduto;
 import br.com.cwi.crescer.lavanderia.domain.Material;
 import br.com.cwi.crescer.lavanderia.domain.Produto;
 
@@ -82,5 +83,11 @@ public class ProdutoDTO {
 		this.situacao = situacao;
 	}
 	
-	
+	public SituacaoProduto toEnum(){
+		SituacaoProduto situacaoDTO = SituacaoProduto.ATIVO;
+        if(getSituacao() == 1){
+        	return situacaoDTO = SituacaoProduto.INATIVO;
+        }
+        return  situacaoDTO;
+	}
 }

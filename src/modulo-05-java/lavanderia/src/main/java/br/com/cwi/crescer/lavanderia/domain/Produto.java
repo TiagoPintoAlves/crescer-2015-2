@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import br.com.cwi.crescer.lavanderia.domain.Produto.SituacaoProduto;
+
 @Entity
 @Table(name = "Produto")
 @SequenceGenerator(name = Produto.SEQUENCE_NAME, sequenceName = Produto.SEQUENCE_NAME)
@@ -113,4 +115,5 @@ public class Produto {
 	public void setPrazo(Long prazo) {
 		this.prazo = prazo;
 	}
+	
 }
