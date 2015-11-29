@@ -8,28 +8,30 @@
 	
 			<h2 class="text-center">Listagem de Clientes</h2>
 			
+			
 			<div class="title" th:if="${not #lists.isEmpty(clientes)}">
 			
 				<div th:if="${message}" class="alert alert-success fade in">
 					<a th:href="@{/clientes}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 					<strong th:text="${message}">mensage</strong>
 				</div>
-					
-	
-				 
+				
+				<div style="float:right;" >
+					<a class="btn btn-large btn-success" role="button" th:href="@{/clientes/cadastra/}">Cadastrar Novo</a>
+				</div>
+
 				<form th:action="@{/clientes/buscar}" method="get">
-					<div class="form-group col-xs-7">
-						<div class="col-sm-10">
+					<div class="form-group col-sm-10" style="float:left;">
+						<div class="col-sm-4">
 							<input class="form-control" name="nome" placeholder = "Pesquise um cliente" type="text"/>
 						</div>
-						<div class="pull-right">
+						<div class="col-sm-6">
 							<button class="btn btn-primary" type="submit">Pesquisar</button>
 						</div>
 					</div>
 				</form>
 				
-				
-				<table class="table table-striped table-bordered table-hover table-condensed">
+				<table class="table table-striped table-bordered table-hover table-condensed title">
 					<tr>
 						<th>Nome</th>
 						<th>CPF</th>
@@ -43,9 +45,9 @@
 							<td class = "text-center" th:text="${cliente.nome}"></td>
 							<td class = "text-center" th:text="${cliente.cpf}"></td>
 							<td class = "text-center" th:text="${cliente.situacao}"></td>
-							<td><a class="btn btn-info" role="button" th:href="${'/clientes/' + cliente.id}">Visualizar</a></td>
-							<td><a class="btn btn-info" role="button" th:href="${'/clientes/editar/' + cliente.id}">Editar</a></td>
-							<td><a class="btn btn-info" role="button" th:href="${'/clientes/remover/' + cliente.id}">Remover</a></td>
+							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/clientes/' + cliente.id}">Visualizar</a></td>
+							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/clientes/editar/' + cliente.id}">Editar</a></td>
+							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/clientes/remover/' + cliente.id}">Remover</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -54,9 +56,6 @@
 				<h2 class="text-center title">Nenhum Cliente Encontrado.</h2>
 			</div>
 			
-			<div class="text-center">
-				<a class="btn btn-large btn-success" role="button" th:href="@{/clientes/cadastra/}">Cadastrar Novo</a>
-			</div>
 	</div>
 	
 </body>

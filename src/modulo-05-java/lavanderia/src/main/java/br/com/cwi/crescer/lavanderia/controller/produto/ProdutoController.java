@@ -20,7 +20,7 @@ public class ProdutoController {
 	protected ProdutoService produtoService;
     protected MaterialService materialService;
     protected ServicoService serviceService;
-
+    
     @Autowired
     public ProdutoController(ProdutoService produtoService, MaterialService materialService, ServicoService serviceService) {
         this.produtoService = produtoService;

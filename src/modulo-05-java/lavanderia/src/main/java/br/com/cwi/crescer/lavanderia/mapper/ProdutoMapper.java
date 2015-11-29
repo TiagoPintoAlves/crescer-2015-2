@@ -12,8 +12,8 @@ public class ProdutoMapper {
 	 public static Produto getNewEntity(ProdutoDTO dto) {
 	        Produto entity = new Produto();
 	        entity.setIdProduto(dto.getIdProduto());
-	        entity.setMaterial(dto.getIdMaterial());
-	        entity.setServico(dto.getIdServico());
+	        entity.setMaterial(dto.getMaterial());
+	        entity.setServico(dto.getServico());
 	        entity.setValor(dto.getValor());
 	        entity.setPrazo(dto.getPrazo());
 	        return entity;
@@ -32,8 +32,8 @@ public class ProdutoMapper {
 	 public static ProdutoDTO toDTO(Produto entity) {
 	    	ProdutoDTO dto = new ProdutoDTO();
 	        dto.setIdProduto(entity.getIdProduto());
-	        dto.setIdMaterial(entity.getMaterial());
-	        dto.setIdServico(entity.getServico());
+	        dto.setMaterial(entity.getMaterial());
+	        dto.setServico(entity.getServico());
 	        dto.setValor(entity.getValor());
 	        dto.setPrazo(dto.getPrazo());
 	        dto.setSituacao(entity.getSituacao().ordinal());
@@ -48,11 +48,11 @@ public class ProdutoMapper {
 	    }
 	    
 	 public static SituacaoProduto toEnum(ProdutoDTO dto){
-	    	SituacaoProduto situacaoDTO;
+	    	SituacaoProduto situacaoDTO = SituacaoProduto.INATIVO;
 	        if(dto.getSituacao() == 0){
 	        	return situacaoDTO = SituacaoProduto.ATIVO;
 	        }
-	        return situacaoDTO = SituacaoProduto.INATIVO;
+	        return  situacaoDTO;
 	 }
 	 
 	 public static Servico criaServico(ProdutoCadastraDTO cadastraDTO){

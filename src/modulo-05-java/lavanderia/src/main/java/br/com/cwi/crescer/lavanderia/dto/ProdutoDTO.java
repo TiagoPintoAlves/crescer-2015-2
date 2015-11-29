@@ -11,9 +11,9 @@ public class ProdutoDTO {
 	
     private Long idProduto;
 
-    private Servico Servico;
+    private Servico servico;
 
-    private Material Material;
+    private Material material;
 
     private BigDecimal valor;
 
@@ -26,8 +26,8 @@ public class ProdutoDTO {
 
 	public ProdutoDTO(Produto entity) {
     	this.idProduto = entity.getIdProduto();
-        this.Servico = entity.getServico();
-        this.Material = entity.getMaterial();
+        this.servico = entity.getServico();
+        this.material = entity.getMaterial();
         this.valor = entity.getValor();
         this.prazo = entity.getPrazo();
         this.situacao = entity.getSituacao().ordinal();
@@ -40,21 +40,22 @@ public class ProdutoDTO {
 	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
-
-	public Servico getIdServico() {
-		return Servico;
+	
+	public Servico getServico() {
+		return servico;
 	}
 
-	public void setIdServico(Servico idServico) {
-		this.Servico = idServico;
+	public void setServico(Servico servico) {
+		this.servico = servico;
 	}
 
-	public Material getIdMaterial() {
-		return Material;
+
+	public Material getMaterial() {
+		return material;
 	}
 
-	public void setIdMaterial(Material idMaterial) {
-		this.Material = idMaterial;
+	public void setMaterial(Material material) {
+		this.material = material;
 	}
 
 	public BigDecimal getValor() {

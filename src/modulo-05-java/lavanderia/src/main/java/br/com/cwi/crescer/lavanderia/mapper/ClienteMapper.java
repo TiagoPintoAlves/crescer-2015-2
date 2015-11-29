@@ -43,10 +43,10 @@ public class ClienteMapper {
     }
     
     public static SituacaoCliente toEnum(ClienteDTO dto){
-    	SituacaoCliente situacaoDTO;
+    	SituacaoCliente situacaoDTO = SituacaoCliente.INATIVO;
         if(dto.getSituacao() == 0){
         	return situacaoDTO = SituacaoCliente.ATIVO;
         }
-        return situacaoDTO = SituacaoCliente.INATIVO;
+        return situacaoDTO;
     }
 }

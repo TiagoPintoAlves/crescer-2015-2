@@ -2,6 +2,7 @@ package br.com.cwi.crescer.lavanderia.controller.produto;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ import br.com.cwi.crescer.lavanderia.service.ServicoService;
 @RequestMapping("/produtos")
 public class ProdutoEditaController extends ProdutoController{
 
+	@Autowired
 	public ProdutoEditaController(ProdutoService produtoService, MaterialService materialService, ServicoService serviceService) {
 		super(produtoService, materialService, serviceService);
 	}
@@ -39,6 +41,6 @@ public class ProdutoEditaController extends ProdutoController{
         }
         produtoService.atualizar(dto);
         redirectAttributes.addFlashAttribute("message", "Editado com sucesso");
-        return new ModelAndView("redirect:/clientes");
+        return new ModelAndView("redirect:/produtos");
     }
 }
