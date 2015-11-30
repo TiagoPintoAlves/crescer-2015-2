@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.cwi.crescer.lavanderia.dto.ProdutoCadastraDTO;
+import br.com.cwi.crescer.lavanderia.dto.ProdutoDTO;
 import br.com.cwi.crescer.lavanderia.service.MaterialService;
 import br.com.cwi.crescer.lavanderia.service.ProdutoService;
 import br.com.cwi.crescer.lavanderia.service.ServicoService;
@@ -29,12 +29,12 @@ public class ProdutoCadastraController extends ProdutoController{
 	@PreAuthorize(value="hasRole('ADMIN')")
     @RequestMapping(path = "/cadastra", method = RequestMethod.GET)
     public ModelAndView viewCadastra() {
-        return new ModelAndView("produto/cadastra", "produto", new ProdutoCadastraDTO());
+        return new ModelAndView("produto/cadastra", "produto", new ProdutoDTO());
     }
 
 	@PreAuthorize(value="hasRole('ADMIN')")
     @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
-    public ModelAndView cadastra(@Valid @ModelAttribute("produto") ProdutoCadastraDTO dto, BindingResult result, RedirectAttributes redirectAttributes) {
+    public ModelAndView cadastra(@Valid @ModelAttribute("produto") ProdutoDTO dto, BindingResult result, RedirectAttributes redirectAttributes) {
         if(result.hasErrors()){
             return new ModelAndView("produto/cadastra");
         }

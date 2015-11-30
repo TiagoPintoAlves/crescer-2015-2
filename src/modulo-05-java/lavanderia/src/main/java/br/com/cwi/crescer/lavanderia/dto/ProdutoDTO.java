@@ -2,37 +2,30 @@ package br.com.cwi.crescer.lavanderia.dto;
 
 import java.math.BigDecimal;
 
-import br.com.cwi.crescer.lavanderia.domain.Servico;
-import br.com.cwi.crescer.lavanderia.domain.Produto.SituacaoProduto;
-import br.com.cwi.crescer.lavanderia.domain.Material;
-import br.com.cwi.crescer.lavanderia.domain.Produto;
-
+import javax.validation.constraints.NotNull;
 
 public class ProdutoDTO {
 	
     private Long idProduto;
+    
+    private Long idServico;
 
-    private Servico servico;
+    @NotNull
+    private String descricaoServico;
+ 
+    private Long idMaterial;
+    
+    @NotNull
+    private String descricaoMaterial;
 
-    private Material material;
-
+    @NotNull
     private BigDecimal valor;
 
+    @NotNull
     private Long prazo;
     
     private Integer situacao;
     
-    public ProdutoDTO() {
-	}
-
-	public ProdutoDTO(Produto entity) {
-    	this.idProduto = entity.getIdProduto();
-        this.servico = entity.getServico();
-        this.material = entity.getMaterial();
-        this.valor = entity.getValor();
-        this.prazo = entity.getPrazo();
-        this.situacao = entity.getSituacao().ordinal();
-    }
     
 	public Long getIdProduto() {
 		return idProduto;
@@ -42,21 +35,21 @@ public class ProdutoDTO {
 		this.idProduto = idProduto;
 	}
 	
-	public Servico getServico() {
-		return servico;
+	public String getDescricaoServico() {
+		return descricaoServico;
 	}
 
-	public void setServico(Servico servico) {
-		this.servico = servico;
+	public void setDescricaoServico(String descricaoServico) {
+		this.descricaoServico = descricaoServico;
 	}
 
 
-	public Material getMaterial() {
-		return material;
+	public String getDescricaoMaterial() {
+		return descricaoMaterial;
 	}
 
-	public void setMaterial(Material material) {
-		this.material = material;
+	public void setDescricaoMaterial(String descricaoMaterial) {
+		this.descricaoMaterial = descricaoMaterial;
 	}
 
 	public BigDecimal getValor() {
@@ -82,12 +75,21 @@ public class ProdutoDTO {
 	public void setSituacao(Integer situacao) {
 		this.situacao = situacao;
 	}
-	
-	public SituacaoProduto toEnum(){
-		SituacaoProduto situacaoDTO = SituacaoProduto.ATIVO;
-        if(getSituacao() == 1){
-        	return situacaoDTO = SituacaoProduto.INATIVO;
-        }
-        return  situacaoDTO;
+
+	public Long getIdServico() {
+		return idServico;
 	}
+
+	public void setIdServico(Long idServico) {
+		this.idServico = idServico;
+	}
+
+	public Long getIdMaterial() {
+		return idMaterial;
+	}
+
+	public void setIdMaterial(Long idMaterial) {
+		this.idMaterial = idMaterial;
+	}
+	
 }

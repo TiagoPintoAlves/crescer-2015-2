@@ -17,7 +17,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import br.com.cwi.crescer.lavanderia.domain.Produto.SituacaoProduto;
 
 @Entity
 @Table(name = "Produto")

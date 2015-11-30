@@ -16,4 +16,7 @@ public class PedidoDAO {
 	public Pedido findById(Long id) {
 		return em.find(Pedido.class, id);
 	}
+	
+	
+	
 }

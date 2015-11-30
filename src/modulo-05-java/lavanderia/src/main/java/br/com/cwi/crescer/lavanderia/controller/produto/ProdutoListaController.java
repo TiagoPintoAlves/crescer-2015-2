@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.cwi.crescer.lavanderia.service.MaterialService;
@@ -22,6 +23,11 @@ public class ProdutoListaController extends ProdutoController{
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listar(){
 		return new ModelAndView("produto/lista", "produtos", produtoService.listarProdutos());
+	}
+	
+	@RequestMapping(path = "/buscar", params = {"material", "servico"} ,method = RequestMethod.GET)
+	public ModelAndView buscar(@RequestParam("material") Long idMaterial, @RequestParam("servico") Long idServico){
+		return new ModelAndView("produto/lista", "produtos", produtoService.buscar(idMaterial, idServico));
 	}
 	
 }

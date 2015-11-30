@@ -10,7 +10,6 @@ import br.com.cwi.crescer.lavanderia.dao.MaterialDAO;
 import br.com.cwi.crescer.lavanderia.dao.ProdutoDAO;
 import br.com.cwi.crescer.lavanderia.dao.ServicoDAO;
 import br.com.cwi.crescer.lavanderia.domain.Produto;
-import br.com.cwi.crescer.lavanderia.dto.ProdutoCadastraDTO;
 import br.com.cwi.crescer.lavanderia.dto.ProdutoDTO;
 import br.com.cwi.crescer.lavanderia.mapper.ProdutoMapper;
 
@@ -26,23 +25,14 @@ public class ProdutoService {
         this.produtoDAO = produtoDAO;
     }
 	
-	public void incluir(ProdutoCadastraDTO dto){
-        Produto entity = ProdutoMapper.getNewEntity(dto);
-        entity.setMaterial(materialDAO.findById(dto.getIdMaterial()));
-        entity.setServico(servicoDAO.findById(dto.getIdServico()));
-        produtoDAO.save(entity);
-    }
-	
 	public List<ProdutoDTO> listarProdutos() {
         List<Produto> produtos = produtoDAO.listAll();
-
-        List<ProdutoDTO> dtos = new ArrayList<ProdutoDTO>();
-
+        List<ProdutoDTO> lista = new ArrayList<ProdutoDTO>();
         for (Produto produto : produtos) {
-            dtos.add(new ProdutoDTO(produto));
+        	ProdutoDTO dto = ProdutoMapper.toDTO(produto);
+			lista.add(dto);
         }
-
-        return dtos;
+        return lista;
     }
 	
 	public ProdutoDTO buscarProdutoPorId(Long id) {
@@ -57,4 +47,27 @@ public class ProdutoService {
         
         produtoDAO.save(entity);
     }
+	
+	public boolean incluir(ProdutoDTO dto){
+        Produto entity = ProdutoMapper.getNewEntity(dto);
+        entity.setMaterial(materialDAO.findById(dto.getIdMaterial()));
+        entity.setServico(servicoDAO.findById(dto.getIdServico()));
+		List<Produto> produtoExistente = produtoDAO.findByMaterialServico(entity.getServico().getIdServico(), entity.getMaterial().getIdMaterial());
+		if (produtoExistente.isEmpty()) {
+			produtoDAO.save(entity);
+			return true;
+		}
+		return false;
+    }
+	
+	public List<ProdutoDTO> buscar(Long idMaterial, Long idServico){
+		List<Produto> produtos = produtoDAO.findByMaterialServico(idServico, idMaterial);
+		List<ProdutoDTO> produtoDTO = new ArrayList<>();
+		for (Produto produto : produtos) {
+			ProdutoDTO dto = ProdutoMapper.toDTO(produto);
+			
+			produtoDTO.add(dto);
+		}
+		return produtoDTO;
+	}
 }

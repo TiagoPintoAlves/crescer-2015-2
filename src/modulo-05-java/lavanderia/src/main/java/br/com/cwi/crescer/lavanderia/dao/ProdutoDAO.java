@@ -25,10 +25,10 @@ public class ProdutoDAO {
         return em.find(Produto.class, id);
     }
     
-    public List<Produto> findByMaterialServico(Produto produto) {
+    public List<Produto> findByMaterialServico(Long idServico, Long idMaterial) {
     	return em.createQuery("FROM Produto p WHERE p.IDServico = :servico AND p.IDMaterial = :material", Produto.class)
-                .setParameter("servico", produto.getServico().getIdServico())
-                .setParameter("material", produto.getMaterial().getIdMaterial())
+                .setParameter("servico", idServico)
+                .setParameter("material", idMaterial)
                 .getResultList();
     }
     
