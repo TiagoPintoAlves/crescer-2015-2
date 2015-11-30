@@ -1,12 +1,43 @@
-body{
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f9ff+0,cbebff+47,a1dbff+100;Blue+3D+%2313 */
+	background: #f0f9ff; /* Old browsers */
+	background: -moz-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff',
+		endColorstr='#a1dbff', GradientType=0); /* IE6-9 */
 	padding: 50px;
-	
 	background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-.title{
+body:after {
+	content: "";
+	display: block;
+	background-attachment: fixed;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: -moz-linear-gradient(-45deg, rgba(30, 87, 153, 1) 0%,
+		rgba(89, 148, 202, 1) 62%, rgba(95, 154, 207, 0.7) 68%,
+		rgba(125, 185, 232, 0) 100%);
+}
+
+body::after {
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.title {
 	padding: 40px 15px;
+}
+
+.icon-user {
+	color: white;
 }

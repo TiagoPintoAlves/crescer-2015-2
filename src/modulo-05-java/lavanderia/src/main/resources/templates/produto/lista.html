@@ -19,19 +19,30 @@
 					<a class="btn btn-large btn-success" role="button" th:href="@{/produtos/cadastra/}">Cadastrar Novo</a>
 				</div>
 				
-				<form th:action="@{/produtos/buscar}" method="get">
-					<div class="form-group col-sm-10" style="float:left;">
-						<div class="col-sm-4">
-							<input class="form-control" name="nome" placeholder = "Pesquise um produto" type="text"/>
-						</div>
-						<div class="col-sm-6">
-							<button class="btn btn-primary" type="submit">Pesquisar</button>
-						</div>
-					</div>
-				</form>
 				
 				
-				<table class="table table-striped table-bordered table-hover table-condensed title">
+				<div class="form-group col-xs-7">
+					<form th:action="@{/produtos/buscar}" method="GET" class="form-horizontal">
+						<label class="pull-left control-label">Servico: </label>
+					  	<div class="col-md-4">
+					  		<select class="form-control">
+					  			<option th:value="0" ></option>
+						  		<option th:each="s : ${servicos}" th:text="${s.descricao}" th:value="${s.idServico}" ></option>
+					    	</select>
+					  	</div>
+					
+						<label class="pull-left control-label">Material: </label>
+						<div class="col-md-4">
+						    <select class="form-control">
+						      <option th:value="0" ></option>
+							  <option th:each="m : ${materiais}" th:text="${m.descricao}" th:value="${m.idMaterial}" ></option>
+						    </select>
+						</div>
+						<button type="submit" class="btn btn-primary">Pesquisar</button>
+					</form>
+				</div>
+				
+				<table class="table table-striped table-bordered table-hover table-condensed" bgcolor="#00FF00">
 					<tr>
 						<th>Servico</th>
 						<th>Material</th>
@@ -42,8 +53,8 @@
 					</tr>
 					<tbody>
 						<tr th:each="produto : ${produtos}">
-							<td class = "text-center" th:text="${produto.servico.descricao}"></td>
-							<td class = "text-center" th:text="${produto.material.descricao}"></td>
+							<td class = "text-center" th:text="${produto.descricaoServico}"></td>
+							<td class = "text-center" th:text="${produto.descricaoMaterial}"></td>
 							<td class = "text-center" th:text="${produto.valor}"></td>
 							<td class = "text-center" th:text="${produto.prazo}"></td>
 							<td class = "text-center" th:text="${produto.situacao == 0 ? 'ATIVO' : 'INATIVO'}"></td>
@@ -55,8 +66,6 @@
 			<div th:unless="${not #lists.isEmpty(produtos)}">
 				<h2 class="text-center title">Nenhum Produto Encontrado.</h2>
 			</div>
-			
 	</div>
-	
 </body>
 </html>
