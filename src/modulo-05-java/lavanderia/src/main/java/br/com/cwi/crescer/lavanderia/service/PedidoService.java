@@ -6,33 +6,35 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.cwi.crescer.lavanderia.dao.ItemDAO;
 import br.com.cwi.crescer.lavanderia.dao.PedidoDAO;
 import br.com.cwi.crescer.lavanderia.domain.Pedido;
 import br.com.cwi.crescer.lavanderia.dto.PedidoDTO;
-import br.com.cwi.crescer.lavanderia.mapper.PedidoMapper;
+import br.com.cwi.crescer.lavanderia.dto.PedidoResumoDTO;
 
 @Service
 public class PedidoService {
 
     private PedidoDAO pedidoDAO;
-    private ItemDAO itemDAO;
 
     @Autowired
-    public PedidoService(PedidoDAO pedidoDAO, ItemDAO itemDAO) {
+    public PedidoService(PedidoDAO pedidoDAO) {
         this.pedidoDAO = pedidoDAO;
-        this.itemDAO = itemDAO;
     }
 
-    public List<PedidoDTO> listarPedidos() {
+    public List<PedidoResumoDTO> listarPedidos() {
         List<Pedido> pedidos = pedidoDAO.listAll();
 
-        List<PedidoDTO> pedidosDTO = new ArrayList<PedidoDTO>();
+        List<PedidoResumoDTO> pedidosDTO = new ArrayList<PedidoResumoDTO>();
 
         for(Pedido pedido : pedidos){
-            pedidosDTO.add(PedidoMapper.toDTO(pedido));
+            pedidosDTO.add(new PedidoResumoDTO(pedido));
         }
         return pedidosDTO;
+    }
+
+    public void incluir(PedidoDTO dto) {
+        // TODO incluir
+
     }
 
 }

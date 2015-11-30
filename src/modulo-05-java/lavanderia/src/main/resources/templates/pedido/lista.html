@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="@{/layout}">
+<head>
+	<title>Pedidos</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h2 class="text-center">Listagem de Pedidos</h2>
+		
+		<div class="title" th:if="${not #lists.isEmpty(pedidos)}">
+			<table class="table table-striped table-bordered table-hover table-condensed" bgcolor="#00FF00">
+					<tr>
+						<th>Cliente</th>
+						<th>CPF</th>
+						<th>Data de inclusao</th>
+						<th>Valor Total</th>
+						<th>Situacao</th>
+						<th>Vizualizar</th>
+					</tr>
+					<tbody>
+						<tr th:each="pedido : ${pedidos}">
+							<td class = "text-center" th:text="${pedido.nomeCliente}"></td>
+							<td class = "text-center" th:text="${pedido.cpf}"></td>
+							<td class = "text-center" th:text="${pedido.dataInclusao}"></td>
+							<td class = "text-center" th:text="${pedido.valorTotal}"></td>
+							<td class = "text-center" th:text="${pedido.situacao}"></td>
+							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/pedidos/' + pedido.id}">Visualizar</a></td>
+						</tr>
+					</tbody>
+				</table>
+		 </div>
+	</div>
+</body>
+</html>

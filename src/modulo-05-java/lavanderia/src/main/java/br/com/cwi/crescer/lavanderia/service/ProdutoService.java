@@ -16,58 +16,58 @@ import br.com.cwi.crescer.lavanderia.mapper.ProdutoMapper;
 @Service
 public class ProdutoService {
 
-	private ProdutoDAO produtoDAO;
-	private MaterialDAO materialDAO;
-	private ServicoDAO servicoDAO;
-	
-	@Autowired
-    public ProdutoService(ProdutoDAO produtoDAO) {
+    private ProdutoDAO produtoDAO;
+    private ServicoDAO servicoDAO;
+    private MaterialDAO materialDAO;
+
+    @Autowired
+    public ProdutoService(ProdutoDAO produtoDAO, MaterialDAO materialDAO, ServicoDAO servicoDAO) {
         this.produtoDAO = produtoDAO;
+        this.materialDAO = materialDAO;
+        this.servicoDAO = servicoDAO;
     }
-	
-	public List<ProdutoDTO> listarProdutos() {
+
+    public List<ProdutoDTO> listarProdutos() {
         List<Produto> produtos = produtoDAO.listAll();
         List<ProdutoDTO> lista = new ArrayList<ProdutoDTO>();
         for (Produto produto : produtos) {
-        	ProdutoDTO dto = ProdutoMapper.toDTO(produto);
-			lista.add(dto);
+            ProdutoDTO dto = ProdutoMapper.toDTO(produto);
+            lista.add(dto);
         }
         return lista;
     }
-	
-	public ProdutoDTO buscarProdutoPorId(Long id) {
+
+    public ProdutoDTO buscarProdutoPorId(Long id) {
         return ProdutoMapper.toDTO(produtoDAO.findById(id));
-	}
-	
-	public void atualizar(ProdutoDTO dto) {
+    }
+
+    public void atualizar(ProdutoDTO dto) {
 
         Produto entity = produtoDAO.findById(dto.getIdProduto());
 
         ProdutoMapper.merge(dto, entity);
-        
+
         produtoDAO.save(entity);
     }
-	
-	public boolean incluir(ProdutoDTO dto){
+
+    public void incluir(ProdutoDTO dto) {
         Produto entity = ProdutoMapper.getNewEntity(dto);
         entity.setMaterial(materialDAO.findById(dto.getIdMaterial()));
         entity.setServico(servicoDAO.findById(dto.getIdServico()));
-		List<Produto> produtoExistente = produtoDAO.findByMaterialServico(entity.getServico().getIdServico(), entity.getMaterial().getIdMaterial());
-		if (produtoExistente.isEmpty()) {
-			produtoDAO.save(entity);
-			return true;
-		}
-		return false;
+        List<Produto> produtoExistente = produtoDAO.findByMaterialServico(entity.getServico().getIdServico(), entity.getMaterial().getIdMaterial());
+        if (produtoExistente.isEmpty()) {
+            produtoDAO.save(entity);
+        }
     }
-	
-	public List<ProdutoDTO> buscar(Long idMaterial, Long idServico){
-		List<Produto> produtos = produtoDAO.findByMaterialServico(idServico, idMaterial);
-		List<ProdutoDTO> produtoDTO = new ArrayList<>();
-		for (Produto produto : produtos) {
-			ProdutoDTO dto = ProdutoMapper.toDTO(produto);
-			
-			produtoDTO.add(dto);
-		}
-		return produtoDTO;
-	}
+
+    public List<ProdutoDTO> buscar(Long idMaterial, Long idServico){
+        List<Produto> produtos = produtoDAO.findByMaterialServico(idServico, idMaterial);
+        List<ProdutoDTO> produtoDTO = new ArrayList<>();
+        for (Produto produto : produtos) {
+            ProdutoDTO dto = ProdutoMapper.toDTO(produto);
+
+            produtoDTO.add(dto);
+        }
+        return produtoDTO;
+    }
 }
