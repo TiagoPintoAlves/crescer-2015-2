@@ -16,64 +16,64 @@ public class ItemDTO {
 
     private BigDecimal valorTotal;
 
-    private Integer situacao;
+    private String situacao;
 
-	public Long getIdItem() {
-		return id;
-	}
+    public Long getIdItem() {
+        return id;
+    }
 
-	public void setIdItem(Long idItem) {
-		this.id = idItem;
-	}
+    public void setIdItem(Long idItem) {
+        this.id = idItem;
+    }
 
-	public Long getIdPedido() {
-		return idPedido;
-	}
+    public Long getIdPedido() {
+        return idPedido;
+    }
 
-	public void setIdPedido(Long idPedido) {
-		this.idPedido = idPedido;
-	}
+    public void setIdPedido(Long idPedido) {
+        this.idPedido = idPedido;
+    }
 
-	public Long getIdProduto() {
-		return idProduto;
-	}
+    public Long getIdProduto() {
+        return idProduto;
+    }
 
-	public void setIdProduto(Long idProduto) {
-		this.idProduto = idProduto;
-	}
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
+    }
 
-	public BigDecimal getPeso() {
-		return peso;
-	}
+    public BigDecimal getPeso() {
+        return peso;
+    }
 
-	public void setPeso(BigDecimal peso) {
-		this.peso = peso;
-	}
+    public void setPeso(BigDecimal peso) {
+        this.peso = peso;
+    }
 
-	public BigDecimal getValorUnitario() {
-		return valorUnitario;
-	}
+    public BigDecimal getValorUnitario() {
+        return valorUnitario;
+    }
 
-	public void setValorUnitario(BigDecimal valorUnitario) {
-		this.valorUnitario = valorUnitario;
-	}
+    public void setValorUnitario(BigDecimal valorUnitario) {
+        this.valorUnitario = valorUnitario;
+    }
 
-	public BigDecimal getValorTotal() {
-		return valorTotal;
-	}
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
 
-	public void setValorTotal(BigDecimal valorTotal) {
-		this.valorTotal = valorTotal;
-	}
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 
-	public Integer getSituacao() {
-		return situacao;
-	}
+    public String getSituacao() {
+        return situacao;
+    }
 
-	public void setSituacao(Integer situacao) {
-		this.situacao = situacao;
-	}
-    
-    
-    
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
+
+
 }

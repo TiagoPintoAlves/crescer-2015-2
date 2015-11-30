@@ -99,11 +99,11 @@ public class Pedido {
         this.dataEntrega = dataEntrega;
     }
 
-    public BigDecimal getValor() {
+    public BigDecimal getValorBruto() {
         return valorBruto;
     }
 
-    public void setValor(BigDecimal valor) {
+    public void setValorBruto(BigDecimal valor) {
         this.valorBruto = valor;
     }
 
