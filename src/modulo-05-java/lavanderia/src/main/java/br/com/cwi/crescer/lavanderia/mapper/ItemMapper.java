@@ -17,6 +17,12 @@ public class ItemMapper {
         dto.setSituacao(entity.getSituacao().toString());
         return dto;
     }*/
+	
+	public static Item getNewEntity(ItemDTO dto) {
+		Item entity = new Item();
+		entity.setPeso(dto.getPeso());
+		return entity;
+	}
     
     public static ItemDTO toDTO(Item entity){
 		ItemDTO dto = new ItemDTO();

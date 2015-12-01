@@ -22,7 +22,15 @@ public class ItemDTO {
 
     private String situacao;
 
-    public Long getId() {
+    public ItemDTO(Long idPedido) {	
+    	this.idPedido = idPedido;
+	}
+    
+    public ItemDTO() {
+		
+	}
+
+	public Long getId() {
         return id;
     }
 
