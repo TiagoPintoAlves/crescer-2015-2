@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div layout:fragment="content">
-		<form th:object="${item}" class="form-inline" method="POST" th:action="@{|/itens/incluir|}">
+		<form th:object="${item}" class="form-inline" method="POST" th:action="@{|/itens/cadastra|}">
 		
 			<input type="hidden" th:field="*{idPedido}"></input>
 		

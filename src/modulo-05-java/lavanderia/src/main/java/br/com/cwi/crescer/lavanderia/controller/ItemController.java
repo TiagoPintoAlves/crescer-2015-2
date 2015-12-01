@@ -24,39 +24,39 @@ import br.com.cwi.crescer.lavanderia.service.ServicoService;
 @Controller
 @RequestMapping(path = "/itens")
 public class ItemController {
-	
-	private ItemService itemService;
-	private MaterialService materialService;
-	private ServicoService servicoService;
 
-	@Autowired
-	public ItemController(ItemService itemService, MaterialService materialService, ServicoService servicoService) {
-		this.itemService = itemService;
-		this.materialService = materialService;
-		this.servicoService = servicoService;
-	}
-	
-	@RequestMapping(path = "/cadastra/{id}", method = RequestMethod.GET)
-	public ModelAndView incluir(@PathVariable("id") Long id){
-		return new ModelAndView("item/novo", "item", new ItemDTO(id));
-	}
-	
-	@RequestMapping(path = "/cadastra", method = RequestMethod.POST)
-	public ModelAndView incluir(@Valid @ModelAttribute("item") ItemDTO itemDTO, BindingResult result, final RedirectAttributes redirectAttributes){
-		if(result.hasErrors()){
-			return new ModelAndView("item/novo");
-		}
-		
-		itemService.incluir(itemDTO);
-		return new ModelAndView("redirect:/pedidos/editar/" + itemDTO.getIdPedido());
-	}
-	
-	@ModelAttribute("materiais")
+    private ItemService itemService;
+    private MaterialService materialService;
+    private ServicoService servicoService;
+
+    @Autowired
+    public ItemController(ItemService itemService, MaterialService materialService, ServicoService servicoService) {
+        this.itemService = itemService;
+        this.materialService = materialService;
+        this.servicoService = servicoService;
+    }
+
+    @RequestMapping(path = "/cadastra/{id}", method = RequestMethod.GET)
+    public ModelAndView incluir(@PathVariable("id") Long id){
+        return new ModelAndView("item/cadastra", "item", new ItemDTO(id));
+    }
+
+    @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
+    public ModelAndView incluir(@Valid @ModelAttribute("item") ItemDTO itemDTO, BindingResult result, final RedirectAttributes redirectAttributes){
+        if(result.hasErrors()){
+            return new ModelAndView("item/cadastra");
+        }
+
+        itemService.incluir(itemDTO);
+        return new ModelAndView("redirect:/pedidos/editar/" + itemDTO.getIdPedido());
+    }
+
+    @ModelAttribute("materiais")
     protected List<Material> comboMateriais() {
         return materialService.listar();
     }
-	
-	@ModelAttribute("servicos")
+
+    @ModelAttribute("servicos")
     protected List<Servico> comboServicos() {
         return servicoService.listar();
     }
