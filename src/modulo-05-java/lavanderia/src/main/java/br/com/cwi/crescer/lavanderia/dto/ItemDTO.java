@@ -7,7 +7,11 @@ public class ItemDTO {
     private Long id;
 
     private Long idPedido;
-
+    
+    private String nomeServico;
+    
+    private String nomeMaterial;
+    
     private Long idProduto;
 
     private BigDecimal peso;
@@ -18,11 +22,11 @@ public class ItemDTO {
 
     private String situacao;
 
-    public Long getIdItem() {
+    public Long getId() {
         return id;
     }
 
-    public void setIdItem(Long idItem) {
+    public void setId(Long idItem) {
         this.id = idItem;
     }
 
@@ -73,6 +77,22 @@ public class ItemDTO {
     public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
+
+	public String getNomeServico() {
+		return nomeServico;
+	}
+
+	public void setNomeServico(String nomeServico) {
+		this.nomeServico = nomeServico;
+	}
+
+	public String getNomeMaterial() {
+		return nomeMaterial;
+	}
+
+	public void setNomeMaterial(String nomeMaterial) {
+		this.nomeMaterial = nomeMaterial;
+	}
 
 
 

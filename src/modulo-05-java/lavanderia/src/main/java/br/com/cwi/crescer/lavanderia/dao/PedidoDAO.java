@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import br.com.cwi.crescer.lavanderia.domain.Pedido;
+import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
 
 @Repository
 public class PedidoDAO {
@@ -19,12 +20,17 @@ public class PedidoDAO {
     public Pedido findById(Long id) {
         return em.find(Pedido.class, id);
     }
+    
+    public List<Pedido> findBySituacao(SituacaoPedido situacao) {
+    	return em.createQuery("FROM Pedido p WHERE p.situacao = :situacao", Pedido.class)
+                .setParameter("situacao", situacao.ordinal()).getResultList();
+    }
 
     public List<Pedido> listAll() {
         return em.createQuery("FROM Pedido", Pedido.class)
                 .getResultList();
     }
-
+    
     @Transactional
     public Pedido save(Pedido pedido) {
         if (pedido.getIdPedido() == null) {

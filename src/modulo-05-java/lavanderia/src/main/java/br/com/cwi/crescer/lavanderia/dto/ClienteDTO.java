@@ -8,6 +8,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.cwi.crescer.lavanderia.domain.Cliente;
+
 public class ClienteDTO {
 
     private Long id;
@@ -39,6 +41,22 @@ public class ClienteDTO {
     private Long cep;
     
     private Integer situacao;
+    
+    public ClienteDTO(){
+    	
+    }
+    
+    public ClienteDTO(Cliente entity){
+    	this.id = entity.getIdCliente();
+    	this.bairro = entity.getBairro();
+    	this.cep = entity.getCep();
+    	this.cpf = entity.getCpf();
+    	this.email = entity.getEmail();
+    	this.endereco = entity.getEndereco();
+    	this.nome = entity.getNome();
+    	this.idCidade = entity.getCidade().getIdCidade();
+    	this.situacao = entity.getSituacao().ordinal();
+    }
 
     public Long getId() {
         return id;

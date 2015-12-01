@@ -20,7 +20,7 @@ public class PedidoDTO {
 
     private BigDecimal valorFinal;
 
-    private Integer situacao;
+    private String situacao;
 
     private List<ItemDTO> itens;
 
@@ -80,11 +80,11 @@ public class PedidoDTO {
         this.valorFinal = valorFinal;
     }
 
-    public Integer getSituacao() {
+    public String getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(Integer situacao) {
+    public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
 

@@ -27,6 +27,11 @@ public class ClienteDAO {
                 .getResultList();
     }
     
+    public Cliente findByCpf(String cpf) {
+    	return em.createQuery("FROM Cliente c WHERE c.cpf = :cpf", Cliente.class)
+				.setParameter("cpf", cpf).getSingleResult();
+    }
+    
     public List<Cliente> listByName(String nome) {
         return em.createQuery("FROM Cliente c WHERE c.nome LIKE :nome", Cliente.class)
                 .setParameter("nome", nome + "%")

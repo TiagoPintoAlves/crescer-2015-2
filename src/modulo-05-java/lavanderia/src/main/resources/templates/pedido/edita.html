@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="@{/layout}">
+<head>
+	<title>Editar Pedidos</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h2 class="text-center">Editar Pedido</h2>
+		<form th:action="@{/pedidos/cancelar}" th:object="${pedido}" method="post" sec:authorize="hasRole('ROLE_ADMIN')">
+			<input th:field="*{id}" type="hidden" />
+			<button class="btn btn-default">Cancelar</button>
+		</form>
+	
+		<div class="col-lg-10 col-lg-offset-1">
+			<p th:text="*{id}"></p>
+			<p th:text="*{nomeCliente}"></p>
+			<p th:text="*{cpfCliente}"></p>
+			<p th:text="*{dataInclusao}"></p>
+			<p th:text="*{dataEntrega}"></p>
+			<p th:text="*{valorBruto}"></p>
+			<p th:text="*{valorDesconto}"></p>
+			<p th:text="*{valorFinal}"></p>
+			<p th:text="*{situacao}"></p>
+		</div>
+		
+		<a class="btn btn-default" th:href="@{/itens/incluir}" role="button">Inserir Item</a>
+		
+		<table class="table table-striped table-bordered table-hover table-condensed col-lg-10 col-lg-offset-1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Servico</th>
+					<th>Material</th>
+					<th>Peso</th>
+					<th>Valor Unitario</th>
+					<th>Valor Total</th>
+					<th>Situacao</th>
+				</tr>
+
+				<!-- <tr layout:include="item/item :: itens" style="margin-top:50px" th:each="item : ${pedido.itens}" >
+				</tr> -->
+			</thead>
+				<tr th:each="item : ${pedido.itens}">
+					<td th:text="${item.id}"></td>
+					<td th:text="${item.nomeServico}"></td>
+					<td th:text="${item.nomeMaterial}"></td>
+					<td th:text="${item.peso}"></td>
+					<td th:text="${item.valorUnitario}"></td>
+					<td th:text="${item.valorTotal}"></td>
+					<td th:text="${item.situacao}"></td>
+				</tr>
+		</table>
+		
+	</div>
+</body>
+</html>

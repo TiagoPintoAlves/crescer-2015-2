@@ -18,14 +18,12 @@
 				<div style="float:right;" >
 					<a class="btn btn-large btn-success" role="button" th:href="@{/produtos/cadastra/}">Cadastrar Novo</a>
 				</div>
-				
-				
-				
+
 				<div class="form-group col-xs-7">
 					<form th:action="@{/produtos/buscar}" method="GET" class="form-horizontal">
 						<label class="pull-left control-label">Servico: </label>
 					  	<div class="col-md-4">
-					  		<select class="form-control">
+					  		<select class="form-control" id="servico" name="servico">
 					  			<option th:value="0" ></option>
 						  		<option th:each="s : ${servicos}" th:text="${s.descricao}" th:value="${s.idServico}" ></option>
 					    	</select>
@@ -33,7 +31,7 @@
 					
 						<label class="pull-left control-label">Material: </label>
 						<div class="col-md-4">
-						    <select class="form-control">
+						    <select class="form-control" id="material" name="material">
 						      <option th:value="0" ></option>
 							  <option th:each="m : ${materiais}" th:text="${m.descricao}" th:value="${m.idMaterial}" ></option>
 						    </select>
@@ -42,7 +40,7 @@
 					</form>
 				</div>
 				
-				<table class="table table-striped table-bordered table-hover table-condensed" bgcolor="#00FF00">
+				<table class="table table-striped table-bordered table-hover table-condensed">
 					<tr>
 						<th>Servico</th>
 						<th>Material</th>

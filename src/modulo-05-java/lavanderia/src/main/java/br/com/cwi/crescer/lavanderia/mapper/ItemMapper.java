@@ -5,13 +5,8 @@ import br.com.cwi.crescer.lavanderia.dto.ItemDTO;
 
 public class ItemMapper {
 
-    public static Item getNewEntity(ItemDTO dto) {
-        Item entity = new Item();
-        entity.setIdItem(dto.getIdItem());
-        return entity;
-    }
 
-    public static ItemDTO toDTO(Item entity) {
+    /*public static ItemDTO toDTO(Item entity) {
         ItemDTO dto = new ItemDTO();
         dto.setIdItem(entity.getIdItem());
         dto.setIdPedido(entity.getPedido().getIdPedido());
@@ -21,9 +16,20 @@ public class ItemMapper {
         dto.setValorUnitario(entity.getValorUnitario());
         dto.setSituacao(entity.getSituacao().toString());
         return dto;
-    }
+    }*/
+    
+    public static ItemDTO toDTO(Item entity){
+		ItemDTO dto = new ItemDTO();
+		dto.setId(entity.getIdItem());
+		dto.setIdPedido(entity.getPedido().getIdPedido());
+		dto.setIdProduto(entity.getProduto().getIdProduto());
+		dto.setNomeServico(entity.getProduto().getServico().getDescricao());
+		dto.setNomeMaterial(entity.getProduto().getMaterial().getDescricao());
+		dto.setPeso(entity.getPeso());
+		dto.setValorUnitario(entity.getValorUnitario());
+		dto.setValorTotal(entity.getValorTotal());
+		dto.setSituacao(entity.getSituacao().toString());
+		return dto;
+	}
 
-    public static Item merge(ItemDTO dto, Item entity) {
-        return entity;
-    }
 }

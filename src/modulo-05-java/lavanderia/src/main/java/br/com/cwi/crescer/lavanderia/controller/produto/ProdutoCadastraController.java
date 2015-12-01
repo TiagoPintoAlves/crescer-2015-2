@@ -35,9 +35,9 @@ public class ProdutoCadastraController extends ProdutoController{
 	@PreAuthorize(value="hasRole('ADMIN')")
     @RequestMapping(path = "/cadastra", method = RequestMethod.POST)
     public ModelAndView cadastra(@Valid @ModelAttribute("produto") ProdutoDTO dto, BindingResult result, RedirectAttributes redirectAttributes) {
-        if(result.hasErrors()){
+        /*if(result.hasErrors()){
             return new ModelAndView("produto/cadastra");
-        }
+        }*/
         produtoService.incluir(dto);
         
         redirectAttributes.addFlashAttribute("message", "Cadastrado com sucesso");

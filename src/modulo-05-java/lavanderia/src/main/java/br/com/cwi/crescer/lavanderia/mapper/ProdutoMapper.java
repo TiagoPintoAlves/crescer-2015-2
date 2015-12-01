@@ -33,7 +33,7 @@ public class ProdutoMapper {
 	        entity.setPrazo(dto.getPrazo());
 			entity.setSituacao(toEnum(dto.getSituacao()));
 	        return entity;
-	    }
+	 }
 	 
 	 public static SituacaoProduto toEnum(Integer situacaoValue){
 		 	SituacaoProduto situacao = SituacaoProduto.ATIVO;

@@ -25,7 +25,7 @@ public class ProdutoListaController extends ProdutoController{
 		return new ModelAndView("produto/lista", "produtos", produtoService.listarProdutos());
 	}
 	
-	@RequestMapping(path = "/buscar", params = {"material", "servico"} ,method = RequestMethod.GET)
+	@RequestMapping(path = "/buscar", method = RequestMethod.GET)
 	public ModelAndView buscar(@RequestParam("material") Long idMaterial, @RequestParam("servico") Long idServico){
 		return new ModelAndView("produto/lista", "produtos", produtoService.buscar(idMaterial, idServico));
 	}

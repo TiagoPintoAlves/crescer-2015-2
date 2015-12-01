@@ -54,14 +54,17 @@ public class ProdutoService {
         Produto entity = ProdutoMapper.getNewEntity(dto);
         entity.setMaterial(materialDAO.findById(dto.getIdMaterial()));
         entity.setServico(servicoDAO.findById(dto.getIdServico()));
-        List<Produto> produtoExistente = produtoDAO.findByMaterialServico(entity.getServico().getIdServico(), entity.getMaterial().getIdMaterial());
-        if (produtoExistente.isEmpty()) {
+        if (isValid(dto) == false) {
             produtoDAO.save(entity);
         }
     }
+    
+    public boolean isValid(ProdutoDTO dto){
+    	return (listarProdutos().contains(dto)) ? true : false;
+    }
 
-    public List<ProdutoDTO> buscar(Long idMaterial, Long idServico){
-        List<Produto> produtos = produtoDAO.findByMaterialServico(idServico, idMaterial);
+    public List<ProdutoDTO> buscar(Long material, Long servico){
+        List<Produto> produtos = produtoDAO.findByMaterialServico(servico, material);
         List<ProdutoDTO> produtoDTO = new ArrayList<>();
         for (Produto produto : produtos) {
             ProdutoDTO dto = ProdutoMapper.toDTO(produto);

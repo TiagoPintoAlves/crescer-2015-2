@@ -7,8 +7,32 @@
 	<div layout:fragment="content">
 		<h2 class="text-center">Listagem de Pedidos</h2>
 		
+		<div th:if="${message}" class="alert alert-success fade in">
+				<a th:href="@{/pedidos}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong th:text="${message}">mensage</strong>
+		</div>
+		
+		<div style="float:right;" >
+			<a class="btn btn-large btn-success" role="button" th:href="@{/pedidos/cadastra/}">Cadastrar Novo</a>
+		</div>
+		
+			<form th:action="@{/pedidos/buscar}" method="GET" class="form-horizontal col-lg-2">
+				<select id="situacao" name="situacao" class="form-control">
+					<option></option>
+					<option th:each="s : ${situacoes}" th:text="${s}" th:value="${s}" ></option>
+				</select>
+			</form>
+			<div class="pull-left">
+				<form th:action="@{/pedidos/buscar}" method="GET" class="col-sm-offset-2 col-sm-10">
+						<input type="text" name="cpf" class="form-control" placeholder="Digite o CPF"></input>
+						<div class="">
+							<button type="submit" class="btn btn-primary">Pesquisar</button>
+						</div>
+				</form>
+			</div>
+		
 		<div class="title" th:if="${not #lists.isEmpty(pedidos)}">
-			<table class="table table-striped table-bordered table-hover table-condensed" bgcolor="#00FF00">
+			<table class="table table-striped table-bordered table-hover table-condensed">
 					<tr>
 						<th>Cliente</th>
 						<th>CPF</th>
@@ -16,6 +40,7 @@
 						<th>Valor Total</th>
 						<th>Situacao</th>
 						<th>Vizualizar</th>
+						<th>Editar</th>
 					</tr>
 					<tbody>
 						<tr th:each="pedido : ${pedidos}">
@@ -25,6 +50,7 @@
 							<td class = "text-center" th:text="${pedido.valorTotal}"></td>
 							<td class = "text-center" th:text="${pedido.situacao}"></td>
 							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/pedidos/' + pedido.id}">Visualizar</a></td>
+							<td class = "text-center"><a th:if="${pedido.situacao == 'PENDENTE'}" class="btn btn-info" role="button" th:href="${'/pedidos/editar/' + pedido.id}">Editar</a></td>
 						</tr>
 					</tbody>
 				</table>

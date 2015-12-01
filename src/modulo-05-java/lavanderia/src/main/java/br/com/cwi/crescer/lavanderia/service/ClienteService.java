@@ -50,6 +50,18 @@ public class ClienteService {
         return dtos;
     }
     
+    public List<ClienteDTO> listarClientes() {
+        List<Cliente> clientes = clienteDAO.listAll();
+
+        List<ClienteDTO> dtos = new ArrayList<ClienteDTO>();
+
+        for (Cliente cliente : clientes) {
+            dtos.add(new ClienteDTO(cliente));
+        }
+
+        return dtos;
+    }
+    
     public List<ClienteResumoDTO> listarPorNome(String nome) {
         List<Cliente> clientes = clienteDAO.listByName(nome);
 

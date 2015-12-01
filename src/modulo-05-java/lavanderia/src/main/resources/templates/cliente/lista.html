@@ -44,7 +44,7 @@
 						<tr th:each="cliente : ${clientes}">
 							<td class = "text-center" th:text="${cliente.nome}"></td>
 							<td class = "text-center" th:text="${cliente.cpf}"></td>
-							<td class = "text-center" th:text="${cliente.situacao == 0 ? 'ATIVO' : 'INATIVO'}"></td>
+							<td class = "text-center" th:text="${cliente.situacao}"></td>
 							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/clientes/' + cliente.id}">Visualizar</a></td>
 							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/clientes/editar/' + cliente.id}">Editar</a></td>
 							<td class = "text-center"><a class="btn btn-info" role="button" th:href="${'/clientes/remover/' + cliente.id}">Remover</a></td>
